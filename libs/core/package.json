@@ -1,7 +1,7 @@
 {
   "name": "@fdgn/core",
   "version": "1.0.1",
-  "private": true,
+  "private": false,
   "description": "> TODO: description",
   "author": "GiangNguyen28-glicth <giangnguyen3246>",
   "main": "dist/index",
