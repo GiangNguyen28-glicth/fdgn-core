@@ -14,5 +14,6 @@
   "dependencies": {
     "@fdgn/common": "^1.0.2",
     "@fdgn/rabbitmq": "^1.0.2"
-  }
+  },
+  "gitHead": "dcbe5987113db2ce4f769dda9f4f52048de1f2e4"
 }

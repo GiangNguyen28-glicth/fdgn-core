@@ -1,6 +1,6 @@
 import { Global, Module } from '@fdgn/common';
+import { ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmConfig } from './type-orm.config';
 export const CONFIG_KEY = 'typeOrm';
 
