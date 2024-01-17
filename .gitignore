@@ -1,0 +1,13 @@
+node_modules/
+dist
+.idea
+env-config.yml
+yarn-error.log
+lerna-debug.log
+.DS_Store
+
+.yarn
+.yarnrc.yml
+.env
+.vscode
+.npmrc

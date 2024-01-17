@@ -1,0 +1,29 @@
+{
+  "name": "@fdgn/common",
+  "version": "1.0.1",
+  "private": true,
+  "description": "> TODO: description",
+  "author": "GiangNguyen28-glicth <giangnguyen3246>",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "nest build --watch -p tsconfig.json",
+    "build": "rimraf -rf dist && nest build -p tsconfig.json",
+    "prepublishOnly": "yarn build",
+    "test": "jest --passWithNoTests --coverage",
+    "dev:test": "jest --watch",
+    "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.3.0",
+    "@nestjs/config": "^3.1.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
+    "source-map-support": "^0.5.21"
+  }
+}

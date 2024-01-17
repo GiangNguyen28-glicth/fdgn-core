@@ -1,0 +1,27 @@
+{
+  "name": "@fdgn/typeorm",
+  "version": "1.0.1",
+  "license": "MIT",
+  "main": "dist/index",
+  "types": "dist/index",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "nest build --watch -p tsconfig.json",
+    "build": "rimraf -rf dist && nest build -p tsconfig.json",
+    "prepublishOnly": "yarn build",
+    "test": "jest --passWithNoTests --coverage",
+    "dev:test": "jest --watch",
+    "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
+  },
+  "dependencies": {
+    "@fdgn/client-core": "^1.0.1",
+    "@fdgn/common": "^1.0.1",
+    "@nestjs/typeorm": "^10.0.1",
+    "mysql2": "^3.7.0",
+    "source-map-support": "^0.5.21",
+    "typeorm": "^0.3.19"
+  }
+}

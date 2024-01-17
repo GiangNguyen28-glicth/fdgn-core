@@ -1,0 +1,25 @@
+{
+  "name": "@fdgn/rabbitmq",
+  "version": "1.0.1",
+  "license": "MIT",
+  "main": "dist/index",
+  "types": "dist/index",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "nest build --watch -p tsconfig.json",
+    "build": "rimraf -rf dist && nest build -p tsconfig.json",
+    "prepublishOnly": "yarn build",
+    "test": "jest --passWithNoTests --coverage",
+    "dev:test": "jest --watch",
+    "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
+  },
+  "dependencies": {
+    "@fdgn/client-core": "^1.0.1",
+    "@fdgn/common": "^1.0.1",
+    "amqp-connection-manager": "^4.1.14",
+    "amqplib": "^0.10.3"
+  }
+}

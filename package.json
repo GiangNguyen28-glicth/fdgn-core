@@ -1,0 +1,22 @@
+{
+  "name": "fdgn-core",
+  "description": "FDGN Core",
+  "private": true,
+  "workspaces": [
+    "libs/**/*",
+    "services/**/*"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "build": "lerna run build",
+    "dev": "lerna run --parallel dev",
+    "start": "lerna run --parallel start"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.10.8",
+    "lerna": "^7.4.1"
+  }
+}

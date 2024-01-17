@@ -1,0 +1,26 @@
+http:
+  host: 'localhost'
+  port: 8080
+
+rabbit:
+  protocol: amqp
+  hostname: localhost
+  username: guest
+  password: guest
+  port: 5672
+  heartbeat: 1
+  retry:
+    # forever: true
+    retries: 5
+    factor: 1
+    minTimeout: 3000
+    maxTimeout: 20000
+typeOrm:
+  type: mysql
+  host: localhost
+  username: root
+  password: '123456'
+  port: 3306
+  synchronize: true
+  autoLoadEntities: true
+  database: eca_crawler
