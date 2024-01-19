@@ -1,7 +1,7 @@
 import { Global, Module } from '@fdgn/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TypeOrmConfig } from './type-orm.config';
+import { TypeOrmClientConfig } from './type-orm.config';
 export const CONFIG_KEY = 'typeOrm';
 
 @Global()
@@ -9,8 +9,8 @@ export const CONFIG_KEY = 'typeOrm';
   imports: [
     TypeOrmModule.forRootAsync({
       useFactory: (configService: ConfigService) => {
-        const typeOrmConfig = new TypeOrmConfig(configService, CONFIG_KEY);
-        return typeOrmConfig.getConfig() as any;
+        const typeOrmConfig = new TypeOrmClientConfig(configService, CONFIG_KEY);
+        return typeOrmConfig.getConnectionConfig();
       },
       inject: [ConfigService],
     }),

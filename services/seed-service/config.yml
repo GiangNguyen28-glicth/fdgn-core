@@ -9,6 +9,7 @@ rabbit:
   password: guest
   port: 5672
   heartbeat: 1
+  queue: 'localhost'
   retry:
     # forever: true
     retries: 5
@@ -24,3 +25,11 @@ typeOrm:
   synchronize: true
   autoLoadEntities: true
   database: eca_crawler
+mongoose:
+  uri: mongodb://localhost:27017/dating
+  
+redis:
+  host: localhost
+  port: 6379
+  password: null
+  db: 1

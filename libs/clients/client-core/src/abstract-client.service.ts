@@ -17,13 +17,13 @@ export class AbstractClientService<Config extends ClientConfig, C = any>
   protected constructor(protected service: string, protected configClass: new (props: Config) => Config) {}
 
   onModuleDestroy() {
+    return;
     throw new Error('Method not implemented.');
   }
 
   onModuleInit() {
     const config = this.configService.get(this.service);
-    console.log(config);
-    if (isEmpty(config)) console.warn('%s service not found config!', this.service);
+    if (isEmpty(config)) throw new Error(`Config key ${this.service} not found !!!`);
   }
 
   getConfig(conId: string): Config {

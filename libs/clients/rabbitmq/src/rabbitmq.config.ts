@@ -12,6 +12,7 @@ export class RabbitMQConfig extends ClientConfig implements Options.Connect {
   frameMax?: number;
   heartbeat?: number;
   vhost?: string;
+  queue?: string;
   onConnectionEvent?: { exitOnClose?: boolean; exitOnError: boolean };
   onChannelEvent?: { exitOnClose?: boolean; exitOnError: boolean };
 

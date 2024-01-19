@@ -1,10 +1,13 @@
 import { CommonModule, Module } from '@fdgn/common';
 import { TypeOrmSQLModule } from '@fdgn/typeorm';
+import { RabbitMQCsModule } from '@fdgn/rabbitmq';
+import { RedisClientModule } from '@fdgn/redis';
+import { MongoDBModule } from '@fdgn/mongoose';
 
 import { SeedController } from './seed.controller';
 
 @Module({
-  imports: [CommonModule, TypeOrmSQLModule],
+  imports: [CommonModule, MongoDBModule, TypeOrmSQLModule, RedisClientModule, RabbitMQCsModule.register('abc')],
   controllers: [SeedController],
 })
 export class SeedModule {}

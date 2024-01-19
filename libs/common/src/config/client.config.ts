@@ -1,5 +1,4 @@
-import { Inject } from "@nestjs/common";
-import { ConfigService } from "@nestjs/config";
+import { ConfigService } from '@nestjs/config';
 
 export class ClientConfig {
   enable = false;
@@ -11,14 +10,26 @@ export class ClientConfig {
   }
 }
 
-export abstract class AbstractClientConfig {
-  public config: ClientConfig;
+export abstract class AbstractClientConfig<T> {
+  config: T;
 
-  public constructor(public configService: ConfigService, public configKey: string) {}
+  constructor(public configService: ConfigService, public configKey: string) {
+    this.config = this.getInstance();
+  }
 
-  public getConfig() {
+  getInstance(): T {
     if (this.config) return this.config;
-    this.config = new ClientConfig(this.configService.get<ClientConfig>(this.configKey as any));
+    const props: T = this.configService.get<T>(this.configKey as any);
+    if (!props) {
+      throw new Error(`Config key ${this.configKey} not found !!!`);
+    }
+    this.config = this.createConfigInstance(props);
     return this.config;
   }
+
+  public get getConfig(): T {
+    return this.config;
+  }
+
+  protected abstract createConfigInstance(configData: T): T;
 }

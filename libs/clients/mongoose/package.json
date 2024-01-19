@@ -1,0 +1,24 @@
+{
+  "name": "@fdgn/mongoose",
+  "version": "1.0.1",
+  "license": "MIT",
+  "main": "dist/index",
+  "types": "dist/index",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "nest build --watch -p tsconfig.json",
+    "build": "rimraf -rf dist && nest build -p tsconfig.json",
+    "prepublishOnly": "yarn build",
+    "test": "jest --passWithNoTests --coverage",
+    "dev:test": "jest --watch",
+    "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
+  },
+  "dependencies": {
+    "@fdgn/common": "^1.0.3",
+    "@nestjs/mongoose": "^10.0.2",
+    "mongoose": "7.3.4"
+  }
+}

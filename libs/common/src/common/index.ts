@@ -20,4 +20,6 @@ export {
   UsePipes,
   Scope,
   HttpStatus,
+  ValidationPipe,
+  NestApplicationOptions
 } from '@nestjs/common';
