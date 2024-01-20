@@ -23,3 +23,10 @@ export interface IQueue {
 export interface IRabbitConsumer {
   startConsuming();
 }
+
+export interface IConnectOption {
+  queue: string;
+  prefetchCount: number;
+  persistent?: boolean;
+  noAck?: boolean;
+}

@@ -1,4 +1,4 @@
-import { Module, Global } from '@fdgn/common';
+import { Module, Global } from '@nestjs/common';
 import { ClientCoreModule } from '@fdgn/client-core';
 import { RedisClientService } from './redis.service';
 

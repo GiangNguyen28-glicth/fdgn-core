@@ -10,4 +10,12 @@ export class RabbitMQCsConfig extends AbstractClientConfig<RabbitMQConfig> {
   protected createConfigInstance(configData: RabbitMQConfig): RabbitMQConfig {
     return new RabbitMQConfig(configData);
   }
+
+  getUrl(): string {
+    if (this.getConfig.uri) {
+      return this.getConfig.uri;
+    }
+    const { username, password, hostname, port } = this.getConfig;
+    return `amqp://${username}:${password}@${hostname}:${port}`;
+  }
 }

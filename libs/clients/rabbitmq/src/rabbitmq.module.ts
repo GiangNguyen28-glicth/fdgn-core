@@ -1,4 +1,4 @@
-import { Global, Module } from '@fdgn/common';
+import { Global, Module } from '@nestjs/common';
 import { ClientCoreModule } from '@fdgn/client-core';
 import { RabbitMQService } from './rabbitmq.service';
 

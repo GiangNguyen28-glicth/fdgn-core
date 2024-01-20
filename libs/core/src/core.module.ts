@@ -1,5 +1,5 @@
-import { Global, Module, CommonModule } from '@fdgn/common';
-
+import { CommonModule } from '@fdgn/common';
+import { Global, Module } from '@nestjs/common';
 @Global()
 @Module({
   imports: [CommonModule],

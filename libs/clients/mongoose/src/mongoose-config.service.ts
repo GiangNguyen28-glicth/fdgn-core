@@ -1,4 +1,4 @@
-import { Injectable } from '@fdgn/common';
+import { Injectable } from '@nestjs/common';
 import { MongooseModuleOptions, MongooseOptionsFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 // mongoose.set('bufferCommands', false);

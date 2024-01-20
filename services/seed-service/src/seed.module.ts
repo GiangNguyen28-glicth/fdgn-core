@@ -1,4 +1,5 @@
-import { CommonModule, Module } from '@fdgn/common';
+import { Module } from '@nestjs/common';
+import { CommonModule } from '@fdgn/common';
 import { TypeOrmSQLModule } from '@fdgn/typeorm';
 import { RabbitMQCsModule } from '@fdgn/rabbitmq';
 import { RedisClientModule } from '@fdgn/redis';

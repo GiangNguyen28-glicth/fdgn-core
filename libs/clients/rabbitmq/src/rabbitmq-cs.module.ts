@@ -1,4 +1,4 @@
-import { Global, Module, DynamicModule } from '@fdgn/common';
+import { Global, Module, DynamicModule } from '@nestjs/common';
 import { ClientCoreModule } from '@fdgn/client-core';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigService } from '@nestjs/config';

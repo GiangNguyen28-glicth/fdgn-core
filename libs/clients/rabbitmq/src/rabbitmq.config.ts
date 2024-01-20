@@ -3,6 +3,7 @@ import { Options } from 'amqplib';
 import { ClientConfig } from '@fdgn/client-core';
 import { toInt } from '@fdgn/common';
 export class RabbitMQConfig extends ClientConfig implements Options.Connect {
+  uri?: string;
   hostname?: string;
   protocol?: string;
   port?: number;
@@ -18,6 +19,7 @@ export class RabbitMQConfig extends ClientConfig implements Options.Connect {
 
   constructor(props: RabbitMQConfig) {
     super(props);
+    this.uri = props.uri;
     this.hostname = props.hostname ?? 'localhost';
     this.protocol = props.protocol ?? 'amqp';
     this.port = toInt(props.port, 5672);

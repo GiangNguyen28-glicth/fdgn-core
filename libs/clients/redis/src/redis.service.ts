@@ -1,5 +1,5 @@
+import { Injectable } from '@nestjs/common';
 import { AbstractClientService } from '@fdgn/client-core';
-import { Injectable } from '@fdgn/common';
 
 import { RedisClientConfig } from './redis.config';
 import { RedisClientType } from 'redis';
