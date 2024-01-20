@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/seed-service",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "private": false,
   "main": "dist/index",
   "types": "dist/index",
@@ -12,11 +12,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@fdgn/common": "^1.0.7",
-    "@fdgn/mongoose": "^1.0.6",
-    "@fdgn/rabbitmq": "^1.0.7",
-    "@fdgn/redis": "^1.0.7",
-    "@fdgn/typeorm": "^1.0.7"
+    "@fdgn/common": "^1.0.8",
+    "@fdgn/mongoose": "^1.0.7",
+    "@fdgn/rabbitmq": "^1.0.8",
+    "@fdgn/redis": "^1.0.8",
+    "@fdgn/typeorm": "^1.0.8"
   },
   "gitHead": "dcbe5987113db2ce4f769dda9f4f52048de1f2e4"
 }
