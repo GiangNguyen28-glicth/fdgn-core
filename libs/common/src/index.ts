@@ -5,3 +5,4 @@ export * from './interfaces';
 export * from './utils';
 export * from './validation';
 export * from './modules';
+export * from './consts';
