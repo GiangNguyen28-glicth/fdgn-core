@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/common",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "FDGN Common",
   "author": "GiangNguyen28-glicth <giangnguyen3246>",
   "main": "dist/index",
