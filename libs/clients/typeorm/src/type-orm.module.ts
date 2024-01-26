@@ -10,7 +10,7 @@ export const CONFIG_KEY = 'typeOrm';
     TypeOrmModule.forRootAsync({
       useFactory: (configService: ConfigService) => {
         const typeOrmConfig = new TypeOrmClientConfig(configService, CONFIG_KEY);
-        return typeOrmConfig.getConnectionConfig();
+        return { ...typeOrmConfig.getConnectionConfig() };
       },
       inject: [ConfigService],
     }),

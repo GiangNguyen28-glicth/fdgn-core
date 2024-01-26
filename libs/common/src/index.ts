@@ -6,3 +6,4 @@ export * from './utils';
 export * from './validation';
 export * from './modules';
 export * from './consts';
+export * from './domain';

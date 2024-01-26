@@ -1,0 +1,14 @@
+count1: LessThen(5), // < operator
+      count2: MoreThen(10), // > operator
+      name: Equal("Hello"),
+      title: Not(Equal("Buy")),
+      description1: Like("%AAA%BBB%"),
+      description2: Not(Like("%ADAD_A")),
+      date1: Between("yesterday", "today"),
+      date2: Not(Between("yesterday", "today")),
+      type1: In("a", "b", "c", "d"),
+      type1: Not(In("a", "b", "c", "d")),
+      array1: Any(["a", "b", "c", "d"]),
+      type1: Not(In("a", "b", "c", "d")),
+      a1: IsNull(),
+      a2: Not(IsNull())

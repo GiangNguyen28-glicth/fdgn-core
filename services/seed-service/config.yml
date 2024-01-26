@@ -25,6 +25,7 @@ typeOrm:
   synchronize: true
   autoLoadEntities: true
   database: eca_crawler
+  logging: true
 mongoose:
   uri: mongodb://localhost:27017/dating
   

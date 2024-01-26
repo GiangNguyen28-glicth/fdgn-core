@@ -1,19 +1,38 @@
-export interface CrudRepo<T, ID> {
-  findAll(limit?: number): Promise<T[]>;
+import { PopulateOptions, Document } from 'mongoose';
+import { PaginationDTO } from '../../dto';
 
-  findOne(id: ID): Promise<T>;
+export interface IFilterFindAll {
+  pagination?: PaginationDTO;
+  filters?: any;
+  sortOption?: any;
+  fields?: string[];
+  populates?: PopulateOptions[];
+}
 
-  count(): Promise<number>;
+export interface IFilterFindOne {
+  filters?: any;
+  fields?: string[];
+  populates?: PopulateOptions[];
+}
 
-  insert(entity: T): Promise<void>;
+export interface ICrudRepo<T> {
+  findAll(options?: IFilterFindAll): Promise<T[]>;
 
-  update(entity: T): Promise<void>;
+  findOne(options?: IFilterFindOne): Promise<T>;
 
-  save(entities: T[]): Promise<void>;
+  findOneAndUpdate(options: IFilterFindAll, entity: Partial<T>): Promise<T>;
 
-  delete(entity: T): Promise<void>;
+  findAndUpdate(options: IFilterFindAll, entity: Partial<T>): Promise<T[]>;
 
-  inserts(entities: T[]): Promise<void>;
+  findAndDelete(options?: IFilterFindAll): Promise<void>;
 
-  upsert(entities: T[]): Promise<void>;
+  insert(entity: Partial<T>): Promise<T>;
+
+  update(entity: Partial<T>): Promise<T>;
+
+  upsert(options: IFilterFindAll, entity: Partial<T>): Promise<T>;
+
+  count(options?: IFilterFindAll): Promise<number>;
+
+  save(entity: Partial<T>): Promise<T>;
 }

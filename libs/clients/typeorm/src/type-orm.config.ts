@@ -10,9 +10,17 @@ export class TypeOrmConfig extends ClientConfig {
   synchronize?: boolean;
   autoLoadEntities?: boolean;
   database: string;
+  logging?: boolean;
   constructor(props: TypeOrmConfig) {
     super(props);
     this.port = toInt(props.port ?? this.getDefaultPort(this.type));
+    this.host = props.host;
+    this.username = props.username || 'root';
+    this.port = props.port;
+    this.autoLoadEntities = props.autoLoadEntities;
+    this.synchronize = props.synchronize;
+    this.database = props.database;
+    this.logging = props.logging;
   }
 
   getDefaultPort(type: ORM_TYPE): number {
@@ -36,7 +44,7 @@ export class TypeOrmClientConfig extends AbstractClientConfig<TypeOrmConfig> {
   }
 
   getConnectionConfig() {
-    const { host, port, username, password, database, type } = this.getConfig;
-    return { host, port, username, password, database, type };
+    const { host, port, username, password, database, type, autoLoadEntities, synchronize, logging } = this.getConfig;
+    return { host, port, username, password, database, type, autoLoadEntities, synchronize, logging };
   }
 }
