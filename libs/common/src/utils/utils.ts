@@ -1,7 +1,9 @@
 import { NotFoundException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
+
 import { IResult } from '../interfaces';
 import { PaginationDTO } from '../dto';
+import { UNITS_OF_TIME } from '../consts';
 
 export function throwIfNotExists<T>(model: T | any, message: string) {
   if (!model || model?.isDeleted) {
@@ -71,4 +73,32 @@ export function formatResult<T>(data: T[], totalCount: number, pagination?: Pagi
     results.pagination.nextPage = pagination.page + 1;
   }
   return results;
+}
+
+export async function sleep(time: number, unit: UNITS_OF_TIME = 'milliseconds') {
+  const valueUnitOfTime = {
+    milliseconds: 1,
+    seconds: 1000,
+    minutes: 1000 * 60,
+    hours: 1000 * 60 * 60,
+  };
+  return new Promise(resolve => setTimeout(resolve, valueUnitOfTime[unit]));
+}
+
+export function isJSONString(str: string): boolean {
+  if (typeof str !== 'string') {
+    return false;
+  }
+
+  try {
+    JSON.parse(str);
+
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+export function parseJSON(str: string): JSON {
+  return isJSONString(str) ? JSON.parse(str) : {};
 }

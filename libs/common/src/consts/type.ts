@@ -12,3 +12,4 @@ export type OperatorQuery =
   | '$gt';
 export type SortQuery = { [key: string]: SortOrder };
 export type DBS_TYPE = 'DBS_MONGO' | 'DBS_TYPE_ORM';
+export type UNITS_OF_TIME = 'seconds' | 'minutes' | 'hours' | 'milliseconds';
