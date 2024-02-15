@@ -20,5 +20,6 @@
     "@fdgn/common": "^1.0.12",
     "@nestjs/mongoose": "^10.0.2",
     "mongoose": "7.3.4"
-  }
+  },
+  "gitHead": "c27e27615a69de1100573f86db66fa57d44ab925"
 }
