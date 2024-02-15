@@ -1,14 +1,25 @@
 {
-  "packages": ["libs/**/*", "services/**/*"],
+  "packages": [
+    "libs/**/*",
+    "services/**/*"
+  ],
   "command": {
     "publish": {
-      "ignoreChanges": ["ignored-file", "*.md", "**/k8s/**", "**/import_files/**", "**/export_files/**"],
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md",
+        "**/k8s/**",
+        "**/import_files/**",
+        "**/export_files/**"
+      ],
       "message": "chore(release): publish",
       "registry": "https://registry.npmjs.org/"
     },
     "bootstrap": {
       "ignore": "component-*",
-      "npmClientArgs": ["--no-package-lock"]
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
     }
   },
   "version": "independent",
