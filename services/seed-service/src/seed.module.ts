@@ -8,7 +8,7 @@ import { RedisClientModule } from '@fdgn/redis';
 import { MongoDBModule } from '@fdgn/mongoose';
 
 import { SeedController } from './seed.controller';
-import { Product, ProductRepoProvider } from './entities/seed.entity';
+import { Product, ProductRepoProvider } from './entities';
 
 @Module({
   imports: [CommonModule, ThrottlerClientModule, TypeOrmSQLModule, TypeOrmModule.forFeature([Product])],

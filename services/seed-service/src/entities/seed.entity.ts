@@ -1,6 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TypeOrmRepo } from '@fdgn/typeorm';
+import { DBS_TYPE } from 'libs/common/dist';
 
 @Entity({ name: Product.name })
 export class Product {
@@ -23,6 +24,6 @@ export class ProductTypeOrmRepo extends TypeOrmRepo<Product> {
   }
 }
 export const ProductRepoProvider = {
-  provide: 'PRODUCT_TYPE_ORM',
+  provide: 'PRODUCT' + DBS_TYPE.TYPE_ORM,
   useClass: ProductTypeOrmRepo,
 };

@@ -1,14 +1,14 @@
+import { DBS_TYPE, FilterBuilder, FilterMongoBuilder, FilterTypeOrmBuilder } from '@fdgn/common';
 import { Controller, Get, Inject } from '@nestjs/common';
-import { Product, ProductTypeOrmRepo } from './entities/seed.entity';
-import { DBS_TYPE, FilterBuilder } from '@fdgn/common';
+import { Product, ProductTypeOrmRepo } from './entities';
 
+const dbsType = DBS_TYPE.TYPE_ORM;
 @Controller('seed')
 export class SeedController {
-  private dbsType: DBS_TYPE = 'DBS_TYPE_ORM';
-  constructor(@Inject('PRODUCT_TYPE_ORM') private repo: ProductTypeOrmRepo) {}
+  constructor(@Inject('PRODUCT' + dbsType) private repo: ProductTypeOrmRepo) {}
   @Get('test-1')
   async test1(): Promise<any> {
-    const { filters } = new FilterBuilder<Product>(this.dbsType).setFilterItem('id', '$gte', 2).buildQuery();
+    const { filters } = new FilterBuilder<Product>().getInstance(dbsType).setFilterItem('id', '$gte', 1).buildQuery();
     return await this.repo.findAll({ filters });
   }
 
