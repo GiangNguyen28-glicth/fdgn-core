@@ -17,5 +17,5 @@
     "@fdgn/redis": "^1.0.12",
     "@fdgn/typeorm": "^1.0.12"
   },
-  "gitHead": "c27e27615a69de1100573f86db66fa57d44ab925"
+  "gitHead": "08ab0d94ca2aeecf14051a236d9b286e6a24779c"
 }
