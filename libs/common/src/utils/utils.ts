@@ -1,7 +1,8 @@
 import { NotFoundException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
+import { isArray } from 'lodash';
 
-import { IResult } from '../interfaces';
+import { IParseJson, IResult } from '../interfaces';
 import { PaginationDTO } from '../dto';
 import { UNITS_OF_TIME } from '../consts';
 
@@ -82,7 +83,7 @@ export async function sleep(time: number, unit: UNITS_OF_TIME = 'milliseconds') 
     minutes: 1000 * 60,
     hours: 1000 * 60 * 60,
   };
-  return new Promise(resolve => setTimeout(resolve, valueUnitOfTime[unit]));
+  return new Promise(resolve => setTimeout(resolve, valueUnitOfTime[unit] * time));
 }
 
 export function isJSONString(str: string): boolean {
@@ -99,6 +100,15 @@ export function isJSONString(str: string): boolean {
   }
 }
 
-export function parseJSON(str: string): JSON {
-  return isJSONString(str) ? JSON.parse(str) : {};
+export function parseJSON(str: string): IParseJson {
+  try {
+    return { data: JSON.parse(str), error: null };
+  } catch (error) {
+    return { error, data: null };
+  }
+}
+
+export function toArray<T>(data: T | Array<T>): T[] {
+  if (!data) return [];
+  return (isArray(data) ? data : [data]) as T[];
 }

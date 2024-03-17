@@ -8,4 +8,4 @@ export type RabbitPurgeQueue = amqp.Replies.PurgeQueue;
 
 export type RabbitEmpty = amqp.Replies.Empty;
 
-export type ExchangeRb = 'direct' | 'topic' | 'headers' | 'fanout' | 'match';
+export type ExchangeType = 'direct' | 'topic' | 'headers' | 'fanout' | 'match';

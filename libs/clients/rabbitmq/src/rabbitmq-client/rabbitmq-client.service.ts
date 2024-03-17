@@ -2,16 +2,16 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { RmqContext, RmqOptions, Transport } from '@nestjs/microservices';
 
-import { RabbitMQCsConfig } from './rabbitmq-cs.config';
+import { RabbitMQClientConfig } from './rabbitmq-client.config';
 import { IConnectOption } from '../models';
 const CONFIG_KEY = 'rabbit';
 
 @Injectable()
-export class RabbitService {
+export class RabbitMQClientService {
   constructor(private readonly configService: ConfigService) {}
 
   getOptions(options: IConnectOption): RmqOptions {
-    const rmqConfig = new RabbitMQCsConfig(this.configService, CONFIG_KEY);
+    const rmqConfig = new RabbitMQClientConfig(this.configService, CONFIG_KEY);
     const url = rmqConfig.getUrl();
     return {
       transport: Transport.RMQ,

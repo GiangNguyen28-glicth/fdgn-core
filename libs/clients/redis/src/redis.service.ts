@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { isNil } from 'lodash';
+import { RedisClientType, createClient } from 'redis';
 
 import { AbstractClientService, DEFAULT_CON_ID } from '@fdgn/client-core';
-import { sleep } from '@fdgn/common';
+import { sleep, parseJSON } from '@fdgn/common';
 
 import { RedisClientConfig } from './redis.config';
-import { RedisClientType, createClient } from 'redis';
-import { RedisClient } from './redis.client';
+import { IRedisDel, IRedisGet, IRedisSet, RedisClient } from './interfaces';
 
 @Injectable()
 export class RedisClientService
@@ -14,6 +15,10 @@ export class RedisClientService
 {
   constructor() {
     super('redis', RedisClientConfig);
+  }
+
+  async init(config: RedisClientConfig): Promise<RedisClientType> {
+    return this.connect(config);
   }
 
   async connect(config: RedisClientConfig): Promise<RedisClientType> {
@@ -55,25 +60,43 @@ export class RedisClientService
     console.info('Redis %s client started!', name);
   }
 
-  getCachedValue<T>(
-    key: string,
-    valueCallback: () => Promise<T>,
-    config?: { namespace?: string; expiry?: number },
-    conId?: any,
-  ): Promise<T> {
+  getNamespace(key: string, namespace?: string) {
+    return namespace ? `${namespace}:${key}` : key;
+  }
+
+  getConId(condId = DEFAULT_CON_ID) {
+    return condId ? condId : DEFAULT_CON_ID;
+  }
+
+  async get<T>(p: IRedisGet): Promise<T> {
+    const namespace = this.getNamespace(p.key, p.namespace);
+    const cachedValue = await this.getClient(this.getConId(p.conId)).get(namespace);
+
+    if (!isNil(cachedValue)) {
+      const { data, error } = parseJSON(cachedValue);
+      return (isNil(error) ? data : cachedValue) as T;
+    }
+    return cachedValue as T;
+  }
+
+  async set(p: IRedisSet): Promise<void> {
+    await this.getClient(this.getConId(p.conId)).set(p.key, p.value, { EX: p.ttl });
+  }
+
+  del(p: IRedisDel): Promise<number> {
     throw new Error('Method not implemented.');
   }
-  getSortedSet(
-    namespace: string,
-    withScore: boolean,
-    conId?: string,
-  ): Promise<string[] | { value: string; score: number }[]> {
-    throw new Error('Method not implemented.');
-  }
-  getScoreSortedSet(namespace: string, members: string[], conId?: string): Promise<number[]> {
-    throw new Error('Method not implemented.');
-  }
-  getSortedSetSize(namespace: string, conId?: string): Promise<number> {
-    throw new Error('Method not implemented.');
+
+  async delNamespace(namespace: string, COUNT = 100, condId = DEFAULT_CON_ID): Promise<void> {
+    let cursor = 0;
+    const data = await this.getClient(this.getConId(condId)).scan(cursor, { MATCH: namespace, COUNT });
+    do {
+      const { cursor: newCursor, keys } = await data;
+      if (keys.length > 0) {
+        // Delete the keys in batches
+        await this.getClient(this.getConId(condId)).del(keys);
+      }
+      cursor = newCursor;
+    } while (cursor !== 0);
   }
 }

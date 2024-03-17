@@ -1,25 +1,18 @@
-import { Connection } from 'amqplib';
 import { Client } from '@fdgn/client-core';
+import { Connection } from 'amqplib';
 
+import { IConsume, IPublish, ISendToQueue, RabbitMessage } from './models';
 import { RabbitMQConfig } from './rabbitmq.config';
-import { RabbitConsumeOptions, RabbitMessage, RabbitPublishOptions } from './models';
 
 export interface RabbitMQClient extends Client<RabbitMQConfig, Connection> {
   createChannelById(channelId: string, conId?: string): Promise<void>;
 
-  sendToQueue(queue: string, msgs: string[], opts?: RabbitPublishOptions, conId?: string): Promise<void>;
+  sendToQueue(options: ISendToQueue): Promise<void>;
 
-  publish(
-    exchange: string,
-    msgs: { key: string; content: string }[],
-    opts?: RabbitPublishOptions,
-    conId?: string,
-  ): Promise<void>;
+  publish(options: IPublish): Promise<void>;
 
-  consume(
-    queue: string,
-    callback: (msg: RabbitMessage) => Promise<void>,
-    options: RabbitConsumeOptions,
-    conId: string,
-  ): Promise<void>;
+  consume(options: IConsume): Promise<void>;
+
+  commit(msg: RabbitMessage, conId?: string): Promise<void>;
+  reject(msg: RabbitMessage, requeue?: boolean, conId?: string): Promise<void>;
 }

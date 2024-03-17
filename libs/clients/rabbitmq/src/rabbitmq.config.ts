@@ -31,5 +31,10 @@ export class RabbitMQConfig extends ClientConfig implements Options.Connect {
     this.vhost = props.vhost;
     this.onConnectionEvent = props.onConnectionEvent ?? { exitOnClose: true, exitOnError: true };
     this.onChannelEvent = props.onChannelEvent ?? { exitOnClose: true, exitOnError: true };
+    this.queue = props.queue;
+  }
+
+  getUrl() {
+    return `amqp://${this.username}:${this.password}@${this.hostname}:${this.port}`;
   }
 }

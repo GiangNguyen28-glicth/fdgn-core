@@ -9,7 +9,13 @@ rabbit:
   password: guest
   port: 5672
   heartbeat: 1
-  queue: 'localhost'
+  queue: 'demo'
+  onConnectionEvent:
+    exitOnClose: false
+    exitOnError: false
+  onChannelEvent: 
+    exitOnClose: false
+    exitOnError: false
   retry:
     # forever: true
     retries: 5
@@ -30,10 +36,12 @@ mongoose:
   uri: mongodb://localhost:27017/dating
   
 redis:
-  host: localhost
-  port: 6379
+  url: localhost
   password: null
-  db: 1
+  socket:
+    port: 6379
+    connectTimeout: 60000
+  database: 1
 
 throttler:
   - name: short
