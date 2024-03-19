@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { NestApplicationOptions, NestModule } from '@nestjs/common';
 import { Logger } from 'nestjs-pino';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import { HttpService } from '@fdgn/common';
 
 export type ApplicationOptions = NestApplicationOptions;
 export type Module = NestModule;
@@ -38,7 +39,11 @@ export class Application {
 
     const logger = app.get(Logger);
     app.useLogger(logger);
+    if (opts?.cors) {
+      app.enableCors(opts.cors as any); 
+    }
 
     Application.initTrackingProcessEvent(logger);
+    await HttpService.bootstrap(app);
   }
 }

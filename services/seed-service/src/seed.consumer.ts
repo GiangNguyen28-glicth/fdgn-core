@@ -7,7 +7,7 @@ export class SeedConsumer extends RabbitConsumer<any> {
     super(SeedConsumer.name, {
       queue: 'demo',
       prefetchCount: 1,
-      type: 'classic',
+      queueType: 'classic',
       exchange: 'a',
       routingKey: 'b',
       retryTime: 3000,

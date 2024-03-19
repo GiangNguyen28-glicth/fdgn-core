@@ -6,11 +6,9 @@ export class SeedService implements OnModuleInit {
   constructor(private producer: RabbitMQProducer<any>) {}
   async onModuleInit() {
     this.producer.setConfig({
-      queue: 'giang_demo',
-      mode: ProducerMode.Queue,
-      type: 'quorum',
       exchange: 'c',
       routingKey: 'd',
+      mode: ProducerMode.Exchange,
     });
     await this.producer.start();
 

@@ -16,25 +16,28 @@ export class RabbitMQProducer<Output> implements Produceable<Output> {
 
   setConfig(config: IQueueProducerConfig) {
     this.config = config;
+    this.validateConfig();
+  }
+
+  validateConfig() {
+    switch (this.config.mode) {
+      case ProducerMode.Exchange:
+        if (!this.config.exchange || !this.config.routingKey) {
+          throw new Error(`Missing routing key, exchange RabbitMQ config`);
+        }
+        break;
+      case ProducerMode.Queue:
+        if (!this.config.queue) {
+          throw new Error(`Missing queue RabbitMQ config`);
+        }
+        break;
+    }
   }
 
   async start(): Promise<void> {
     if (!this.config) {
       throw new Error('Missing config RabbitMQ');
     }
-    await this.rabbitService.binding({
-      queue: this.config.queue,
-      exchange: this.config.exchange,
-      exchangeType: this.config.exchangeType ?? 'direct',
-      routingKey: this.config.routingKey,
-      queueOptions: {
-        arguments: {
-          'x-queue-type': this.config.queueType ?? 'classic',
-          'x-dead-letter-exchange': this.config.deadLetterExchange,
-          'x-dead-letter-routing-key': this.config.deadLetterRoutingKey,
-        },
-      },
-    });
   }
 
   transform(source: Output): string {

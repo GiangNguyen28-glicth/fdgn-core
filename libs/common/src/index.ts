@@ -9,3 +9,4 @@ export * from './consts';
 export * from './domain';
 export * from './filters';
 export * from './log';
+export * from './http';

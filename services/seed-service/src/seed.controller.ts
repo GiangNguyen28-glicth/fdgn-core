@@ -26,9 +26,7 @@ export class SeedController {
   @Get('test-2')
   async test2(): Promise<any> {
     this.producer.setConfig({
-      queue: 'giang_demo',
       mode: ProducerMode.Queue,
-      type: 'quorum',
       exchange: 'c',
       routingKey: 'd',
     });
