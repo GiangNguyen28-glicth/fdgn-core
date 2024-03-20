@@ -190,9 +190,9 @@ export class RabbitMQService extends AbstractClientService<RabbitMQConfig, Conne
   }
 
   async binding(bindQueue: IQueueBinding, channelId: string = DEFAULT_CON_ID) {
-    const { queue, exchange, routingKey, exchangeType } = bindQueue;
+    const { queue, exchange, routingKey, exchangeType, queueOptions } = bindQueue;
     await this.exchange({ exchange, type: exchangeType ?? 'direct' });
-    await this.assertQueue({ queue });
+    await this.assertQueue({ queue, options: queueOptions });
     return await this.channels[channelId].bindQueue(queue, exchange, routingKey);
   }
 

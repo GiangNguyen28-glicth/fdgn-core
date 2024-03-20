@@ -53,3 +53,13 @@ throttler:
   - name: long
     ttl: 60000
     limit: 100
+
+mailConsume:
+  sendMail:
+    queue: notification_send_mail
+    prefetchCount: 1
+    queueType: quorum
+    exchange: notification
+    routingKey: notification_send_mail
+    retryTime: 3000
+    maxRetries: 1
