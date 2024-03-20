@@ -18,14 +18,13 @@ import { SeedService } from './seed.service';
   imports: [
     CommonModule,
     ThrottlerClientModule,
-    RabbitMQModule,
     LogModule,
     // PrometheusModule.register({ defaultMetrics: { enabled: true } }),
   ],
   controllers: [SeedController],
   providers: [
     SeedService,
-    // SeedConsumer,
+    SeedConsumer,
   ],
 })
 export class SeedModule {}

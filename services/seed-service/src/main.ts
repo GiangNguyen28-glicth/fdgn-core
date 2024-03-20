@@ -1,7 +1,7 @@
 import { Application } from '@fdgn/core';
-import { SeedModule } from './seed.module';
+import { AppModule } from './app.module';
 
-Application.bootstrap(SeedModule, {
+Application.bootstrap(AppModule, {
   cors: {
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',

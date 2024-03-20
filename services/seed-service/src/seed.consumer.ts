@@ -1,9 +1,10 @@
-import { RabbitConsumer } from '@fdgn/rabbitmq';
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { RabbitConsumer } from '@fdgn/rabbitmq';
 
 @Injectable()
 export class SeedConsumer extends RabbitConsumer<any> {
-  constructor() {
+  constructor(protected configService: ConfigService) {
     super(SeedConsumer.name, {
       queue: 'demo',
       prefetchCount: 1,

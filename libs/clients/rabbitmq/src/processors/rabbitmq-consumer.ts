@@ -1,4 +1,4 @@
-import { Inject, OnModuleInit } from '@nestjs/common';
+import { Inject, OnModuleInit, forwardRef } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { sleep } from '@fdgn/common';
 import { cargoQueue as Queue, QueueObject } from 'async';
@@ -12,7 +12,7 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
   @Inject()
   protected configService: ConfigService;
 
-  @Inject()
+  @Inject(forwardRef(() => RabbitMQService))
   protected rabbitService: RabbitMQService;
 
   protected constructor(protected context: string, protected config: IQueueConsumeConfig) {}
