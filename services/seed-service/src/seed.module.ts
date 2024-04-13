@@ -19,12 +19,13 @@ import { SeedService } from './seed.service';
     CommonModule,
     ThrottlerClientModule,
     LogModule,
+    MongoDBModule,
     // PrometheusModule.register({ defaultMetrics: { enabled: true } }),
   ],
-  controllers: [SeedController],
+  controllers: [],
   providers: [
-    SeedService,
-    SeedConsumer,
+    // SeedService,
+    // SeedConsumer,
   ],
 })
 export class SeedModule {}

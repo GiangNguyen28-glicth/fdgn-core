@@ -24,5 +24,5 @@ export class FilterGetAll extends PaginationDTO {
   sort?: string[];
 
   @ApiProperty()
-  isDeleted?: boolean;
+  is_deleted?: boolean;
 }

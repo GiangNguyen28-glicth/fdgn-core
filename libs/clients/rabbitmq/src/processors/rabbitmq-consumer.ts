@@ -1,6 +1,7 @@
 import { Inject, OnModuleInit, forwardRef } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { sleep } from '@fdgn/common';
+import { sleep, toInt } from '@fdgn/common';
+import { isNumber } from 'lodash';
 import { cargoQueue as Queue, QueueObject } from 'async';
 
 import { Consumeable, MessageConsume, IQueueConsumeConfig, RabbitMessage } from '../models';
@@ -8,6 +9,7 @@ import { RabbitMQService } from '../rabbitmq';
 
 export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnModuleInit {
   private queue: QueueObject<MessageConsume<Input>>;
+  private consumersTasks: QueueObject<unknown>;
 
   @Inject()
   protected configService: ConfigService;
@@ -15,7 +17,17 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
   @Inject(forwardRef(() => RabbitMQService))
   protected rabbitService: RabbitMQService;
 
-  protected constructor(protected context: string, protected config: IQueueConsumeConfig) {}
+  protected constructor(protected context: string, protected config: IQueueConsumeConfig) {
+    this.config.numOfConsumer = this.getNumOfConsumer();
+  }
+
+  getNumOfConsumer() {
+    const numOfConsumer = toInt(this.config.numOfConsumer);
+    if(isNumber(numOfConsumer)) {
+      return numOfConsumer;
+    }
+    return 1;
+  }
 
   async onModuleInit() {
     await this.init();
@@ -28,7 +40,19 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
       for (let i = 0; i < tasks.length; i++) {
         await this.taskHandler(tasks[i]);
       }
-    }, 2);
+    }, this.config.numOfConsumer * this.config.prefetchCount);
+
+    this.consumersTasks = Queue<MessageConsume<Input>>(async tasks => {
+      for (let i = 0; i < tasks.length; i++) {
+        await this.startConsuming();
+      }
+    }, this.config.numOfConsumer);
+  }
+
+  async initConsumers() {
+    for (let i = 0; i < this.config.numOfConsumer; i++) {
+      this.consumersTasks.push(i);
+    }
   }
 
   transform(msg: RabbitMessage): MessageConsume<Input> {
@@ -56,7 +80,7 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
         },
       },
     });
-    await this.startConsuming();
+    await this.initConsumers();
   }
 
   async consume(cb: (source: MessageConsume<Input>) => void): Promise<void> {

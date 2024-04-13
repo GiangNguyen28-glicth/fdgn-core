@@ -1,7 +1,6 @@
-import { SortOrder } from 'mongoose';
 import { Any, Between, Equal, In, IsNull, LessThan, Like, MoreThan, Not } from 'typeorm';
 
-import { OperatorQuery, SortQuery } from '../consts';
+import { OperatorQuery, SortOrder, SortQuery } from '../consts';
 
 export class FilterTypeOrmBuilder<T> {
   private queryFilter: Object = { where: {} };

@@ -33,7 +33,12 @@ typeOrm:
   database: eca_crawler
   logging: true
 mongoose:
-  uri: mongodb://localhost:27017/dating
+  username: guest
+  password: guest
+  uri: null
+  host: localhost
+  port: 27017
+  database: microservices
   
 redis:
   url: localhost

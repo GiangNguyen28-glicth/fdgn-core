@@ -1,7 +1,6 @@
 import { isEmpty, isNil } from 'lodash';
-import { SortOrder } from 'mongoose';
 
-import { OperatorQuery, SortQuery } from '../consts';
+import { OperatorQuery, SortOrder, SortQuery } from '../consts';
 import { toKeyword } from '../utils';
 
 export class FilterMongoBuilder<T> {
@@ -53,7 +52,7 @@ export class FilterMongoBuilder<T> {
   }
 
   buildQuery() {
-    // if (!this.queryFilter?.$and?.length) return {{}, this.sortOption};
+    if (!this.queryFilter?.['$and'].length) return { filters: {}, sorts: this.sortOption };
     return { filters: this.queryFilter, sorts: this.sortOption };
   }
 }

@@ -1,12 +1,12 @@
 export interface IResult<T> {
   results: T[];
   pagination: {
-    totalCount?: number;
-    currentPage?: number;
-    currentSize?: number;
-    totalPage?: number;
-    nextPage?: number;
-    prevPage?: number;
+    total_count?: number;
+    current_page?: number;
+    current_size?: number;
+    total_page?: number;
+    next_page?: number;
+    prev_page?: number;
   };
   metadata?: any;
 }
@@ -18,7 +18,7 @@ export interface IError {
 
 export interface IResponse {
   success?: boolean;
-  statusCode?: number;
+  status_code?: number;
   data?: any;
   message?: string;
 }

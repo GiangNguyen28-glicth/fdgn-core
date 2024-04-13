@@ -1,12 +1,12 @@
 import { isPlainObject, isBoolean } from 'lodash';
-export const flattenKeys = (obj: object, currentPath: string) => {
+export const flattenKeys = (obj: object, current_path: string) => {
   let paths = [];
 
   for (const k in obj) {
     if (isPlainObject(obj[k]) || Array.isArray(obj[k])) {
-      paths = paths.concat(flattenKeys(obj[k], currentPath ? `${currentPath}.${k}` : k));
+      paths = paths.concat(flattenKeys(obj[k], current_path ? `${current_path}.${k}` : k));
     } else {
-      paths.push(currentPath ? `${currentPath}.${k}` : k);
+      paths.push(current_path ? `${current_path}.${k}` : k);
     }
   }
 

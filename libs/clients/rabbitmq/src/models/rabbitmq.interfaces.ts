@@ -55,6 +55,7 @@ export interface IQueueConsumeConfig extends IQueue {
   requeue?: boolean;
   maxRetries: number;
   retryTime: number;
+  numOfConsumer?: number;
 }
 
 export interface IQueueProducerConfig {

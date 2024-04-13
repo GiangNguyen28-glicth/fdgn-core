@@ -7,15 +7,9 @@ import { PaginationDTO } from '../dto';
 import { UNITS_OF_TIME } from '../consts';
 
 export function throwIfNotExists<T>(model: T | any, message: string) {
-  if (!model || model?.isDeleted) {
+  if (!model || model?.deleted_at) {
     throw new NotFoundException(`${message}`);
   }
-}
-
-export function getRandomNumber(min: number, max: number) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 export async function hash(value: string): Promise<string> {
@@ -46,32 +40,32 @@ export function toKeyword(str: string): string {
   return str;
 }
 
-export function formatResult<T>(data: T[], totalCount: number, pagination?: PaginationDTO): IResult<T> {
+export function formatResult<T>(data: T[], total_count: number, pagination?: PaginationDTO): IResult<T> {
   const results: IResult<T> = {
     results: data,
     pagination: {
-      currentPage: pagination?.page,
-      currentSize: pagination?.size,
-      totalCount: totalCount,
+      current_page: pagination?.page,
+      current_size: pagination?.size,
+      total_count,
     },
   };
   if (!pagination) {
     return results;
   }
-  const totalPage = totalCount / pagination?.size;
-  results.pagination.totalPage = Math.floor(totalPage) + 1;
-  if (totalPage % 1 === 0) {
-    results.pagination.totalPage = totalPage;
+  const total_page = total_count / pagination?.size;
+  results.pagination.total_page = Math.floor(total_page) + 1;
+  if (total_page % 1 === 0) {
+    results.pagination.total_page = total_page;
   }
   if (pagination?.page > 1) {
-    results.pagination.prevPage = pagination.page - 1;
+    results.pagination.prev_page = pagination.page - 1;
   } else {
-    results.pagination.prevPage = null;
+    results.pagination.prev_page = null;
   }
-  if (results.pagination.totalPage <= pagination.page) {
-    results.pagination.nextPage = null;
+  if (results.pagination.total_page <= pagination.page) {
+    results.pagination.next_page = null;
   } else {
-    results.pagination.nextPage = pagination.page + 1;
+    results.pagination.next_page = pagination.page + 1;
   }
   return results;
 }

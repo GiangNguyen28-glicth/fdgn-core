@@ -1,6 +1,5 @@
 export interface IEntity {
-  isDeleted?: boolean;
-  deletedAt?: Date;
-  createdAt?: Date;
-  updatedAt?: Date;
+  deleted_at?: Date;
+  created_at?: Date;
+  updated_at?: Date;
 }

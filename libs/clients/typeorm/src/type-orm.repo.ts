@@ -4,10 +4,10 @@ import { Repository } from 'typeorm';
 export abstract class TypeOrmRepo<T> implements ICrudRepo<T> {
   constructor(private readonly repository: Repository<T>) {}
   async findAll(options?: IFilterFindAll): Promise<T[]> {
-    return await this.repository.find(options.filters);
+    return await this.repository.find(options?.filters);
   }
   async findOne(options?: IFilterFindOne): Promise<T> {
-    return await this.repository.findOne(options.filters);
+    return await this.repository.findOne(options?.filters);
   }
   async findOneAndUpdate(options: IFilterFindAll, entity: Partial<T>): Promise<T> {
     throw new Error('Method not implemented.');
