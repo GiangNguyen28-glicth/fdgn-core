@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { CommonModule, ThrottlerClientModule, LogModule } from '@fdgn/common';
-import { TypeOrmSQLModule } from '@fdgn/typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PrometheusModule, makeCounterProvider } from '@willsoto/nestjs-prometheus';
 import { ClientsModule } from '@nestjs/microservices';
@@ -19,11 +18,12 @@ import { SeedService } from './seed.service';
     CommonModule,
     ThrottlerClientModule,
     LogModule,
-    MongoDBModule,
+    TypeOrmModule.forFeature([Product]),
     // PrometheusModule.register({ defaultMetrics: { enabled: true } }),
   ],
-  controllers: [],
+  controllers: [SeedController],
   providers: [
+    ProductRepoProvider,
     // SeedService,
     // SeedConsumer,
   ],

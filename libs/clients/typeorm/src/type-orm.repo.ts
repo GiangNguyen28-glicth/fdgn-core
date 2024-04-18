@@ -1,20 +1,29 @@
-import { ICrudRepo, IFilterFindAll, IFilterFindOne } from '@fdgn/common';
+import { ICrudRepo, IFilterFindAll, IFilterFindOne, throwIfNotExists } from '@fdgn/common';
 import { Repository } from 'typeorm';
 
 export abstract class TypeOrmRepo<T> implements ICrudRepo<T> {
   constructor(private readonly repository: Repository<T>) {}
+
   async findAll(options?: IFilterFindAll): Promise<T[]> {
     return await this.repository.find(options?.filters);
   }
+
   async findOne(options?: IFilterFindOne): Promise<T> {
     return await this.repository.findOne(options?.filters);
   }
+
   async findOneAndUpdate(options: IFilterFindAll, entity: Partial<T>): Promise<T> {
-    throw new Error('Method not implemented.');
+    const e = await this.repository.findOne(options?.filters);
+    throwIfNotExists(e, 'Update failed, not fount item');
+    Object.assign(e, entity);
+    await this.save(e);
+    return e;
   }
+
   async findAndUpdate(options: IFilterFindAll, entity: Partial<T>): Promise<T[]> {
     throw new Error('Method not implemented.');
   }
+
   findAndDelete(options?: IFilterFindAll): Promise<void> {
     throw new Error('Method not implemented.');
   }
@@ -25,6 +34,7 @@ export abstract class TypeOrmRepo<T> implements ICrudRepo<T> {
   update(entity: Partial<T>): Promise<T> {
     throw new Error('Method not implemented.');
   }
+
   upsert(options: IFilterFindAll, entity: Partial<T>): Promise<T> {
     throw new Error('Method not implemented.');
   }

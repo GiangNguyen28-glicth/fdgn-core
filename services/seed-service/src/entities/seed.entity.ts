@@ -1,9 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TypeOrmRepo } from '@fdgn/typeorm';
-import { DBS_TYPE } from 'libs/common/dist';
+import { ICrudRepo } from '@fdgn/common';
 
-@Entity({ name: Product.name })
+@Entity({ name: 'products' })
 export class Product {
   @PrimaryGeneratedColumn()
   id: number;
@@ -15,6 +15,8 @@ export class Product {
   name: string;
 }
 
+export type IProductRepo = ICrudRepo<Product>;
+
 export class ProductTypeOrmRepo extends TypeOrmRepo<Product> {
   constructor(
     @InjectRepository(Product)
@@ -24,6 +26,6 @@ export class ProductTypeOrmRepo extends TypeOrmRepo<Product> {
   }
 }
 export const ProductRepoProvider = {
-  provide: 'PRODUCT' + DBS_TYPE.TYPE_ORM,
+  provide: 'PRODUCT_TYPE_ORM',
   useClass: ProductTypeOrmRepo,
 };

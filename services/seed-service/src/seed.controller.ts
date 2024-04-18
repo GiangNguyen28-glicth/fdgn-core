@@ -1,13 +1,16 @@
-import { DBS_TYPE } from '@fdgn/common';
-import { RedisClientService } from '@fdgn/redis';
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Get, Inject, Post, Body, Param } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { ClientRMQ, ClientProxy, Ctx, EventPattern, MessagePattern, Payload, RmqContext } from '@nestjs/microservices';
+import { DBS_TYPE, FilterBuilder } from '@fdgn/common';
+import { RedisClientService } from '@fdgn/redis';
+
 import { InjectMetric } from '@willsoto/nestjs-prometheus';
-import { RabbitMQProducer } from '@fdgn/rabbitmq';
+import { RabbitMQProducer, ProducerMode } from '@fdgn/rabbitmq';
 import { PinoLogger } from 'nestjs-pino';
 import { Counter } from 'prom-client';
 import { lastValueFrom } from 'rxjs';
-import { ProducerMode } from 'libs/clients/rabbitmq/dist';
+import { IProductRepo, Product, ProductTypeOrmRepo } from './entities';
 
 const dbsType = DBS_TYPE.TYPE_ORM;
 export interface INew {
@@ -19,9 +22,30 @@ export class SeedController {
   constructor(
     // @InjectMetric('metric_name') public counter: Counter<string>,
     // @Inject('A') private clientService: ClientRMQ,
+    @Inject('PRODUCT_TYPE_ORM')
+    protected productRepo: IProductRepo,
     private log: PinoLogger,
     private producer: RabbitMQProducer<INew>, // private redisService: RedisClientService,
   ) {}
+
+  @Post('product')
+  async createProduct(@Body() { name, price }) {
+    const product = await this.productRepo.insert({ name, price });
+    await this.productRepo.save(product);
+    return product;
+  }
+
+  @Post('product/:id')
+  async update(@Param('id') id: number) {
+    try {
+      const { filters } = new FilterBuilder<Product>().getInstance(dbsType).setFilterItem('id', '$eq', id).buildQuery();
+      console.log(JSON.stringify(filters));
+      // return await this.productRepo.findOne({ filters });
+      return await this.productRepo.findOneAndUpdate({ filters }, { name: '2222' });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   @Get('test-2')
   async test2(): Promise<any> {

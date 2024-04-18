@@ -13,7 +13,7 @@ export class SeedConsumer extends RabbitConsumer<any> {
       routingKey: 'b',
       retryTime: 3000,
       maxRetries: 1,
-      numOfConsumer: 1
+      numOfConsumer: 1,
     });
   }
 
