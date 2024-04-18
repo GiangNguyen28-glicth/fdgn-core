@@ -5,10 +5,19 @@ import { OperatorQuery, SortOrder, SortQuery } from '../consts';
 export class FilterTypeOrmBuilder<T> {
   private queryFilter: Object = { where: {} };
   private sortOption: SortQuery = {};
+  private relations: string[] = [];
 
   setFilterItem(key: keyof T, query: OperatorQuery, value: any, isNull = false): this {
     if (!value && !isNull) return this;
     Object.assign(this.queryFilter['where'], this.typeOrmOperatorMapper(key, query, value));
+    return this;
+  }
+
+  setRelations(key: keyof T) {
+    if (!key) {
+      return this;
+    }
+    this.relations.push(String(key));
     return this;
   }
 
@@ -48,7 +57,10 @@ export class FilterTypeOrmBuilder<T> {
   }
 
   buildQuery() {
-    // if (!this.queryFilter?.$and?.length) return {{}, this.sortOption};
-    return { filters: this.queryFilter, sorts: this.sortOption };
+    const query = { filters: this.queryFilter, sorts: this.sortOption };
+    if (this.relations.length) {
+      query.filters['relations'] = this.relations;
+    }
+    return query;
   }
 }
