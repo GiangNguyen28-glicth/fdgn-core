@@ -21,6 +21,11 @@ export interface IUpdateOptions<T> {
   session?: unknown;
 }
 
+export interface IInsert<T> {
+  entity: Partial<T>;
+  session?: unknown;
+}
+
 export interface ICrudRepo<T> {
   findAll(options?: IFilterFindAll): Promise<T[]>;
 
@@ -32,15 +37,13 @@ export interface ICrudRepo<T> {
 
   findAndDelete(options?: IFilterFindAll['filters']): Promise<void>;
 
-  insert(entity: Partial<T>): Promise<T>;
+  insert(insert: IInsert<T>): Promise<T>;
 
-  update(entity: Partial<T>): Promise<T>;
+  update(options: IUpdateOptions<T>): Promise<T>;
 
   upsert(options: IUpdateOptions<T>): Promise<T>;
 
   count(options?: IFilterFindAll['filters']): Promise<number>;
 
-  save(entity: Partial<T>): Promise<T>;
-
-  getConnection<S>(): Promise<S>;
+  save(insert: IInsert<T>): Promise<T>;
 }

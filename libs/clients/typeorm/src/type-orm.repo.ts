@@ -1,5 +1,5 @@
 import { QueryRunner, Repository, DataSource } from 'typeorm';
-import { ICrudRepo, IFilterFindAll, IFilterFindOne, IUpdateOptions, throwIfNotExists } from '@fdgn/common';
+import { ICrudRepo, IFilterFindAll, IFilterFindOne, IInsert, IUpdateOptions, throwIfNotExists } from '@fdgn/common';
 
 export abstract class TypeOrmRepo<T> implements ICrudRepo<T> {
   constructor(public readonly repository: Repository<T>, public dataSource: DataSource) {}
@@ -20,7 +20,7 @@ export abstract class TypeOrmRepo<T> implements ICrudRepo<T> {
     if (session) {
       await (session as QueryRunner).manager.save(e);
     } else {
-      await this.save(e);
+      await this.save({ entity: e });
     }
     return e;
   }
@@ -33,10 +33,15 @@ export abstract class TypeOrmRepo<T> implements ICrudRepo<T> {
     throw new Error('Method not implemented.');
   }
 
-  async insert(entity: T): Promise<T> {
-    return await this.repository.create(entity);
+  async insert(options: IInsert<T>): Promise<T> {
+    const { entity, session } = options;
+    // if (session) {
+    //   await (session as QueryRunner).manager.create(entity as T);
+    // }
+    return this.repository.create(entity as T);
   }
-  update(entity: Partial<T>): Promise<T> {
+
+  async update(options: IInsert<T>): Promise<T> {
     throw new Error('Method not implemented.');
   }
 
@@ -48,14 +53,11 @@ export abstract class TypeOrmRepo<T> implements ICrudRepo<T> {
     throw new Error('Method not implemented.');
   }
 
-  async save(entity: T): Promise<T> {
-    return this.repository.save(entity);
-  }
-
-  async getConnection<QueryRunner>(): Promise<QueryRunner> {
-    const queryRunner = this.dataSource.createQueryRunner();
-    await queryRunner.connect();
-    await queryRunner.startTransaction();
-    return queryRunner as QueryRunner;
+  async save(options: IInsert<T>): Promise<T> {
+    const { entity, session } = options;
+    if (session) {
+      await (session as QueryRunner).manager.save(entity);
+    }
+    return this.repository.save(entity as T);
   }
 }

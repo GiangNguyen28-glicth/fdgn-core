@@ -1,8 +1,8 @@
-import { ICrudRepo, IFilterFindAll, IFilterFindOne, IUpdateOptions } from '@fdgn/common';
-import { ClientSession, Connection, Document, Model, PopulateOptions, QueryOptions, Types } from 'mongoose';
+import { ICrudRepo, IFilterFindAll, IFilterFindOne, IInsert, IUpdateOptions } from '@fdgn/common';
+import { ClientSession, Document, Model, PopulateOptions, QueryOptions, SaveOptions, Types } from 'mongoose';
 
 export abstract class MongoRepo<T> implements ICrudRepo<T> {
-  constructor(protected readonly model: Model<T>, private readonly connection: Connection) {}
+  constructor(protected readonly model: Model<T>) {}
 
   async findAll(options: IFilterFindAll): Promise<T[]> {
     if (!options) {
@@ -34,16 +34,18 @@ export abstract class MongoRepo<T> implements ICrudRepo<T> {
     return await this.model.countDocuments(options?.filters);
   }
 
-  async insert(document: Partial<T>): Promise<T> {
+  async insert(options: IInsert<T>): Promise<T> {
+    const { entity } = options;
     const createdDocument: Document = new this.model({
-      ...document,
+      ...entity,
       _id: new Types.ObjectId(),
     });
     return createdDocument as T;
   }
 
-  async save(document: T): Promise<T> {
-    return (await (document as Document).save()) as T;
+  async save(options: IInsert<T>): Promise<T> {
+    const { entity, session } = options;
+    return (await (entity as unknown as Document).save({ session: session as ClientSession })) as T;
   }
 
   toJSON(doc: T): T {
@@ -82,9 +84,14 @@ export abstract class MongoRepo<T> implements ICrudRepo<T> {
     return this.model.findOneAndUpdate(filters, entity, otps) as T;
   }
 
-  async update(entity: Partial<T>): Promise<T> {
+  async update(options: IInsert<T>): Promise<T> {
+    const { entity, session } = options;
     const modelUpdated = new this.model(entity);
-    return (await modelUpdated.save()) as T;
+    const otps: SaveOptions = {};
+    if (session) {
+      otps.session = session as ClientSession;
+    }
+    return (await modelUpdated.save(otps)) as T;
   }
 
   async populate(document: Document, populate: PopulateOptions[]): Promise<T> {
@@ -106,17 +113,5 @@ export abstract class MongoRepo<T> implements ICrudRepo<T> {
 
   async findAndDelete(options?: IFilterFindAll): Promise<void> {
     await this.model.deleteMany(options?.filters);
-  }
-
-  async startTransaction(): Promise<ClientSession> {
-    const session = await this.connection.startSession();
-    session.startTransaction();
-    return session;
-  }
-
-  async getConnection<ClientSession>(): Promise<ClientSession> {
-    const session = await this.connection.startSession();
-    session.startTransaction();
-    return session as ClientSession;
   }
 }

@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CommonModule } from '@fdgn/common';
 
 import { TypeOrmClientConfig } from './type-orm.config';
+import { TypeOrmService } from './type-orm.service';
 export const CONFIG_KEY = 'typeOrm';
 
 @Global()
@@ -18,5 +19,6 @@ export const CONFIG_KEY = 'typeOrm';
       inject: [ConfigService],
     }),
   ],
+  providers: [TypeOrmService],
 })
 export class TypeOrmSQLModule {}

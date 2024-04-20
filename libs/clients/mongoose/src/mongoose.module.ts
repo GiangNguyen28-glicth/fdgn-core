@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { MongooseClientConfig } from './mongoose.config';
+import { MongooseService } from './mongoose.service';
 const CONFIG_KEY = 'mongoose';
 @Global()
 @Module({
@@ -17,5 +18,6 @@ const CONFIG_KEY = 'mongoose';
       inject: [ConfigService],
     }),
   ],
+  providers: [MongooseService],
 })
 export class MongoDBModule {}
