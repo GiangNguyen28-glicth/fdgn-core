@@ -42,5 +42,5 @@ export interface ICrudRepo<T> {
 
   save(entity: Partial<T>): Promise<T>;
 
-  getConnection<C>(): Promise<C>;
+  getConnection<S>(): Promise<S>;
 }

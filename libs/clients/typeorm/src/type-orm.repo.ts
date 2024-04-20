@@ -52,10 +52,10 @@ export abstract class TypeOrmRepo<T> implements ICrudRepo<T> {
     return this.repository.save(entity);
   }
 
-  async getConnection(): Promise<QueryRunner> {
+  async getConnection<QueryRunner>(): Promise<QueryRunner> {
     const queryRunner = this.dataSource.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
-    return queryRunner;
+    return queryRunner as QueryRunner;
   }
 }

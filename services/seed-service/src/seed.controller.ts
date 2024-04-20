@@ -1,6 +1,6 @@
 import { Controller, Get, Inject, Post, Body, Param } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, DataSource } from 'typeorm';
+import { Repository, DataSource, QueryRunner } from 'typeorm';
 import { ClientRMQ, ClientProxy, Ctx, EventPattern, MessagePattern, Payload, RmqContext } from '@nestjs/microservices';
 import { DBS_TYPE, FilterBuilder } from '@fdgn/common';
 import { RedisClientService } from '@fdgn/redis';
@@ -38,9 +38,8 @@ export class SeedController {
 
   @Post('product/:id')
   async update(@Param('id') id: number, @Body() dto: any) {
-    const queryRunner = this.dataSource.createQueryRunner();
-    await queryRunner.connect();
-    await queryRunner.startTransaction();
+    const queryRunner = await this.productRepo.getConnection<QueryRunner>();
+
     try {
       const { filters } = new FilterBuilder<Product>().getInstance(dbsType).setFilterItem('id', '$eq', id).buildQuery();
       console.log(JSON.stringify(filters));

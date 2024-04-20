@@ -3,6 +3,7 @@ import { ClientSession, Connection, Document, Model, PopulateOptions, QueryOptio
 
 export abstract class MongoRepo<T> implements ICrudRepo<T> {
   constructor(protected readonly model: Model<T>, private readonly connection: Connection) {}
+
   async findAll(options: IFilterFindAll): Promise<T[]> {
     if (!options) {
       return await this.model.find().lean();
@@ -111,5 +112,11 @@ export abstract class MongoRepo<T> implements ICrudRepo<T> {
     const session = await this.connection.startSession();
     session.startTransaction();
     return session;
+  }
+
+  async getConnection<ClientSession>(): Promise<ClientSession> {
+    const session = await this.connection.startSession();
+    session.startTransaction();
+    return session as ClientSession;
   }
 }
