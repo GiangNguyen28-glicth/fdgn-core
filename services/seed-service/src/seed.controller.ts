@@ -1,6 +1,6 @@
 import { Controller, Get, Inject, Post, Body, Param } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, DataSource } from 'typeorm';
 import { ClientRMQ, ClientProxy, Ctx, EventPattern, MessagePattern, Payload, RmqContext } from '@nestjs/microservices';
 import { DBS_TYPE, FilterBuilder } from '@fdgn/common';
 import { RedisClientService } from '@fdgn/redis';
@@ -24,6 +24,7 @@ export class SeedController {
     // @Inject('A') private clientService: ClientRMQ,
     @Inject('PRODUCT_TYPE_ORM')
     protected productRepo: IProductRepo,
+    private dataSource: DataSource,
     private log: PinoLogger,
     private producer: RabbitMQProducer<INew>, // private redisService: RedisClientService,
   ) {}
@@ -36,14 +37,21 @@ export class SeedController {
   }
 
   @Post('product/:id')
-  async update(@Param('id') id: number) {
+  async update(@Param('id') id: number, @Body() dto: any) {
+    const queryRunner = this.dataSource.createQueryRunner();
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
     try {
       const { filters } = new FilterBuilder<Product>().getInstance(dbsType).setFilterItem('id', '$eq', id).buildQuery();
       console.log(JSON.stringify(filters));
       // return await this.productRepo.findOne({ filters });
-      return await this.productRepo.findOneAndUpdate({ filters }, { name: '2222' });
+      const product = await this.productRepo.findOneAndUpdate({ filters, entity: dto, session: queryRunner });
+      // throw new Error('vkl');
+      await queryRunner.commitTransaction();
+      return product;
     } catch (error) {
-      console.log(error);
+      queryRunner.rollbackTransaction();
+      console.log('Error', error);
     }
   }
 

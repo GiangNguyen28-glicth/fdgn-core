@@ -94,7 +94,7 @@ export function isJSONString(str: string): boolean {
   }
 }
 
-export function parseJSON(str: string): IParseJson {
+export function parseJSON<T>(str: string): IParseJson<T> {
   try {
     return { data: JSON.parse(str), error: null };
   } catch (error) {

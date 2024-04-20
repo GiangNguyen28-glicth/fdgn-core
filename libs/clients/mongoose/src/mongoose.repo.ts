@@ -1,8 +1,8 @@
-import { Document, FilterQuery, Model, PopulateOptions, Types } from 'mongoose';
-import { IFilterFindAll, IFilterFindOne, ICrudRepo } from '@fdgn/common';
+import { ICrudRepo, IFilterFindAll, IFilterFindOne, IUpdateOptions } from '@fdgn/common';
+import { ClientSession, Connection, Document, Model, PopulateOptions, QueryOptions, Types } from 'mongoose';
 
 export abstract class MongoRepo<T> implements ICrudRepo<T> {
-  constructor(protected readonly model: Model<T>) {}
+  constructor(protected readonly model: Model<T>, private readonly connection: Connection) {}
   async findAll(options: IFilterFindAll): Promise<T[]> {
     if (!options) {
       return await this.model.find().lean();
@@ -49,11 +49,16 @@ export abstract class MongoRepo<T> implements ICrudRepo<T> {
     return (doc as Document).toJSON();
   }
 
-  async findOneAndUpdate(options: IFilterFindAll, entity: Partial<T>): Promise<T> {
-    return (await this.model.findOneAndUpdate(options?.filters, entity, {
+  async findOneAndUpdate(options: IUpdateOptions<T>): Promise<T> {
+    const { entity, filters, session } = options;
+    const otps: QueryOptions = {
       lean: true,
       new: true,
-    })) as T;
+    };
+    if (session) {
+      otps.session = session as ClientSession;
+    }
+    return (await this.model.findOneAndUpdate(filters, entity, otps)) as T;
   }
 
   async distinct(options: IFilterFindAll, field: keyof T) {
@@ -63,12 +68,17 @@ export abstract class MongoRepo<T> implements ICrudRepo<T> {
     return await this.model.find(options?.filters).distinct(field.toString());
   }
 
-  async upsert(filterQuery: FilterQuery<T>, entity: Partial<T>) {
-    return this.model.findOneAndUpdate(filterQuery, entity, {
+  async upsert(options: IUpdateOptions<T>) {
+    const { entity, filters, session } = options;
+    const otps: QueryOptions = {
       lean: true,
-      upsert: true,
       new: true,
-    }) as T;
+      upsert: true,
+    };
+    if (session) {
+      otps.session = session as ClientSession;
+    }
+    return this.model.findOneAndUpdate(filters, entity, otps) as T;
   }
 
   async update(entity: Partial<T>): Promise<T> {
@@ -84,11 +94,22 @@ export abstract class MongoRepo<T> implements ICrudRepo<T> {
     await this.model.bulkWrite(writes);
   }
 
-  async findAndUpdate(options: IFilterFindAll, entity: Partial<T>): Promise<T[]> {
-    return await this.model.updateMany(options?.filters, entity).lean();
+  async findAndUpdate(options: IUpdateOptions<T>): Promise<T[]> {
+    const { filters, entity, session } = options;
+    const otps: QueryOptions = {};
+    if (session) {
+      options.session = session as ClientSession;
+    }
+    return await this.model.updateMany(filters, entity, otps).lean();
   }
 
   async findAndDelete(options?: IFilterFindAll): Promise<void> {
     await this.model.deleteMany(options?.filters);
+  }
+
+  async startTransaction(): Promise<ClientSession> {
+    const session = await this.connection.startSession();
+    session.startTransaction();
+    return session;
   }
 }

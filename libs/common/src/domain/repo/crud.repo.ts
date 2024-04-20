@@ -1,4 +1,4 @@
-import { PopulateOptions, Document } from 'mongoose';
+import { PopulateOptions } from 'mongoose';
 import { PaginationDTO } from '../../dto';
 
 export interface IFilterFindAll {
@@ -15,24 +15,30 @@ export interface IFilterFindOne {
   populates?: PopulateOptions[];
 }
 
+export interface IUpdateOptions<T> {
+  filters: IFilterFindAll['filters'];
+  entity: Partial<T>;
+  session?: unknown;
+}
+
 export interface ICrudRepo<T> {
   findAll(options?: IFilterFindAll): Promise<T[]>;
 
   findOne(options?: IFilterFindOne): Promise<T>;
 
-  findOneAndUpdate(options: IFilterFindAll, entity: Partial<T>): Promise<T>;
+  findOneAndUpdate(options: IUpdateOptions<T>): Promise<T>;
 
-  findAndUpdate(options: IFilterFindAll, entity: Partial<T>): Promise<T[]>;
+  findAndUpdate(options: IUpdateOptions<T>): Promise<T[]>;
 
-  findAndDelete(options?: IFilterFindAll): Promise<void>;
+  findAndDelete(options?: IFilterFindAll['filters']): Promise<void>;
 
   insert(entity: Partial<T>): Promise<T>;
 
   update(entity: Partial<T>): Promise<T>;
 
-  upsert(options: IFilterFindAll, entity: Partial<T>): Promise<T>;
+  upsert(options: IUpdateOptions<T>): Promise<T>;
 
-  count(options?: IFilterFindAll): Promise<number>;
+  count(options?: IFilterFindAll['filters']): Promise<number>;
 
   save(entity: Partial<T>): Promise<T>;
 }

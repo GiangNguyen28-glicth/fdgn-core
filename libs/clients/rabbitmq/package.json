@@ -22,5 +22,5 @@
     "amqp-connection-manager": "^4.1.14",
     "amqplib": "^0.10.3"
   },
-  "gitHead": "630dffe594b185aa961771bd339fdecf6aafe061"
+  "gitHead": "18771dcb17b14344f096c3a89637a7d67aeb4cab"
 }

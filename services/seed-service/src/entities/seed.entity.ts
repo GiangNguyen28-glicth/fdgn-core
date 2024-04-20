@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn, Repository } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, Repository, DataSource } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+
 import { TypeOrmRepo } from '@fdgn/typeorm';
 import { ICrudRepo } from '@fdgn/common';
 
@@ -20,9 +21,10 @@ export type IProductRepo = ICrudRepo<Product>;
 export class ProductTypeOrmRepo extends TypeOrmRepo<Product> {
   constructor(
     @InjectRepository(Product)
-    protected productRepo: Repository<Product>,
+    productRepo: Repository<Product>,
+    dataSource: DataSource,
   ) {
-    super(productRepo);
+    super(productRepo, dataSource);
   }
 }
 export const ProductRepoProvider = {

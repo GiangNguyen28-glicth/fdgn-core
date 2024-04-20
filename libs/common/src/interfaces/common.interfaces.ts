@@ -1,4 +1,4 @@
-export interface IParseJson {
-  data: JSON;
-  error: any;
+export interface IParseJson<T> {
+  data: T;
+  error: unknown;
 }

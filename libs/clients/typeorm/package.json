@@ -24,5 +24,5 @@
     "pg": "^8.11.5",
     "typeorm": "^0.3.19"
   },
-  "gitHead": "630dffe594b185aa961771bd339fdecf6aafe061"
+  "gitHead": "18771dcb17b14344f096c3a89637a7d67aeb4cab"
 }
