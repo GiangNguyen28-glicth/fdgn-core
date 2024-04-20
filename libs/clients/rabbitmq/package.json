@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/rabbitmq",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
@@ -17,8 +17,8 @@
     "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
   },
   "dependencies": {
-    "@fdgn/client-core": "^1.1.7",
-    "@fdgn/common": "^1.1.7",
+    "@fdgn/client-core": "^1.1.8",
+    "@fdgn/common": "^1.1.8",
     "amqp-connection-manager": "^4.1.14",
     "amqplib": "^0.10.3"
   },
