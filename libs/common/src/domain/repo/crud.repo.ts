@@ -41,4 +41,6 @@ export interface ICrudRepo<T> {
   count(options?: IFilterFindAll['filters']): Promise<number>;
 
   save(entity: Partial<T>): Promise<T>;
+
+  getConnection<C>(): Promise<C>;
 }
