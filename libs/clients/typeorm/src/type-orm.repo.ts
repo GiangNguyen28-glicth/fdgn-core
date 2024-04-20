@@ -55,7 +55,7 @@ export abstract class TypeOrmRepo<T> implements ICrudRepo<T> {
   async save(options: IInsert<T>): Promise<T> {
     const { entity, session } = options;
     if (session) {
-      return await (session as QueryRunner).manager.save(entity);
+      return (await (session as QueryRunner).manager.save(entity)) as T;
     }
     return await this.repository.save(entity as T);
   }
