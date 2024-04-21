@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/mongoose",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
@@ -21,5 +21,5 @@
     "@nestjs/mongoose": "^10.0.2",
     "mongoose": "7.3.4"
   },
-  "gitHead": "afb74ae7ad0ce6548d71e250978311823cf08a6a"
+  "gitHead": "ebba7047f7f6d147be5cddf34e05c662f959c00b"
 }

@@ -19,5 +19,6 @@ const CONFIG_KEY = 'mongoose';
     }),
   ],
   providers: [MongooseService],
+  exports: [MongooseService],
 })
 export class MongoDBModule {}
