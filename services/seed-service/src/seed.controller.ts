@@ -1,6 +1,8 @@
 import { Controller, Get, Inject, Post, Body, Param } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DataSource, QueryRunner } from 'typeorm';
+import { TypeOrmService } from '@fdgn/typeorm';
+
 import { ClientRMQ, ClientProxy, Ctx, EventPattern, MessagePattern, Payload, RmqContext } from '@nestjs/microservices';
 import { DBS_TYPE, FilterBuilder } from '@fdgn/common';
 import { RedisClientService } from '@fdgn/redis';
@@ -24,21 +26,22 @@ export class SeedController {
     // @Inject('A') private clientService: ClientRMQ,
     @Inject('PRODUCT_TYPE_ORM')
     protected productRepo: IProductRepo,
-    private dataSource: DataSource,
+    private typeOrmService: TypeOrmService,
+
     private log: PinoLogger,
     private producer: RabbitMQProducer<INew>, // private redisService: RedisClientService,
   ) {}
 
   @Post('product')
   async createProduct(@Body() { name, price }) {
-    const product = await this.productRepo.insert({ name, price });
-    await this.productRepo.save(product);
+    const product = await this.productRepo.insert({ entity: { name, price } });
+    await this.productRepo.save({ entity: product });
     return product;
   }
 
   @Post('product/:id')
   async update(@Param('id') id: number, @Body() dto: any) {
-    const queryRunner = await this.productRepo.getConnection<QueryRunner>();
+    const queryRunner = await this.typeOrmService.getConnection();
 
     try {
       const { filters } = new FilterBuilder<Product>().getInstance(dbsType).setFilterItem('id', '$eq', id).buildQuery();

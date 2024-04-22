@@ -22,9 +22,8 @@ export class ProductTypeOrmRepo extends TypeOrmRepo<Product> {
   constructor(
     @InjectRepository(Product)
     productRepo: Repository<Product>,
-    dataSource: DataSource,
   ) {
-    super(productRepo, dataSource);
+    super(productRepo);
   }
 }
 export const ProductRepoProvider = {

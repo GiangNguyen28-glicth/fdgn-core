@@ -35,7 +35,7 @@ typeOrm:
 mongoose:
   username: guest
   password: guest
-  uri: mongodb://localhost:27017/catalog
+  uri: mongodb://localhost:27017/seed
   host: localhost
   port: 27017
   database: microservices

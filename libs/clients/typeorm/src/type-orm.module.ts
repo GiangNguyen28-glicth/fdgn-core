@@ -20,5 +20,6 @@ export const CONFIG_KEY = 'typeOrm';
     }),
   ],
   providers: [TypeOrmService],
+  exports: [TypeOrmService],
 })
 export class TypeOrmSQLModule {}

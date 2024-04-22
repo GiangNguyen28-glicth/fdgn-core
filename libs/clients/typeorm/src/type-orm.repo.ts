@@ -1,8 +1,8 @@
-import { QueryRunner, Repository, DataSource } from 'typeorm';
 import { ICrudRepo, IFilterFindAll, IFilterFindOne, IInsert, IUpdateOptions, throwIfNotExists } from '@fdgn/common';
+import { QueryRunner, Repository } from 'typeorm';
 
 export abstract class TypeOrmRepo<T> implements ICrudRepo<T> {
-  constructor(public readonly repository: Repository<T>, public dataSource: DataSource) {}
+  constructor(public readonly repository: Repository<T>) {}
 
   async findAll(options?: IFilterFindAll): Promise<T[]> {
     return await this.repository.find(options?.filters);

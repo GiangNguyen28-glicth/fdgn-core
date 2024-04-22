@@ -19,6 +19,7 @@ import { SeedService } from './seed.service';
     ThrottlerClientModule,
     LogModule,
     TypeOrmModule.forFeature([Product]),
+    MongoDBModule,
     // PrometheusModule.register({ defaultMetrics: { enabled: true } }),
   ],
   controllers: [SeedController],
