@@ -1,6 +1,6 @@
 import { NotFoundException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import { isArray } from 'lodash';
+import { isArray, isEmpty, isNil } from 'lodash';
 
 import { IParseJson, IResult } from '../interfaces';
 import { PaginationDTO } from '../dto';
@@ -105,4 +105,8 @@ export function parseJSON<T>(str: string): IParseJson<T> {
 export function toArray<T>(data: T | Array<T>): T[] {
   if (!data) return [];
   return (isArray(data) ? data : [data]) as T[];
+}
+
+export function isNullOrEmpty(str: string): boolean {
+  return isEmpty(str) || isNil(str);
 }

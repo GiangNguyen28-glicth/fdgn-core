@@ -4,11 +4,14 @@ import { OperatorQuery, SortOrder, SortQuery } from '../consts';
 import { toKeyword } from '../utils';
 
 export class FilterMongoBuilder<T> {
-  private queryFilter: Object = { $and: [] };
+  private queryFilter: any = { $and: [] };
   private sortOption: SortQuery = {};
 
   setFilterItem(key: keyof T, query: OperatorQuery, value: any, isNull = false): this {
     if (!value && !isNull) return this;
+    if (key === 'id') {
+      key = '_id' as any;
+    }
     const subQuery = {
       [key]: { [query]: value },
     };

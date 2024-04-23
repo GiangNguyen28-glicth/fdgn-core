@@ -8,8 +8,8 @@ export interface IDateTracking {
 }
 
 export interface IUserTracking {
-  created_by: number;
-  updated_by: number;
+  created_by?: number;
+  updated_by?: number;
 }
 
 export interface ISoftDelete {
@@ -17,4 +17,6 @@ export interface ISoftDelete {
   deleted_at?: Date;
 }
 
-export interface IAuditable extends IDateTracking, IUserTracking, ISoftDelete {}
+export interface IAuditable extends IDateTracking, IUserTracking, ISoftDelete, IEntity {
+  _id: string;
+}
