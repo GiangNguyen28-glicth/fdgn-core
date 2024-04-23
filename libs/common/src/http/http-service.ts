@@ -13,7 +13,7 @@ export class HttpService {
     const config = app.get(ConfigService);
     const httpConfig = config.get<HttpConfig>('http');
     if (!httpConfig) return;
-    app.useGlobalPipes(new ValidationPipe({ transform: true }));
+    app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
     app.useGlobalFilters(new HttpExceptionFilter());
     app.setGlobalPrefix(httpConfig.contextPath);
 

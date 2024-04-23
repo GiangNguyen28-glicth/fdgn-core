@@ -1,5 +1,4 @@
 export interface HttpConfig {
-    port: number;
-    contextPath?: string;
-  }
-  
+  port: number;
+  contextPath?: string;
+}

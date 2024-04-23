@@ -1,4 +1,5 @@
 import { Controller, Get, Inject, Post, Body, Param } from '@nestjs/common';
+import axios from 'axios';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DataSource, QueryRunner } from 'typeorm';
 import { TypeOrmService } from '@fdgn/typeorm';
@@ -31,6 +32,18 @@ export class SeedController {
     private log: PinoLogger,
     private producer: RabbitMQProducer<INew>, // private redisService: RedisClientService,
   ) {}
+
+  @Get(':id')
+  async findProductId(@Param('id') id: string): Promise<any> {
+    try {
+      const response = await axios.get(`http://localhost:4017/catalog/product/${id}`);
+      const product: Product = await response.data;
+      return product;
+    } catch (error) {
+      // console.log(error);
+      throw error;
+    }
+  }
 
   @Post('product')
   async createProduct(@Body() { name, price }) {

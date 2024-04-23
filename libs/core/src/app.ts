@@ -40,7 +40,7 @@ export class Application {
     const logger = app.get(Logger);
     app.useLogger(logger);
     if (opts?.cors) {
-      app.enableCors(opts.cors as any); 
+      app.enableCors(opts.cors as any);
     }
 
     Application.initTrackingProcessEvent(logger);
