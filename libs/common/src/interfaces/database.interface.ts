@@ -1,5 +1,6 @@
 export interface IEntity {
-  id: string | number;
+  id?: string | number;
+  _id?: string;
 }
 
 export interface IDateTracking {

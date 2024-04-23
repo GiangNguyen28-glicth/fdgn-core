@@ -21,5 +21,5 @@
     "@nestjs/mongoose": "^10.0.2",
     "mongoose": "7.3.4"
   },
-  "gitHead": "ebba7047f7f6d147be5cddf34e05c662f959c00b"
+  "gitHead": "175121a4dbbf9e7720849b5a47edce30e1c74004"
 }

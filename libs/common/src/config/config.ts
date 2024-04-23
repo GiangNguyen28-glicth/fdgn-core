@@ -21,7 +21,7 @@ export class AppConfig {
 const YAML_CONFIG_FILENAME = 'config.yml';
 const PACKAGE_CONFIG_FILENAME = 'package.json';
 
-export const config = (): Promise<AppConfig> => {
+export const config = (): AppConfig => {
   const env: ENV = (process.env['NODE_ENV'] ?? ENV.DEV) as ENV;
   const appCfg = yaml.load(readFileSync(YAML_CONFIG_FILENAME, 'utf8')) as object;
   const paths = flattenKeys(appCfg, null);
@@ -33,7 +33,7 @@ export const config = (): Promise<AppConfig> => {
   const pkgCfg = pick(pkg, ['name', 'description', 'version']);
 
   return {
-    env,
+    env: env,
     isProd: env === ENV.PROD,
     ...appCfg,
     ...pkgCfg,
