@@ -532,16 +532,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fdgn/client-core@^1.1.10, @fdgn/client-core@workspace:libs/clients/client-core":
+"@fdgn/client-core@^1.1.11, @fdgn/client-core@workspace:libs/clients/client-core":
   version: 0.0.0-use.local
   resolution: "@fdgn/client-core@workspace:libs/clients/client-core"
   dependencies:
-    "@fdgn/common": ^1.1.10
+    "@fdgn/common": ^1.1.13
     source-map-support: ^0.5.21
   languageName: unknown
   linkType: soft
 
-"@fdgn/common@^1.1.10, @fdgn/common@workspace:libs/common":
+"@fdgn/common@^1.1.13, @fdgn/common@workspace:libs/common":
   version: 0.0.0-use.local
   resolution: "@fdgn/common@workspace:libs/common"
   dependencies:
@@ -564,7 +564,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fdgn/core@workspace:libs/core"
   dependencies:
-    "@fdgn/common": ^1.1.10
+    "@fdgn/common": ^1.1.13
     "@nestjs/core": ^10.3.0
     "@nestjs/microservices": ^10.3.0
     "@nestjs/platform-express": ^10.3.0
@@ -581,56 +581,44 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@fdgn/mongoose@^1.1.12, @fdgn/mongoose@workspace:libs/clients/mongoose":
+"@fdgn/mongoose@workspace:libs/clients/mongoose":
   version: 0.0.0-use.local
   resolution: "@fdgn/mongoose@workspace:libs/clients/mongoose"
   dependencies:
-    "@fdgn/common": ^1.1.10
+    "@fdgn/common": ^1.1.13
     "@nestjs/mongoose": ^10.0.2
     mongoose: 7.3.4
   languageName: unknown
   linkType: soft
 
-"@fdgn/rabbitmq@^1.1.12, @fdgn/rabbitmq@workspace:libs/clients/rabbitmq":
+"@fdgn/rabbitmq@workspace:libs/clients/rabbitmq":
   version: 0.0.0-use.local
   resolution: "@fdgn/rabbitmq@workspace:libs/clients/rabbitmq"
   dependencies:
-    "@fdgn/client-core": ^1.1.10
-    "@fdgn/common": ^1.1.10
+    "@fdgn/client-core": ^1.1.11
+    "@fdgn/common": ^1.1.13
     amqp-connection-manager: ^4.1.14
     amqplib: ^0.10.3
   languageName: unknown
   linkType: soft
 
-"@fdgn/redis@^1.1.10, @fdgn/redis@workspace:libs/clients/redis":
+"@fdgn/redis@workspace:libs/clients/redis":
   version: 0.0.0-use.local
   resolution: "@fdgn/redis@workspace:libs/clients/redis"
   dependencies:
-    "@fdgn/client-core": ^1.1.10
-    "@fdgn/common": ^1.1.10
+    "@fdgn/client-core": ^1.1.11
+    "@fdgn/common": ^1.1.13
     generic-pool: ^3.9.0
     redis: ^4.6.12
   languageName: unknown
   linkType: soft
 
-"@fdgn/seed-service@workspace:services/seed-service":
-  version: 0.0.0-use.local
-  resolution: "@fdgn/seed-service@workspace:services/seed-service"
-  dependencies:
-    "@fdgn/common": ^1.1.10
-    "@fdgn/mongoose": ^1.1.12
-    "@fdgn/rabbitmq": ^1.1.12
-    "@fdgn/redis": ^1.1.10
-    "@fdgn/typeorm": ^1.1.12
-  languageName: unknown
-  linkType: soft
-
-"@fdgn/typeorm@^1.1.12, @fdgn/typeorm@workspace:libs/clients/typeorm":
+"@fdgn/typeorm@workspace:libs/clients/typeorm":
   version: 0.0.0-use.local
   resolution: "@fdgn/typeorm@workspace:libs/clients/typeorm"
   dependencies:
-    "@fdgn/client-core": ^1.1.10
-    "@fdgn/common": ^1.1.10
+    "@fdgn/client-core": ^1.1.11
+    "@fdgn/common": ^1.1.13
     "@nestjs/typeorm": ^10.0.1
     mysql2: ^3.7.0
     pg: ^8.11.5
