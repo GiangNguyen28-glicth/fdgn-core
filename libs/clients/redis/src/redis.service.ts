@@ -3,10 +3,10 @@ import { isNil } from 'lodash';
 import { RedisClientType, createClient } from 'redis';
 
 import { AbstractClientService, DEFAULT_CON_ID } from '@fdgn/client-core';
-import { sleep, parseJSON } from '@fdgn/common';
+import { parseJSON, sleep } from '@fdgn/common';
 
-import { RedisClientConfig } from './redis.config';
 import { IRedisDel, IRedisGet, IRedisSet, RedisClient } from './interfaces';
+import { RedisClientConfig } from './redis.config';
 
 @Injectable()
 export class RedisClientService
@@ -80,11 +80,20 @@ export class RedisClientService
   }
 
   async set(p: IRedisSet): Promise<void> {
-    await this.getClient(this.getConId(p.conId)).set(p.key, p.value, { EX: p.ttl });
+    try {
+      await this.getClient(this.getConId(p.conId)).set(p.key, p.value, { EX: p.ttl });
+    } catch (error) {
+      throw error;
+    }
   }
 
-  del(p: IRedisDel): Promise<number> {
-    throw new Error('Method not implemented.');
+  async del(p: IRedisDel): Promise<number> {
+    try {
+      return await this.getClient(p.conId).del(p.keys);
+    } catch (error) {
+      console.error(`Deleted redis key failed, Error: ${error}`);
+      throw error;
+    }
   }
 
   async delNamespace(namespace: string, COUNT = 100, condId = DEFAULT_CON_ID): Promise<void> {

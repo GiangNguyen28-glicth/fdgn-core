@@ -4,7 +4,6 @@
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
-  "private": false,
   "files": [
     "dist"
   ],

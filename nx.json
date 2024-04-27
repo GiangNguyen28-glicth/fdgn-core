@@ -1,0 +1,24 @@
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build"],
+        "cacheDirectory": ".yarn/nxcache"
+      }
+    }
+  },
+  "targetDefaults": {
+    "dev": {},
+    "dep:upgrade": {
+      "dependsOn": ["^dep:upgrade"]
+    },
+    "migrate": {
+      "dependsOn": ["^migrate"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["{projectRoot}/dist"]
+    }
+  }
+}

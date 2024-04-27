@@ -18,7 +18,7 @@ export class PaginationDTO {
 
 export class FilterGetAll extends PaginationDTO {
   @ApiProperty({ type: [String], required: false })
-  ids?: string[];
+  ids?: string[] | number[];
 
   @ApiProperty({ type: [String], required: false })
   sort?: string[];

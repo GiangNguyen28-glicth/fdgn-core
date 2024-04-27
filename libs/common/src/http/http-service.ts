@@ -2,11 +2,12 @@ import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import * as bodyParser from 'body-parser';
 import { ValidationPipe } from '@nestjs/common';
+import * as bodyParser from 'body-parser';
+import helmet from 'helmet';
 
 import { HttpConfig } from './http-config';
-import { HttpExceptionFilter } from '../exception';
+import { AppExceptionsFilter } from '../exception';
 
 export class HttpService {
   static async bootstrap(app: NestExpressApplication) {
@@ -14,9 +15,19 @@ export class HttpService {
     const httpConfig = config.get<HttpConfig>('http');
     if (!httpConfig) return;
     app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
-    app.useGlobalFilters(new HttpExceptionFilter());
+    app.useGlobalFilters(new AppExceptionsFilter());
     app.setGlobalPrefix(httpConfig.contextPath);
-
+    app.use(
+      helmet({
+        hidePoweredBy: true,
+        contentSecurityPolicy: {
+          directives: {
+            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            'connect-src': ["'self'"],
+          },
+        },
+      }),
+    );
     const description = this.getDescription(config);
 
     const logger = new Logger('HttpService');

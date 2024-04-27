@@ -1,9 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn, Repository, DataSource } from 'typeorm';
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import { InjectRepository } from '@nestjs/typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, Repository } from 'typeorm';
 
-import { TypeOrmRepo } from '@fdgn/typeorm';
-import { ICrudRepo } from '@fdgn/common';
-
+import { IBaseCurdTypeOrm, TypeOrmRepo } from '@fdgn/typeorm';
+// import {} from '@fdgn/mongoose';
 @Entity({ name: 'products' })
 export class Product {
   @PrimaryGeneratedColumn()
@@ -16,9 +16,9 @@ export class Product {
   name: string;
 }
 
-export type IProductRepo = ICrudRepo<Product>;
+export interface IProductRepo extends IBaseCurdTypeOrm<Product, Repository<Product>> {}
 
-export class ProductTypeOrmRepo extends TypeOrmRepo<Product> {
+export class ProductRepo extends TypeOrmRepo<Product> {
   constructor(
     @InjectRepository(Product)
     productRepo: Repository<Product>,
@@ -27,6 +27,6 @@ export class ProductTypeOrmRepo extends TypeOrmRepo<Product> {
   }
 }
 export const ProductRepoProvider = {
-  provide: 'PRODUCT_TYPE_ORM',
-  useClass: ProductTypeOrmRepo,
+  provide: ProductRepo.name,
+  useClass: ProductRepo,
 };

@@ -1,23 +1,15 @@
 import { Any, Between, Equal, In, IsNull, LessThan, Like, MoreThan, Not } from 'typeorm';
 
-import { OperatorQuery, SortOrder, SortQuery } from '../consts';
+import { OperatorQuery, SortOrder, SortQuery, FilterBuilder } from '@fdgn/common';
 
-export class FilterTypeOrmBuilder<T> {
-  private queryFilter: Object = { where: {} };
-  private sortOption: SortQuery = {};
-  private relations: string[] = [];
+export class FilterTypeOrmBuilder<T> extends FilterBuilder<T> {
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  private query_filters: Object = {};
+  private sort_options: SortQuery = {};
 
   setFilterItem(key: keyof T, query: OperatorQuery, value: any, isNull = false): this {
     if (!value && !isNull) return this;
-    Object.assign(this.queryFilter['where'], this.typeOrmOperatorMapper(key, query, value));
-    return this;
-  }
-
-  setRelations(key: keyof T) {
-    if (!key) {
-      return this;
-    }
-    this.relations.push(String(key));
+    Object.assign(this.query_filters, this.typeOrmOperatorMapper(key, query, value));
     return this;
   }
 
@@ -25,7 +17,7 @@ export class FilterTypeOrmBuilder<T> {
     if (!value) {
       return this;
     }
-    this.sortOption[key as any] = value;
+    this.sort_options[key as any] = value;
     return this;
   }
 
@@ -33,7 +25,7 @@ export class FilterTypeOrmBuilder<T> {
     if (!value) {
       return this;
     }
-    this.sortOption[key as any] = value;
+    this.sort_options[key as any] = value;
     return this;
   }
 
@@ -57,10 +49,7 @@ export class FilterTypeOrmBuilder<T> {
   }
 
   buildQuery() {
-    const query = { filters: this.queryFilter, sorts: this.sortOption };
-    if (this.relations.length) {
-      query.filters['relations'] = this.relations;
-    }
+    const query = { filters: this.query_filters, sorts: this.sort_options };
     return query;
   }
 }

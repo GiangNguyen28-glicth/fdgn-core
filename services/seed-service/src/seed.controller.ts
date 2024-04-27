@@ -2,10 +2,10 @@ import { Controller, Get, Inject, Post, Body, Param } from '@nestjs/common';
 import axios from 'axios';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DataSource, QueryRunner } from 'typeorm';
-import { TypeOrmService } from '@fdgn/typeorm';
+import { FilterTypeOrmBuilder, TypeOrmService } from '@fdgn/typeorm';
 
 import { ClientRMQ, ClientProxy, Ctx, EventPattern, MessagePattern, Payload, RmqContext } from '@nestjs/microservices';
-import { DBS_TYPE, FilterBuilder } from '@fdgn/common';
+import { DBS_TYPE, FilterBuilder, throwIfNotExists } from '@fdgn/common';
 import { RedisClientService } from '@fdgn/redis';
 
 import { InjectMetric } from '@willsoto/nestjs-prometheus';
@@ -13,7 +13,7 @@ import { RabbitMQProducer, ProducerMode } from '@fdgn/rabbitmq';
 import { PinoLogger } from 'nestjs-pino';
 import { Counter } from 'prom-client';
 import { lastValueFrom } from 'rxjs';
-import { IProductRepo, Product, ProductTypeOrmRepo } from './entities';
+import { IProductRepo, Product, ProductRepo } from './entities';
 
 const dbsType = DBS_TYPE.TYPE_ORM;
 export interface INew {
@@ -25,7 +25,7 @@ export class SeedController {
   constructor(
     // @InjectMetric('metric_name') public counter: Counter<string>,
     // @Inject('A') private clientService: ClientRMQ,
-    @Inject('PRODUCT_TYPE_ORM')
+    @Inject(ProductRepo.name)
     protected productRepo: IProductRepo,
     private typeOrmService: TypeOrmService,
 
@@ -36,11 +36,15 @@ export class SeedController {
   @Get(':id')
   async findProductId(@Param('id') id: string): Promise<any> {
     try {
+      const { filters } = new FilterTypeOrmBuilder<Product>().setFilterItem('id', '$eq', id).buildQuery();
       const response = await axios.get(`http://localhost:4017/catalog/product/${id}`);
-      const product: Product = await response.data;
+      const product = await response.data;
+      // const product: Product = await this.productRepo.findOne({ filters });
+      // if (!product) {
+      //   throwIfNotExists(product, 'DD');
+      // }33.......
       return product;
     } catch (error) {
-      // console.log(error);
       throw error;
     }
   }
@@ -57,7 +61,7 @@ export class SeedController {
     const queryRunner = await this.typeOrmService.getConnection();
 
     try {
-      const { filters } = new FilterBuilder<Product>().getInstance(dbsType).setFilterItem('id', '$eq', id).buildQuery();
+      const { filters } = new FilterTypeOrmBuilder<Product>().setFilterItem('id', '$eq', id).buildQuery();
       console.log(JSON.stringify(filters));
       // return await this.productRepo.findOne({ filters });
       const product = await this.productRepo.findOneAndUpdate({ filters, entity: dto, session: queryRunner });

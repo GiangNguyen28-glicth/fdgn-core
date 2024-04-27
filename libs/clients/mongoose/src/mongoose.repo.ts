@@ -1,21 +1,26 @@
-import { ICrudRepo, IFilterFindAll, IFilterFindOne, IInsert, IUpdateOptions } from '@fdgn/common';
+import { IInsert, IUpdateOptions } from '@fdgn/common';
 import { ClientSession, Document, Model, PopulateOptions, QueryOptions, SaveOptions, Types } from 'mongoose';
+import { IBaseCurdMongo, IOptionsFindAllMongo, IOptionsFindOneMongo } from './common';
 
-export abstract class MongoRepo<T> implements ICrudRepo<T> {
+export abstract class MongoRepo<T> implements IBaseCurdMongo<T, Model<T>> {
   constructor(protected readonly model: Model<T>) {}
 
-  async findAll(options: IFilterFindAll): Promise<T[]> {
+  getRepo(): Model<T> {
+    return this.model;
+  }
+
+  async findAll(options: IOptionsFindAllMongo<T>): Promise<T[]> {
     if (!options) {
       return await this.model.find().lean();
     }
-    const { filters, sortOption, fields, pagination, populates } = options;
+    const { filters, sort_options, fields, pagination, populates } = options;
     const result = await this.model
       .find(filters)
       .populate(populates)
       .skip((pagination?.page - 1) * pagination?.size)
       .limit(pagination?.size)
-      .sort(sortOption)
-      .select(fields)
+      .sort(sort_options)
+      .select(fields as string[])
       .lean();
     return result as T[];
   }
@@ -24,13 +29,16 @@ export abstract class MongoRepo<T> implements ICrudRepo<T> {
     return this.model;
   }
 
-  async findOne(options: IFilterFindOne): Promise<T> {
+  async findOne(options: IOptionsFindOneMongo<T>): Promise<T> {
     const { filters, populates, fields } = options;
-    const doc = await this.model.findOne(filters).populate(populates).select(fields);
+    const doc = await this.model
+      .findOne(filters)
+      .populate(populates)
+      .select(fields as string[]);
     return doc as T;
   }
 
-  async count(options?: IFilterFindAll): Promise<number> {
+  async count(options?: IOptionsFindAllMongo<T>): Promise<number> {
     return await this.model.countDocuments(options?.filters);
   }
 
@@ -64,7 +72,7 @@ export abstract class MongoRepo<T> implements ICrudRepo<T> {
     return (await this.model.findOneAndUpdate(filters, entity, otps)) as T;
   }
 
-  async distinct(options: IFilterFindAll, field: keyof T) {
+  async distinct(options: IOptionsFindAllMongo<T>, field: keyof T) {
     if (!field) {
       throw new Error('Missing field in select distinct');
     }
@@ -111,7 +119,7 @@ export abstract class MongoRepo<T> implements ICrudRepo<T> {
     return await this.model.updateMany(filters, entity, otps).lean();
   }
 
-  async findAndDelete(options?: IFilterFindAll): Promise<void> {
+  async findAndDelete(options?: IOptionsFindAllMongo<T>): Promise<void> {
     await this.model.deleteMany(options?.filters);
   }
 }

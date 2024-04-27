@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CommonModule } from '@fdgn/common';
 
-import { TypeOrmClientConfig } from './type-orm.config';
+import { TypeOrmClientConfig } from './configs';
 import { TypeOrmService } from './type-orm.service';
 export const CONFIG_KEY = 'typeOrm';
 

@@ -2,7 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { MongooseClientConfig } from './mongoose.config';
+import { MongooseClientConfig } from './configs';
 import { MongooseService } from './mongoose.service';
 const CONFIG_KEY = 'mongoose';
 @Global()

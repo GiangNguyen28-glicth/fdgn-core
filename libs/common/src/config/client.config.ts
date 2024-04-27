@@ -20,7 +20,6 @@ export abstract class AbstractClientConfig<T> {
   getInstance(): T {
     if (this.config) return this.config;
     const props: T = this.configService.get<T>(this.configKey as any);
-    console.log(JSON.stringify(props));
     if (!props) {
       throw new Error(`Config key ${this.configKey} not found !!!`);
     }

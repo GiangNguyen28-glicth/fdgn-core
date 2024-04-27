@@ -23,7 +23,7 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
 
   getNumOfConsumer() {
     const numOfConsumer = toInt(this.config.numOfConsumer);
-    if(isNumber(numOfConsumer)) {
+    if (isNumber(numOfConsumer)) {
       return numOfConsumer;
     }
     return 1;

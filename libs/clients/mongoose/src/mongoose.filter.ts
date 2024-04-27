@@ -1,21 +1,17 @@
 import { isEmpty, isNil } from 'lodash';
+import { SortQuery, OperatorQuery, toKeyword, SortOrder, FilterBuilder } from '@fdgn/common';
 
-import { OperatorQuery, SortOrder, SortQuery } from '../consts';
-import { toKeyword } from '../utils';
-
-export class FilterMongoBuilder<T> {
-  private queryFilter: any = { $and: [] };
-  private sortOption: SortQuery = {};
+export class FilterMongoBuilder<T> extends FilterBuilder<T> {
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  private query_filters: Object = { $and: [] };
+  private sort_options: SortQuery = {};
 
   setFilterItem(key: keyof T, query: OperatorQuery, value: any, isNull = false): this {
     if (!value && !isNull) return this;
-    if (key === 'id') {
-      key = '_id' as any;
-    }
     const subQuery = {
       [key]: { [query]: value },
     };
-    this.queryFilter['$and'].push(subQuery);
+    this.query_filters['$and'].push(subQuery);
     return this;
   }
 
@@ -23,7 +19,7 @@ export class FilterMongoBuilder<T> {
     const subQuery = {
       [key]: query,
     };
-    this.queryFilter['$and'].push(subQuery);
+    this.query_filters['$and'].push(subQuery);
     return this;
   }
 
@@ -42,7 +38,7 @@ export class FilterMongoBuilder<T> {
     if (!value) {
       return this;
     }
-    this.sortOption[key as any] = value;
+    this.sort_options[key as any] = value;
     return this;
   }
 
@@ -50,12 +46,12 @@ export class FilterMongoBuilder<T> {
     if (!value) {
       return this;
     }
-    this.sortOption[key as any] = value;
+    this.sort_options[key as any] = value;
     return this;
   }
 
   buildQuery() {
-    if (!this.queryFilter?.['$and'].length) return { filters: {}, sorts: this.sortOption };
-    return { filters: this.queryFilter, sorts: this.sortOption };
+    if (!this.query_filters?.['$and'].length) return { filters: {}, sorts: this.sort_options };
+    return { filters: this.query_filters, sorts: this.sort_options };
   }
 }
