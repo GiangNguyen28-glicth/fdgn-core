@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/seed-service",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "main": "dist/index",
   "types": "dist/index",
   "scripts": {
@@ -11,11 +11,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@fdgn/common": "^1.1.14",
-    "@fdgn/mongoose": "^1.1.14",
-    "@fdgn/rabbitmq": "^1.1.14",
-    "@fdgn/redis": "^1.1.12",
-    "@fdgn/typeorm": "^1.1.14",
+    "@fdgn/common": "^1.1.15",
+    "@fdgn/mongoose": "^1.1.15",
+    "@fdgn/rabbitmq": "^1.1.15",
+    "@fdgn/redis": "^1.1.13",
+    "@fdgn/typeorm": "^1.1.15",
     "@grpc/grpc-js": "^1.10.8",
     "@grpc/proto-loader": "^0.7.13"
   },
