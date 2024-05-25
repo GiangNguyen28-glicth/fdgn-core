@@ -1,8 +1,10 @@
 import { Inject, OnModuleInit, forwardRef } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { sleep, toInt } from '@fdgn/common';
 import { isNumber } from 'lodash';
 import { cargoQueue as Queue, QueueObject } from 'async';
+
+import { sleep, toInt, DEFAULT_CONSUMER, DEFAULT_CONCURRENT, DEFAULT_BATCH_SIZE } from '@fdgn/common';
+import { DEFAULT_CON_ID } from '@fdgn/client-core';
 
 import { Consumeable, MessageConsume, IQueueConsumeConfig, RabbitMessage } from '../models';
 import { RabbitMQService } from '../rabbitmq';
@@ -10,15 +12,25 @@ import { RabbitMQService } from '../rabbitmq';
 export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnModuleInit {
   private queue: QueueObject<MessageConsume<Input>>;
   private consumersTasks: QueueObject<unknown>;
+  private timeoutId: NodeJS.Timeout;
 
   @Inject()
   protected configService: ConfigService;
 
   @Inject(forwardRef(() => RabbitMQService))
-  protected rabbitService: RabbitMQService;
+  private rabbitService: RabbitMQService;
 
   protected constructor(protected context: string, protected config: IQueueConsumeConfig) {
     this.config.numOfConsumer = this.getNumOfConsumer();
+  }
+
+  protected get rmqService(): RabbitMQService {
+    return this.rabbitService;
+  }
+
+  initConfig() {
+    this.config.concurrent = this.config.useConcurrent ? this.config.concurrent : DEFAULT_CONCURRENT;
+    this.config.batchSize = this.config.useBatchSize ? this.config.batchSize : DEFAULT_BATCH_SIZE;
   }
 
   getNumOfConsumer() {
@@ -26,31 +38,37 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
     if (isNumber(numOfConsumer)) {
       return numOfConsumer;
     }
-    return 1;
+    return DEFAULT_CONSUMER;
   }
 
   async onModuleInit() {
+    this.initConfig();
     await this.init();
   }
 
   abstract process(sources: Input | Input[]): Promise<void>;
+  protected async beforeProcess(source: MessageConsume<Input>[]) {
+    return;
+  }
 
-  async initQueue() {
-    this.queue = Queue<MessageConsume<Input>>(async (tasks: MessageConsume<Input>[]) => {
-      for (let i = 0; i < tasks.length; i++) {
-        await this.taskHandler(tasks[i]);
-      }
-    }, this.config.numOfConsumer * this.config.prefetchCount);
+  private async initQueue() {
+    this.queue = Queue<MessageConsume<Input>>(
+      async (tasks: MessageConsume<Input>[]) => {
+        await this.taskHandler(tasks);
+      },
+      this.config.concurrent,
+      this.config.batchSize,
+    );
 
     this.consumersTasks = Queue<MessageConsume<Input>>(async tasks => {
       for (let i = 0; i < tasks.length; i++) {
         await this.startConsuming();
       }
-    }, this.config.numOfConsumer);
+    }, this.getNumOfConsumer());
   }
 
-  async initConsumers() {
-    for (let i = 0; i < this.config.numOfConsumer; i++) {
+  private async initConsumers() {
+    for (let i = 0; i < this.getNumOfConsumer(); i++) {
       this.consumersTasks.push(i);
     }
   }
@@ -67,19 +85,25 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
   private consumer: (source: MessageConsume<Input>) => void = null;
 
   async start(): Promise<void> {
-    await this.rabbitService.binding({
-      exchange: this.config.exchange,
-      exchangeType: this.config.exchangeType ?? 'direct',
-      queue: this.config.queue,
-      routingKey: this.config.routingKey,
-      queueOptions: {
-        arguments: {
-          'x-queue-type': this.config.queueType ?? 'classic',
-          'x-dead-letter-exchange': this.config.deadLetterExchange,
-          'x-dead-letter-routing-key': this.config.deadLetterRoutingKey,
+    if (!this.rabbitService.getClient(this.config.condId)) {
+      return;
+    }
+    await this.rabbitService.binding(
+      {
+        exchange: this.config.exchange,
+        exchangeType: this.config.exchangeType ?? 'direct',
+        queue: this.config.queue,
+        routingKey: this.config.routingKey,
+        queueOptions: {
+          arguments: {
+            'x-queue-type': this.config.queueType ?? 'classic',
+            'x-dead-letter-exchange': this.config.deadLetterExchange,
+            'x-dead-letter-routing-key': this.config.deadLetterRoutingKey,
+          },
         },
       },
-    });
+      this.config.condId,
+    );
     await this.initConsumers();
   }
 
@@ -94,32 +118,35 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
         callback: async (msg: RabbitMessage) => {
           const source = this.transform(msg);
           if (source) await this.consumer(source);
-          else await this.rabbitService.commit(msg);
+          else await this.rabbitService.commit(msg, this.config.condId);
         },
         rbOptions: {
-          noAck: this.config.noAck ?? false,
-          requeue: this.config.requeue ?? false,
-          prefetchMessages: this.config.prefetchCount ?? 1,
+          noAck: this.config.noAck || false,
+          requeue: this.config.requeue || false,
+          prefetchMessages: this.config.prefetchCount || 1,
         } as any,
+        conId: this.config.condId || DEFAULT_CON_ID,
       });
     } catch (error) {
       console.error(error, 'Could not consume queue: %s', this.config.queue);
     }
   }
 
-  private async processWithRetryDelayTimeout(source: MessageConsume<Input>, delayTimeout = 5000): Promise<void> {
+  private async processWithRetryDelayTimeout(sources: MessageConsume<Input>[], delayTimeout = 5): Promise<void> {
     const attemptToProcess = async (retryTime = 0) => {
       try {
-        await this.process(source.data);
-        await this.rabbitService.commit(source.msg);
+        await this.beforeProcess(sources);
+        const data = sources.map(source => source.data);
+        await this.process(this.getBatchSize(data));
+        await this.release(sources);
       } catch (e) {
         retryTime++;
         if (retryTime >= this.config.maxRetries) throw e;
         console.error(
-          `Processing data into client database has been occurred error: %s and retry after ${delayTimeout}ms`,
+          `Processing data into client database has been occurred error: %s and retry after ${delayTimeout}s`,
           e,
         );
-        sleep(delayTimeout);
+        await sleep(delayTimeout, 'seconds');
         return attemptToProcess(retryTime);
       }
     };
@@ -127,23 +154,74 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
     return await attemptToProcess();
   }
 
-  protected async taskHandler(source: MessageConsume<Input>) {
+  protected async taskHandler(sources: MessageConsume<Input>[]) {
     try {
-      await this.processWithRetryDelayTimeout(source, this.config.retryTime);
+      await this.processWithRetryDelayTimeout(sources, this.config.retryTime);
     } catch (error) {
-      console.error(error, 'Pusher failed with request: %j', source);
-      await this.rabbitService.reject(source);
+      console.error(error, 'Pusher failed with request: %j', sources);
+      await this.reject(sources);
       console.info('Pusher has been rejected and pushed to dead letter!');
     }
   }
 
   protected async add(source: MessageConsume<Input>) {
     this.queue.push(source);
+    await this.batchChecking();
   }
 
   protected async init() {
     await this.initQueue();
     await this.consume(this.add.bind(this));
     await this.start();
+  }
+
+  getAckMessage(sources: MessageConsume<Input>[]) {
+    return sources.map(item => item.msg);
+  }
+
+  async release(sources: MessageConsume<Input>[]) {
+    for (const msg of this.getAckMessage(sources)) {
+      await this.rabbitService.commit(msg, this.config.condId);
+    }
+  }
+
+  async reject(sources: MessageConsume<Input>[]) {
+    for (const msg of this.getAckMessage(sources)) {
+      await this.rabbitService.reject(msg, false, this.config.condId);
+    }
+  }
+
+  private getBatchSize(sources: Input[]): Input | Input[] {
+    return sources.length === DEFAULT_BATCH_SIZE ? sources[0] : sources;
+  }
+
+  async batchChecking() {
+    if (!this.config.useBatchChecking) return;
+    if (this.queue.length() >= this.config.batchSize) {
+      console.log('Resume message !');
+      this.resume();
+    } else {
+      this.pause();
+    }
+  }
+
+  pause() {
+    if (this.queue.paused) {
+      console.log(`Total message in queue ${this.queue.length()} .Process has been paused!`);
+      return;
+    }
+    this.queue.pause();
+    console.debug('Waiting for enough data to batching process during %s seconds', this.config.batchTimeout / 1000);
+    this.timeoutId = setTimeout(() => {
+      this.resume();
+    }, this.config.batchTimeout);
+    console.debug('%s Processor has been paused', this.context);
+  }
+
+  resume() {
+    this.queue.resume();
+    clearTimeout(this.timeoutId);
+    this.timeoutId = null;
+    console.debug('%s Processor has been resumed', this.context);
   }
 }

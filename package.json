@@ -3,7 +3,8 @@
   "description": "FDGN Core",
   "private": true,
   "workspaces": [
-    "libs/**/*"
+    "libs/**/*",
+    "services/**/*"
   ],
   "engines": {
     "node": ">=14"

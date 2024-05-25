@@ -61,6 +61,5 @@ export class RabbitMQProducer<Output> implements Produceable<Output> {
         msgs: sources.map(source => this.transform(source)),
       });
     }
-    this.rabbitMetric.success('Hehe', 1);
   }
 }

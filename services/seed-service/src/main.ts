@@ -1,4 +1,4 @@
-import { Application } from '@fdgn/core';
+import { Application } from '@fdgn/common';
 import { AppModule } from './app.module';
 
 Application.bootstrap(AppModule, {

@@ -1,0 +1,27 @@
+{
+  "name": "@fdgn/job-service-core",
+  "version": "1.0.1",
+  "description": "Job service core",
+  "author": "GiangNguyen28-glicth <giangnguyen3246>",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "nest build --watch -p tsconfig.json",
+    "build": "rimraf -rf dist && nest build -p tsconfig.json",
+    "prepublishOnly": "yarn build",
+    "test": "jest --passWithNoTests --coverage",
+    "dev:test": "jest --watch",
+    "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
+  },
+  "dependencies": {
+    "@fdgn/common": "^1.1.13",
+    "@fdgn/typeorm": "^1.1.13",
+    "async": "^3.2.5"
+  },
+  "devDependencies": {
+    "@types/async": "3.2.24"
+  }
+}

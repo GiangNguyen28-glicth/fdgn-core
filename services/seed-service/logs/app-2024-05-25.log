@@ -1,0 +1,143 @@
+[32m[MyApp] 24496  - [39m5/25/2024, 10:34:03 AM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 24496  - [39m5/25/2024, 10:34:03 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+36ms[39m
+[32m[MyApp] 24496  - [39m5/25/2024, 10:34:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 24496  - [39m5/25/2024, 10:34:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 24496  - [39m5/25/2024, 10:34:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 24496  - [39m5/25/2024, 10:34:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 24496  - [39m5/25/2024, 10:34:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 24496  - [39m5/25/2024, 10:34:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 24496  - [39m5/25/2024, 10:34:03 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 24496  - [39m5/25/2024, 10:34:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+114ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+46ms[39m
+[32m[MyApp] 12668  - [39m5/25/2024, 10:36:16 AM [32m    LOG[39m [33m[GrpcService][39m [32mis listening on port 8085[39m [33m+1ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+69ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:49 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:50 AM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+287ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:50 AM [32m    LOG[39m [33m[GrpcService][39m [32mis listening on port 8085[39m [33m+1ms[39m
+[32m[MyApp] 11740  - [39m5/25/2024, 10:54:58 AM [32m    LOG[39m  [32mlog[39m [33m+8s[39m
+[31m[MyApp] 11740  - [39m5/25/2024, 10:54:58 AM [31m  ERROR[39m  [31merror[39m - { stack: [ [1mnull[22m ] } [33m+0ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+68ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+1ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+160ms[39m
+[32m[MyApp] 16620  - [39m5/25/2024, 11:01:26 AM [32m    LOG[39m [33m[GrpcService][39m [32mis listening on port 8085[39m [33m+2ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+40ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+4ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+130ms[39m
+[32m[MyApp] 15892  - [39m5/25/2024, 11:03:46 AM [32m    LOG[39m [33m[GrpcService][39m [32mis listening on port 8085[39m [33m+2ms[39m
+[31m[MyApp] 15892  - [39m5/25/2024, 11:03:51 AM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m14 UNAVAILABLE: No connection established. Last error: connect ECONNREFUSED ::1:5000 (2024-05-25T04:03:51.284Z)[39m - {
+  stack: [
+    [32m'Error: 14 UNAVAILABLE: No connection established. Last error: connect ECONNREFUSED ::1:5000 (2024-05-25T04:03:51.284Z)\n'[39m +
+      [32m'    at callErrorFromStatus (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@nestjs\\microservices\\client\\client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\Observable.ts:244:19)\n'[39m +
+      [32m'    at E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\util\\errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\Observable.ts:220:5)\n'[39m +
+      [32m'    at E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+5s[39m
+[31m[MyApp] 15892  - [39m5/25/2024, 11:03:58 AM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m14 UNAVAILABLE: No connection established. Last error: connect ECONNREFUSED ::1:5000 (2024-05-25T04:03:51.284Z)[39m - {
+  stack: [
+    [32m'Error: 14 UNAVAILABLE: No connection established. Last error: connect ECONNREFUSED ::1:5000 (2024-05-25T04:03:51.284Z)\n'[39m +
+      [32m'    at callErrorFromStatus (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@grpc\\grpc-js\\src\\make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\@nestjs\\microservices\\client\\client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\Observable.ts:244:19)\n'[39m +
+      [32m'    at E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\util\\errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\Observable.ts:220:5)\n'[39m +
+      [32m'    at E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (E:\\microservices\\fdgn\\fdgn-core\\node_modules\\rxjs\\src\\internal\\lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+7s[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+15ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+1ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+110ms[39m
+[32m[MyApp] 15272  - [39m5/25/2024, 11:07:25 AM [32m    LOG[39m [33m[GrpcService][39m [32mis listening on port 8085[39m [33m+1ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+53ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+4ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+210ms[39m
+[32m[MyApp] 17236  - [39m5/25/2024, 11:19:03 AM [32m    LOG[39m [33m[GrpcService][39m [32mis listening on port 8085[39m [33m+2ms[39m

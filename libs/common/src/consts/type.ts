@@ -12,3 +12,9 @@ export type OperatorQuery =
 export type UNITS_OF_TIME = 'seconds' | 'minutes' | 'hours' | 'milliseconds';
 export type SortOrder = -1 | 1 | 'asc' | 'desc';
 export type SortQuery = { [key: string]: SortOrder };
+export type CallBackDecorator = {
+  args: any[];
+  target: any;
+  propertyKey: string;
+  descriptor: PropertyDescriptor;
+};

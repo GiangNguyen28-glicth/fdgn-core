@@ -1,7 +1,8 @@
-import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
-import { isPlainObject } from 'lodash';
-import { Response, Request } from 'express';
-
+import { ArgumentsHost, Catch, ExceptionFilter, HttpStatus } from '@nestjs/common';
+import { Request, Response } from 'express';
+import { get, isPlainObject } from 'lodash';
+import { UN_KNOW } from '../consts';
+import { isAxiosError, isHttpException } from '../utils';
 interface HttpExceptionResponse {
   status_code: number;
   error: string;
@@ -25,10 +26,13 @@ export class AppExceptionsFilter implements ExceptionFilter {
     let status: HttpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
     let error_message: string;
 
-    if (exception instanceof HttpException) {
+    if (isHttpException(exception)) {
       status = exception.getStatus();
       const error_response = exception.getResponse();
-      error_message = (error_response as HttpExceptionResponse).error || exception.message;
+      error_message = get(error_response, 'error', null) || exception.message;
+    } else if (isAxiosError(exception)) {
+      status = exception.response.status;
+      error_message = get(exception, 'response.data.error', UN_KNOW);
     } else if (exception instanceof Error && exception.message) {
       error_message = exception.message;
     } else if (isPlainObject(exception)) {

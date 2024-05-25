@@ -18,7 +18,7 @@ export abstract class TypeOrmRepo<T> implements IBaseCurdTypeOrm<T, Repository<T
     return await this.repository.find({
       where: filters,
       select: fields,
-      skip: (pagination?.page - 1) * pagination?.size,
+      skip: (pagination?.page - 1) * pagination?.size || 0,
       take: pagination?.size,
       relations,
       order: sort_options,

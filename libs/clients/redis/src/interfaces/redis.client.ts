@@ -11,12 +11,14 @@ export interface IRedisCommon {
 
 export interface IRedisGet extends IRedisCommon {
   key: string;
+  isJson?: boolean;
 }
 
 export interface IRedisSet extends IRedisCommon {
   key: string;
   value: string;
   ttl?: number;
+  isJson?: boolean;
 }
 
 export interface IRedisDel extends IRedisCommon {

@@ -1,5 +1,6 @@
 import { ValidationError, validateSync } from '@fdgn/common';
 export const DEFAULT_CON_ID = 'default';
+
 export class ClientConfig {
   conId?: string;
 

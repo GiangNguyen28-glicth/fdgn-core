@@ -6,3 +6,9 @@ export interface RabbitConsumeOptions extends Options.Consume {
   prefetchMessages?: number;
   requeue?: boolean;
 }
+
+export interface ICheckQueue {
+  consumerCount: number;
+  messageCount: number;
+  queue: string;
+}

@@ -1,5 +1,5 @@
 {
-  "packages": ["libs/**/*"],
+  "packages": ["libs/**/*", "services/**/*"],
   "command": {
     "publish": {
       "ignoreChanges": ["ignored-file", "*.md", "**/k8s/**", "**/import_files/**", "**/export_files/**"],

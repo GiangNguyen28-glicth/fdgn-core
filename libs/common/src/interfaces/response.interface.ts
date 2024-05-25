@@ -11,9 +11,9 @@ export interface IResult<T> {
   metadata?: any;
 }
 
-export interface IError {
+export interface IError<T> {
   message?: string;
-  data?: any;
+  data?: T;
 }
 
 export interface IResponse {

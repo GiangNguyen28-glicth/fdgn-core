@@ -68,7 +68,11 @@ export abstract class AbstractClientService<Config extends ClientConfig, C = any
   }
 
   getClient(conId = DEFAULT_CON_ID): C {
-    return this.clients[conId];
+    const client = this.clients[conId];
+    if (!client) {
+      throw new Error(`Client did not initial, Please verify this connection ${conId}`);
+    }
+    return client;
   }
 
   setClient(client: C, conId = DEFAULT_CON_ID): void {

@@ -1,19 +1,29 @@
 import { Injectable } from '@nestjs/common';
+import { InjectMetric } from '@willsoto/nestjs-prometheus';
 import { isNil } from 'lodash';
+import { Counter } from 'prom-client';
 import { RedisClientType, createClient } from 'redis';
 
 import { AbstractClientService, DEFAULT_CON_ID } from '@fdgn/client-core';
 import { parseJSON, sleep } from '@fdgn/common';
 
+import { RedisGetStatus, RedisSetStatus } from './constance';
 import { IRedisDel, IRedisGet, IRedisSet, RedisClient } from './interfaces';
 import { RedisClientConfig } from './redis.config';
+import { REDIS_TRACKING_GET_STATUS, REDIS_TRACKING_SET_STATUS } from './redis.metrics';
 
 @Injectable()
 export class RedisClientService
   extends AbstractClientService<RedisClientConfig, RedisClientType>
   implements RedisClient
 {
-  constructor() {
+  constructor(
+    @InjectMetric(REDIS_TRACKING_SET_STATUS)
+    private trackingSet: Counter<string>,
+
+    @InjectMetric(REDIS_TRACKING_GET_STATUS)
+    private trackingGet: Counter<string>,
+  ) {
     super('redis', RedisClientConfig);
   }
 
@@ -65,24 +75,44 @@ export class RedisClientService
   }
 
   getConId(condId = DEFAULT_CON_ID) {
-    return condId ? condId : DEFAULT_CON_ID;
+    return condId;
   }
 
   async get<T>(p: IRedisGet): Promise<T> {
-    const namespace = this.getNamespace(p.key, p.namespace);
-    const cachedValue = await this.getClient(this.getConId(p.conId)).get(namespace);
+    const conId = this.getConId(p.conId);
+    try {
+      const namespace = this.getNamespace(p.key, p.namespace);
+      const cachedValue = await this.getClient(conId).get(namespace);
 
-    if (!isNil(cachedValue)) {
-      const { data, error } = parseJSON(cachedValue);
-      return (isNil(error) ? data : cachedValue) as T;
+      if (isNil(cachedValue)) {
+        this.trackingGet.inc({ status: RedisGetStatus.MISS, namespace: p.namespace, conId });
+        return null;
+      }
+
+      this.trackingGet.inc({ status: RedisGetStatus.HIT, namespace: p.namespace, conId });
+      if (p.isJson) {
+        const { data, error } = parseJSON<T>(cachedValue);
+        return isNil(error) ? data : (cachedValue as T);
+      }
+
+      return cachedValue as T;
+    } catch (error) {
+      this.trackingGet.inc({ status: RedisGetStatus.ERROR, namespace: p.namespace, conId });
+      throw error;
     }
-    return cachedValue as T;
   }
 
   async set(p: IRedisSet): Promise<void> {
+    const conId = this.getConId(p.conId);
     try {
-      await this.getClient(this.getConId(p.conId)).set(p.key, p.value, { EX: p.ttl });
+      let value = p.value;
+      if (p.isJson) {
+        value = JSON.stringify(p.value);
+      }
+      this.trackingSet.inc({ status: RedisSetStatus.SUCCESS, namespace: p.namespace, conId });
+      await this.getClient(conId).set(p.key, value, { EX: p.ttl });
     } catch (error) {
+      this.trackingSet.inc({ status: RedisSetStatus.ERROR, namespace: p.namespace, conId });
       throw error;
     }
   }

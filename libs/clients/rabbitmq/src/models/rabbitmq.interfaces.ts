@@ -56,17 +56,24 @@ export interface IQueueConsumeConfig extends IQueue {
   maxRetries: number;
   retryTime: number;
   numOfConsumer?: number;
+  batchSize?: number;
+  useBatchSize?: boolean;
+  useConcurrent?: boolean;
+  useBatchChecking?: boolean;
+  batchTimeout?: number;
+  condId?: string;
+  concurrent?: number;
 }
 
 export interface IQueueProducerConfig {
   mode: ProducerMode;
   queue?: string;
-  exchange?: string;
-  routingKey?: string;
+  exchange: string;
+  routingKey: string;
 }
 
 export interface MessageConsume<Input> {
-  data: Input | Input[];
+  data: Input;
   msg: RabbitMessage;
 }
 

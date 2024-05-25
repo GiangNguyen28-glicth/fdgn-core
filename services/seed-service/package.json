@@ -15,7 +15,9 @@
     "@fdgn/mongoose": "^1.1.12",
     "@fdgn/rabbitmq": "^1.1.12",
     "@fdgn/redis": "^1.1.10",
-    "@fdgn/typeorm": "^1.1.12"
+    "@fdgn/typeorm": "^1.1.12",
+    "@grpc/grpc-js": "^1.10.8",
+    "@grpc/proto-loader": "^0.7.13"
   },
   "gitHead": "175121a4dbbf9e7720849b5a47edce30e1c74004"
 }

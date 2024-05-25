@@ -1,6 +1,8 @@
-import { NotFoundException } from '@nestjs/common';
+import { HttpException, NotFoundException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { isArray, isEmpty, isNil } from 'lodash';
+import * as axios from 'axios';
+export type AxiosError = axios.AxiosError;
 
 import { IParseJson, IResult } from '../interfaces';
 import { PaginationDTO } from '../dto';
@@ -71,13 +73,13 @@ export function formatResult<T>(data: T[], total_count: number, pagination?: Pag
 }
 
 export async function sleep(time: number, unit: UNITS_OF_TIME = 'milliseconds') {
-  const valueUnitOfTime = {
+  const value_unit_of_time = {
     milliseconds: 1,
     seconds: 1000,
     minutes: 1000 * 60,
     hours: 1000 * 60 * 60,
   };
-  return new Promise(resolve => setTimeout(resolve, valueUnitOfTime[unit] * time));
+  return new Promise(resolve => setTimeout(resolve, value_unit_of_time[unit] * time));
 }
 
 export function isJSONString(str: string): boolean {
@@ -109,4 +111,18 @@ export function toArray<T>(data: T | Array<T>): T[] {
 
 export function isNullOrEmpty(str: string): boolean {
   return isEmpty(str) || isNil(str);
+}
+
+export function isAxiosError(exception: unknown): exception is AxiosError {
+  if (exception instanceof axios.AxiosError) {
+    return true;
+  }
+  return false;
+}
+
+export function isHttpException(exception: unknown): exception is HttpException {
+  if (exception instanceof HttpException) {
+    return true;
+  }
+  return false;
 }

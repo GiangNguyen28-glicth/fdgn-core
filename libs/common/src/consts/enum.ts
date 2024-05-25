@@ -39,3 +39,9 @@ export enum ExceptionStatus {
   GATEWAY_TIMEOUT = 'GATEWAY TIMEOUT',
   HTTP_VERSION_NOT_SUPPORTED = 'HTTP VERSION NOT SUPPORTED',
 }
+
+export enum DomainEventStatus {
+  INPROGRESS = 'INPROGRESS',
+  SUCCESS = 'SUCCESS',
+  FAILED = 'FAILED',
+}

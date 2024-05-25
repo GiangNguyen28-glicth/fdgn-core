@@ -1,4 +1,4 @@
-http:
+grpc:
   host: 'localhost'
   port: 8085
 
@@ -9,11 +9,10 @@ rabbit:
   password: guest
   port: 5672
   heartbeat: 1
-  queue: 'demo'
   onConnectionEvent:
     exitOnClose: false
     exitOnError: false
-  onChannelEvent: 
+  onChannelEvent:
     exitOnClose: false
     exitOnError: false
   retry:
@@ -39,7 +38,7 @@ mongoose:
   host: localhost
   port: 27017
   database: microservices
-  
+
 redis:
   url: localhost
   password: null
@@ -68,3 +67,13 @@ mailConsume:
     routingKey: notification_send_mail
     retryTime: 3000
     maxRetries: 1
+
+kafka:
+  clientId: my-app
+  brokers:
+    - localhost:9092
+
+seedJob:
+  type: SEED_JOB
+  concurrent: 1
+  enable: true

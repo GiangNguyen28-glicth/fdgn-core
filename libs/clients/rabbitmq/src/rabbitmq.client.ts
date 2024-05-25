@@ -14,5 +14,6 @@ export interface RabbitMQClient extends Client<RabbitMQConfig, Connection> {
   consume(options: IConsume): Promise<void>;
 
   commit(msg: RabbitMessage, conId?: string): Promise<void>;
+
   reject(msg: RabbitMessage, requeue?: boolean, conId?: string): Promise<void>;
 }

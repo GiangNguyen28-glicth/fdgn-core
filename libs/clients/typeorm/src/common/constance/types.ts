@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
 import { ICrudRepo, IRepoClient } from '@fdgn/common';
 import { IOptionsFindAllTypeOrm, IOptionsFindOneTypeOrm } from '../filters';
 

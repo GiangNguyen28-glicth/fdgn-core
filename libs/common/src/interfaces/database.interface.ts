@@ -21,3 +21,5 @@ export interface ISoftDelete {
 export interface IAuditable extends IDateTracking, IUserTracking, ISoftDelete, IEntity {
   _id: string;
 }
+
+export interface IBaseEntity extends ISoftDelete, IDateTracking, IEntity {}
