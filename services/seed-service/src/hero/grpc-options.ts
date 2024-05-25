@@ -10,6 +10,7 @@ export const grpcClientOptions: ClientOptions = {
   options: {
     package: ['hero'], // ['hero', 'hero2']
     protoPath: files, // ['./hero/hero.proto', './hero/hero2.proto']
+    url: `localhost:50051`,
     onLoadPackageDefinition: (pkg, server) => {
       new ReflectionService(pkg).addToServer(server);
     },

@@ -1,6 +1,9 @@
-grpc:
+http:
   host: 'localhost'
   port: 8085
+grpc:
+  host: 'localhost'
+  port: 50051
 
 rabbit:
   protocol: amqp

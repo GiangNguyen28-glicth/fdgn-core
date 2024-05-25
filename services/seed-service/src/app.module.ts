@@ -7,6 +7,6 @@ import { SeedModule } from './seed.module';
 import { HeroModule } from './hero/hero.module';
 
 @Module({
-  imports: [CommonModule, LogModule, RabbitMQModule, SeedModule, HeroModule],
+  imports: [CommonModule, LogModule, SeedModule, HeroModule],
 })
 export class AppModule {}

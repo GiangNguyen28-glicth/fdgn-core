@@ -10,7 +10,6 @@ import { SeedController } from './seed.controller';
     ClientCoreModule,
     ThrottlerClientModule,
     HttpModule,
-    RedisClientModule,
     // TypeOrmModule.forFeature([Product]),
     // MongoDBModule,
   ],

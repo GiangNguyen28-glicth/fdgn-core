@@ -23,5 +23,6 @@
   },
   "devDependencies": {
     "@types/async": "3.2.24"
-  }
+  },
+  "gitHead": "99e8cb08ab485eff9d3102c7327c46669d962bb3"
 }

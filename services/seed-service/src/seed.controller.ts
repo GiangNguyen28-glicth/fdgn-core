@@ -1,10 +1,8 @@
-import { Body, Get, Param, Post, Inject, LoggerService, Req } from '@nestjs/common';
 import { RestController } from '@fdgn/common';
 import { FilterTypeOrmBuilder } from '@fdgn/typeorm';
+import { Body, Get, Inject, LoggerService, Param, Post, Req } from '@nestjs/common';
 import axios from 'axios';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-
-import { RedisClientService } from '@fdgn/redis';
 
 import { Product } from './entities';
 
@@ -21,14 +19,12 @@ export class SeedController {
     // protected productRepo: IProductRepo,
     // private typeOrmService: TypeOrmService,
     @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
-    private redisService: RedisClientService,
   ) {}
 
   @Get('test-2')
   async test2(@Req() req): Promise<any> {
     this.logger.log('log');
     this.logger.error('error');
-    const value = await this.redisService.set({ key: `key${1}`, value: 's' });
     // for (let i = 0; i < 100; i++) {
     //   console.log(value);
     // }
@@ -38,12 +34,12 @@ export class SeedController {
 
   @Get('test-3')
   async test3(): Promise<any> {
-    return await this.redisService.get({ key: `key${10000}` });
+    return null;
   }
 
   @Get('test-4')
   async test4(): Promise<any> {
-    return await this.redisService.get({ key: `key${1}` });
+    return null;
   }
 
   @Get(':id')

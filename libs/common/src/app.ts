@@ -52,12 +52,13 @@ export class Application {
     const httpConfig = config.get<HttpConfig>('http');
     if (httpConfig) {
       await HttpService.bootstrap(app);
-      return;
     }
 
     const grpcConfig = config.get<GrpcConfig>('grpc');
     if (grpcConfig) {
       await GrpcService.bootstrap(app);
     }
+
+    await app.listen(httpConfig.port, () => console.log(`Application is listening on port ${httpConfig.port}`));
   }
 }

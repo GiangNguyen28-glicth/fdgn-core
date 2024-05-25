@@ -28,7 +28,6 @@ export class HttpService {
     );
     const description = this.getDescription(config);
 
-    const logger = new Logger('HttpService');
     const options = new DocumentBuilder()
       .setTitle(`${description} API`)
       .setDescription(description)
@@ -40,8 +39,6 @@ export class HttpService {
 
     app.use(bodyParser.json({ limit: '50mb' }));
     app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-
-    await app.listen(httpConfig.port, () => logger.log(`is listening on port ${httpConfig.port}`));
   }
 
   static getDescription(config: ConfigService): string {
