@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
-import { sleep } from '@fdgn/common';
-import { RabbitConsumer, ICheckQueue } from '@fdgn/rabbitmq';
+import { RabbitConsumer } from '@fdgn/rabbitmq';
 
 @Injectable()
 export class SeedConsumer extends RabbitConsumer<any> {

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
 import { Product } from './entities';
+import { ISeedRepo, SeedRepo } from './entities/seed.schema';
 
 export interface INew {
   key: string;
@@ -19,17 +20,15 @@ export class SeedController {
     // protected productRepo: IProductRepo,
     // private typeOrmService: TypeOrmService,
     @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
+    @Inject(SeedRepo.name) private readonly seedRepo: ISeedRepo,
   ) {}
 
   @Get('test-2')
   async test2(@Req() req): Promise<any> {
     this.logger.log('log');
-    this.logger.error('error');
-    // for (let i = 0; i < 100; i++) {
-    //   console.log(value);
-    // }
-    // this.counter.inc();
-    return 'hello world';
+    const q = await this.seedRepo.insert({ entity: { name: 'Hehe', price: 10 } });
+    await this.seedRepo.save({ entity: q });
+    return q;
   }
 
   @Get('test-3')
