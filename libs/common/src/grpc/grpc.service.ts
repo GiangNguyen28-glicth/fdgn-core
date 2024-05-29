@@ -31,6 +31,6 @@ export class GrpcService {
 
     await app.startAllMicroservices();
 
-    console.log(`Application is listening on port ${grpcConfig.port}`);
+    console.log(`Grpc is listening on port ${grpcConfig.port}`);
   }
 }

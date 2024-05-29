@@ -1,5 +1,7 @@
 import { Controller, Get, Inject, OnModuleInit, Param } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
+import { lastValueFrom } from 'rxjs';
+
 import { ProductsService } from './interfaces/grpc.service';
 import { Product, ProductById } from './interfaces/grpc.interface';
 
@@ -19,6 +21,6 @@ export class ProductController implements OnModuleInit {
   }
 
   async findOne(data: ProductById): Promise<any> {
-    return await this.productsService.findOne(data);
+    return await lastValueFrom(this.productsService.findOne(data));
   }
 }

@@ -53,6 +53,7 @@ export class SeedController {
       // }33.......
       return product;
     } catch (error) {
+      console.log(error);
       throw error;
     }
   }

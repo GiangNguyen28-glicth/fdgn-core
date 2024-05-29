@@ -80,3 +80,5 @@ seedJob:
   type: SEED_JOB
   concurrent: 1
   enable: true
+
+env: prod

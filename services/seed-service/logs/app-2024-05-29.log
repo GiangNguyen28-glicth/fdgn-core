@@ -108,3 +108,1266 @@
 [32m[MyApp] 14048  - [39m5/29/2024, 11:49:10 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
 [32m[MyApp] 14048  - [39m5/29/2024, 11:49:10 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
 [32m[MyApp] 14048  - [39m5/29/2024, 11:49:10 AM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+174ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+8ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+1ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+1ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 28891  - [39m5/29/2024, 2:10:48 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+40ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+6ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+1ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 40207  - [39m5/29/2024, 2:23:08 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+36ms[39m
+[31m[MyApp] 40207  - [39m5/29/2024, 2:23:14 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+6s[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+13ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+0ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+1ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 41057  - [39m5/29/2024, 2:23:40 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+39ms[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:23:51 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+11s[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:23:51 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+157ms[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:23:52 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+184ms[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:23:52 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+206ms[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:23:52 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+170ms[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:23:52 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+160ms[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:23:52 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+167ms[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:23:52 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+159ms[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:23:53 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+171ms[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:25:31 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+2m[39m
+[31m[MyApp] 41057  - [39m5/29/2024, 2:26:11 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+40s[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+7ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+0ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 46614  - [39m5/29/2024, 2:29:01 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+37ms[39m
+[31m[MyApp] 46614  - [39m5/29/2024, 2:29:17 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+16s[39m
+[31m[MyApp] 46614  - [39m5/29/2024, 2:29:18 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+563ms[39m
+[31m[MyApp] 46614  - [39m5/29/2024, 2:29:18 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+234ms[39m
+[31m[MyApp] 46614  - [39m5/29/2024, 2:29:18 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+168ms[39m
+[31m[MyApp] 46614  - [39m5/29/2024, 2:29:18 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+193ms[39m
+[31m[MyApp] 46614  - [39m5/29/2024, 2:29:18 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+157ms[39m
+[31m[MyApp] 46614  - [39m5/29/2024, 2:29:19 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+170ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+7ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+0ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+1ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 47996  - [39m5/29/2024, 2:30:01 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+34ms[39m
+[31m[MyApp] 47996  - [39m5/29/2024, 2:30:04 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+3s[39m
+[31m[MyApp] 47996  - [39m5/29/2024, 2:30:04 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+659ms[39m
+[31m[MyApp] 47996  - [39m5/29/2024, 2:30:05 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+168ms[39m
+[31m[MyApp] 47996  - [39m5/29/2024, 2:30:05 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+176ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+5ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+0ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:02 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 50286  - [39m5/29/2024, 2:32:03 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+34ms[39m
+[31m[MyApp] 50286  - [39m5/29/2024, 2:32:06 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+4s[39m
+[31m[MyApp] 50286  - [39m5/29/2024, 2:32:07 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+537ms[39m
+[31m[MyApp] 50286  - [39m5/29/2024, 2:32:07 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+174ms[39m
+[31m[MyApp] 50286  - [39m5/29/2024, 2:52:33 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+20m[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+25ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+0ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+1ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 73476  - [39m5/29/2024, 2:57:55 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+43ms[39m
+[31m[MyApp] 73476  - [39m5/29/2024, 2:58:37 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+42s[39m
+[31m[MyApp] 73476  - [39m5/29/2024, 2:58:44 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+6s[39m
+[31m[MyApp] 73476  - [39m5/29/2024, 2:59:32 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+49s[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+7ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+1ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+2ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:56 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 75974  - [39m5/29/2024, 3:00:57 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+37ms[39m
+[31m[MyApp] 75974  - [39m5/29/2024, 3:01:15 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+19s[39m
+[31m[MyApp] 75974  - [39m5/29/2024, 3:01:16 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+741ms[39m
+[31m[MyApp] 75974  - [39m5/29/2024, 3:01:16 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+210ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:44 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+9ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+0ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+1ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+1ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 77581  - [39m5/29/2024, 3:02:45 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+46ms[39m
+[31m[MyApp] 77581  - [39m5/29/2024, 3:03:26 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+41s[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+6ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+0ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+1ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 79500  - [39m5/29/2024, 3:04:55 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+34ms[39m
+[31m[MyApp] 79500  - [39m5/29/2024, 3:05:01 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31m2 UNKNOWN: Product Item not found !!![39m - {
+  stack: [
+    [32m'Error: 2 UNKNOWN: Product Item not found !!!\n'[39m +
+      [32m'    at callErrorFromStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/call.ts:82:17)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:360:55)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:458:34)\n'[39m +
+      [32m'    at Object.onReceiveStatus (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client-interceptors.ts:419:48)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/resolving-call.ts:163:24\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:78:11)\n'[39m +
+      [32m'for call at\n'[39m +
+      [32m'    at ServiceClientImpl.makeUnaryRequest (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/client.ts:325:42)\n'[39m +
+      [32m'    at ServiceClientImpl.<anonymous> (/home/giangnt/nest/git/study/fdgn-core/node_modules/@grpc/grpc-js/src/make-client.ts:189:15)\n'[39m +
+      [32m'    at Observable._subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/@nestjs/microservices/client/client-grpc.js:195:48)\n'[39m +
+      [32m'    at Observable._trySubscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:244:19)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:234:18\n'[39m +
+      [32m'    at Object.errorContext (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)\n'[39m +
+      [32m'    at Observable.subscribe (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/Observable.ts:220:5)\n'[39m +
+      [32m'    at /home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:59:12\n'[39m +
+      [32m'    at new Promise (<anonymous>)\n'[39m +
+      [32m'    at lastValueFrom (/home/giangnt/nest/git/study/fdgn-core/node_modules/rxjs/src/internal/lastValueFrom.ts:56:10)'[39m
+  ]
+} [33m+6s[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+8ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+1ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 81947  - [39m5/29/2024, 3:06:43 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+37ms[39m
+[31m[MyApp] 81947  - [39m5/29/2024, 3:06:50 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+7s[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+6ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+1ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+1ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 82440  - [39m5/29/2024, 3:07:14 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+35ms[39m
+[31m[MyApp] 82440  - [39m5/29/2024, 3:07:16 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+2s[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+6ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+0ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+1ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 83375  - [39m5/29/2024, 3:07:57 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+34ms[39m
+[31m[MyApp] 83375  - [39m5/29/2024, 3:07:58 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+2s[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+7ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+1ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 86329  - [39m5/29/2024, 3:11:23 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+34ms[39m
+[31m[MyApp] 86329  - [39m5/29/2024, 3:11:26 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+2s[39m
+[31m[MyApp] 86329  - [39m5/29/2024, 3:11:27 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+1s[39m
+[31m[MyApp] 86329  - [39m5/29/2024, 3:11:28 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+344ms[39m
+[31m[MyApp] 86329  - [39m5/29/2024, 3:11:28 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+197ms[39m
+[31m[MyApp] 86329  - [39m5/29/2024, 3:11:28 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+193ms[39m
+[31m[MyApp] 86329  - [39m5/29/2024, 3:11:28 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+168ms[39m
+[31m[MyApp] 86329  - [39m5/29/2024, 3:11:28 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+187ms[39m
+[31m[MyApp] 86329  - [39m5/29/2024, 3:11:29 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+167ms[39m
+[31m[MyApp] 86329  - [39m5/29/2024, 3:11:29 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+158ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:17 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+3s[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+0ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+1ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 88853  - [39m5/29/2024, 3:15:20 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+45ms[39m
+[31m[MyApp] 88853  - [39m5/29/2024, 3:15:59 PM [31m  ERROR[39m [33m[ExceptionsHandler][39m [31mRequest failed with status code 404[39m - {
+  stack: [
+    [32m'AxiosError: Request failed with status code 404\n'[39m +
+      [32m'    at settle (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/settle.js:19:12)\n'[39m +
+      [32m'    at IncomingMessage.handleStreamEnd (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/adapters/http.js:589:11)\n'[39m +
+      [32m'    at IncomingMessage.emit (node:events:532:35)\n'[39m +
+      [32m'    at endReadableNT (node:internal/streams/readable:1346:12)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:83:21)\n'[39m +
+      [32m'    at Axios.request (/home/giangnt/nest/git/study/fdgn-core/node_modules/axios/lib/core/Axios.js:45:41)\n'[39m +
+      [32m'    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n'[39m +
+      [32m'    at SeedController.findProductId (/home/giangnt/nest/git/study/fdgn-core/services/seed-service/src/seed.controller.ts:48:24)'[39m
+  ]
+} [33m+39s[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+6ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+1ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+1ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 94586  - [39m5/29/2024, 3:20:47 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+35ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+5ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+0ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+1ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 97263  - [39m5/29/2024, 3:24:04 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+43ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+5ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+1ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+0ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 152877 - [39m5/29/2024, 4:24:55 PM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+35ms[39m
