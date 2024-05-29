@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package product;
+
+service ProductsService {
+  rpc FindOne (ProductById) returns (Product);
+}
+
+message ProductById {
+  string _id = 1;
+}
+
+message Product {
+  string _id = 1;
+  string title = 2;
+}
+

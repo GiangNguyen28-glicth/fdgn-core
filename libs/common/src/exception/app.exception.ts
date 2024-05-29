@@ -45,18 +45,16 @@ export class AppExceptionsFilter implements ExceptionFilter {
     response.status(status).json(error_response);
   }
 
-  private getErrorResponse = (
-    status: HttpStatus,
-    errorMessage: string,
-    request: Request,
-  ): CustomHttpExceptionResponse => ({
-    status_code: status,
-    error: errorMessage,
-    path: request.url,
-    method: request.method,
-    body: request.body,
-    query: request.query,
-    params: request.params,
-    time_stamp: new Date(),
-  });
+  private getErrorResponse(status: HttpStatus, error_message: string, request: Request): CustomHttpExceptionResponse {
+    return {
+      status_code: status,
+      error: error_message,
+      path: request.url,
+      method: request.method,
+      body: request.body,
+      query: request.query,
+      params: request.params,
+      time_stamp: new Date(),
+    };
+  }
 }

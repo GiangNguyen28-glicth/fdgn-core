@@ -19,5 +19,5 @@
     "@grpc/grpc-js": "^1.10.8",
     "@grpc/proto-loader": "^0.7.13"
   },
-  "gitHead": "99e8cb08ab485eff9d3102c7327c46669d962bb3"
+  "gitHead": "db2b8443e82168b941be80fafeddb075d370346e"
 }

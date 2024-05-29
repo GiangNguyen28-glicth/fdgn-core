@@ -1,0 +1,38 @@
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+15ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+4ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+1ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+0ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+1ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+0ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:28 AM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+132ms[39m
+[32m[MyApp] 15044  - [39m5/26/2024, 9:30:41 AM [32m    LOG[39m  [32mlog[39m [33m+13s[39m
+[31m[MyApp] 15044  - [39m5/26/2024, 9:30:41 AM [31m  ERROR[39m  [31merror[39m - { stack: [ [1mnull[22m ] } [33m+1ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[NestMicroservice][39m [32mNest microservice successfully started[39m [33m+0ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mPrometheusController {/metrics}:[39m [33m+11ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/metrics, GET} route[39m [33m+7ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mSeedController {/seed}:[39m [33m+1ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-2, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-3, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/test-4, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/:id, GET} route[39m [33m+3ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product, POST} route[39m [33m+8ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/seed/product/:id, POST} route[39m [33m+2ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHealthRest {/health}:[39m [33m+1ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/health, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mHeroController {/hero}:[39m [33m+0ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero, GET} route[39m [33m+2ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/hero/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RoutesResolver][39m [32mProductController {/product}:[39m [33m+0ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/product/:id, GET} route[39m [33m+1ms[39m
+[32m[MyApp] 5912   - [39m5/26/2024, 9:33:41 AM [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m [33m+190ms[39m

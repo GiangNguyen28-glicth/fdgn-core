@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 
-import { CommonModule, LogModule } from '@fdgn/common';
-import { RabbitMQModule } from '@fdgn/rabbitmq';
+import { CommonModule, LogModule, MetricModule } from '@fdgn/common';
 
-import { SeedModule } from './seed.module';
 import { HeroModule } from './hero/hero.module';
+import { ProductModule } from './product/product.module';
+import { SeedModule } from './seed.module';
 
 @Module({
-  imports: [CommonModule, LogModule, SeedModule, HeroModule],
+  imports: [CommonModule, MetricModule, LogModule, SeedModule, HeroModule, ProductModule],
 })
 export class AppModule {}
