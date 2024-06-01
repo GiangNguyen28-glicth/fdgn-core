@@ -1,4 +1,5 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpStatus } from '@nestjs/common';
+import { HttpAdapterHost } from '@nestjs/core';
 import { Request, Response } from 'express';
 import { get, isPlainObject } from 'lodash';
 import { UN_KNOW } from '../consts';
@@ -18,6 +19,7 @@ interface CustomHttpExceptionResponse extends HttpExceptionResponse {
 }
 @Catch()
 export class AppExceptionsFilter implements ExceptionFilter {
+  constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
   catch(exception: unknown, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();

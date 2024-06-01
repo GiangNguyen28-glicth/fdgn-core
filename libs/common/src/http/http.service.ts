@@ -7,13 +7,14 @@ import helmet from 'helmet';
 
 import { AppExceptionsFilter } from '../exception';
 import { HttpConfig } from './http-config';
+import { HttpAdapterHost } from '@nestjs/core';
 export class HttpService {
   static async bootstrap(app: NestExpressApplication) {
     const config = app.get(ConfigService);
     const http_config = config.get<HttpConfig>('http');
     if (!http_config) return;
     app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
-    app.useGlobalFilters(new AppExceptionsFilter());
+    app.useGlobalFilters(new AppExceptionsFilter(app.get(HttpAdapterHost)));
     app.setGlobalPrefix(http_config.contextPath, { exclude: ['metrics', 'health'] });
     app.use(
       helmet({

@@ -20,7 +20,7 @@ export class ProductController implements OnModuleInit {
     return await this.findOne({ _id: id });
   }
 
-  async findOne(data: ProductById): Promise<any> {
+  async findOne(data: ProductById): Promise<Product> {
     return await lastValueFrom(this.productsService.findOne(data));
   }
 }

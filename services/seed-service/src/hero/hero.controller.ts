@@ -1,9 +1,11 @@
-import { Controller, Get, Inject, OnModuleInit, Param } from '@nestjs/common';
-import { ClientGrpc, GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
-import { Observable, ReplaySubject, Subject } from 'rxjs';
+import { Controller, Get, Inject, BadRequestException, OnModuleInit, Param, UseFilters } from '@nestjs/common';
+import { ClientGrpc, GrpcMethod, GrpcStreamMethod, RpcException } from '@nestjs/microservices';
+import { Observable, ReplaySubject, Subject, lastValueFrom } from 'rxjs';
 import { toArray } from 'rxjs/operators';
+
 import { HeroById } from './interfaces/hero-by-id.interface';
 import { Hero } from './interfaces/hero.interface';
+import { AppExceptionsFilter } from 'libs/common/dist';
 
 interface HeroesService {
   findOne(data: HeroById): Observable<Hero>;
@@ -36,13 +38,20 @@ export class HeroController implements OnModuleInit {
   }
 
   @Get(':id')
-  getById(@Param('id') id: string): Observable<Hero> {
-    return this.heroesService.findOne({ id: +id });
+  getById(@Param('id') id: string): any {
+    try {
+      return lastValueFrom(this.heroesService.findOne({ id: +id }));
+    } catch (error) {
+      console.log('Error: ', error);
+      throw error;
+    }
   }
 
   @GrpcMethod('HeroesService')
+  @UseFilters(AppExceptionsFilter)
   findOne(data: HeroById): any {
-    return this.items.find(({ id }) => id === data.id);
+    console.log('Zo day');
+    throw new RpcException(new BadRequestException('BadRequestException'));
   }
 
   @GrpcStreamMethod('HeroesService')

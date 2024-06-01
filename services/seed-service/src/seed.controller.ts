@@ -1,6 +1,6 @@
 import { RestController } from '@fdgn/common';
 import { FilterTypeOrmBuilder } from '@fdgn/typeorm';
-import { Body, Get, Inject, LoggerService, Param, Post, Req } from '@nestjs/common';
+import { Body, Get, Inject, LoggerService, Param, Post, Req, NotFoundException } from '@nestjs/common';
 import axios from 'axios';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
@@ -44,6 +44,7 @@ export class SeedController {
   @Get(':id')
   async findProductId(@Param('id') id: string): Promise<any> {
     try {
+      throw new NotFoundException('Not found');
       const { filters } = new FilterTypeOrmBuilder<Product>().setFilterItem('id', '$eq', id).buildQuery();
       const response = await axios.get(`http://localhost:4017/catalog/product/${id}`);
       const product = await response.data;
