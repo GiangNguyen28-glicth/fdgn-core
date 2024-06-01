@@ -4,6 +4,8 @@ import { Request, Response } from 'express';
 import { get, isPlainObject } from 'lodash';
 import { UN_KNOW } from '../consts';
 import { isAxiosError, isHttpException } from '../utils';
+import { throwError } from 'rxjs';
+import { RpcException } from '@nestjs/microservices';
 interface HttpExceptionResponse {
   status_code: number;
   error: string;
@@ -44,7 +46,9 @@ export class AppExceptionsFilter implements ExceptionFilter {
     }
 
     const error_response = this.getErrorResponse(status, error_message, request);
-    response.status(status).json(error_response);
+    this.httpAdapterHost.httpAdapter.reply(ctx.getResponse(), error_response, 400);
+
+    // response.status(status).json(error_response);
   }
 
   private getErrorResponse(status: HttpStatus, error_message: string, request: Request): CustomHttpExceptionResponse {
