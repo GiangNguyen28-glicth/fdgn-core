@@ -1,6 +1,5 @@
 node_modules/
 logs/
-logs\
 dist
 .idea
 env-config.yml
