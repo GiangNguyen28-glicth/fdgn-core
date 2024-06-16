@@ -4,9 +4,9 @@ import { Observable, ReplaySubject, Subject, lastValueFrom } from 'rxjs';
 import { toArray } from 'rxjs/operators';
 import { status as Status } from '@grpc/grpc-js';
 
-import { AppExceptionsFilter } from 'libs/common/dist';
 import { HeroById } from './interfaces/hero-by-id.interface';
 import { Hero } from './interfaces/hero.interface';
+import { GrpcException } from 'libs/common/dist';
 
 interface HeroesService {
   findOne(data: HeroById): Observable<Hero>;
@@ -51,7 +51,7 @@ export class HeroController implements OnModuleInit {
   @GrpcMethod('HeroesService')
   findOne(data: HeroById): any {
     console.log('Zo day');
-    throw new RpcException({ code: Status.NOT_FOUND, message: 'OK' });
+    throw new GrpcException({ code: Status.NOT_FOUND, details: 'OK' });
   }
 
   @GrpcStreamMethod('HeroesService')

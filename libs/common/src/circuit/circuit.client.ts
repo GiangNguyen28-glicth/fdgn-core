@@ -1,22 +1,34 @@
 import CircuitBreaker = require('opossum');
+import { isNil } from 'lodash';
 
 import { CircuitBreakerConfig } from './circuit.config';
 
 export abstract class CircuitBreakerClient {
   private circuit_breakers: { [breaker_id: string]: CircuitBreaker } = {};
   private circuit_configs: { [breaker_id: string]: CircuitBreakerConfig } = {};
-
-  constructor() {
-    // this.createCircuitBreakers();
+  protected requests: { [breaker_id: string]: (...args: any[]) => Promise<any> } = {};
+  constructor(request: { [breaker_id: string]: (...args: any[]) => any }) {
+    this.requests = request;
+    this.initCircuitBreakers();
   }
 
   abstract createCircuitConfigs(): { [breaker_id: string]: CircuitBreakerConfig };
 
-  createCircuitBreakers() {
+  initCircuitBreakers() {
     this.circuit_configs = this.createCircuitConfigs();
     for (const key in this.circuit_configs) {
-      this.circuit_breakers[key] = new CircuitBreaker(this.circuit_configs[key].request, this.circuit_configs[key]);
+      this.circuit_breakers[key] = this.createCircuitBreaker(
+        this.circuit_configs[key].request,
+        this.circuit_configs[key],
+      );
     }
+  }
+
+  createCircuitBreaker(makeRequest: (...args: any[]) => any, config: CircuitBreakerConfig) {
+    if (isNil(makeRequest) || isNil(config)) {
+      throw new Error('Config not accepted');
+    }
+    return new CircuitBreaker(makeRequest, config);
   }
 
   async request<T>(breaker_id: string, ...args: any[]): Promise<T> {
