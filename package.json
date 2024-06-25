@@ -16,6 +16,9 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-angular": "11.0.0",
+    "@commitlint/config-conventional": "^17.6.3",
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
@@ -44,5 +47,10 @@
   "packageManager": "yarn@3.6.4",
   "dependencies": {
     "@grpc/reflection": "^1.0.4"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --fix",
+    "*.{json, yml}": "prettier --write",
+    "*.md": "prettier --write"
   }
 }
