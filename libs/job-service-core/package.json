@@ -5,7 +5,6 @@
   "author": "GiangNguyen28-glicth <giangnguyen3246>",
   "main": "dist/index",
   "types": "dist/index",
-  "private": false,
   "files": [
     "dist"
   ],

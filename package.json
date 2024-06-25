@@ -12,7 +12,8 @@
   "scripts": {
     "build": "lerna run build",
     "dev": "lerna run --parallel dev",
-    "start": "lerna run --parallel start"
+    "start": "lerna run --parallel start",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
@@ -27,9 +28,10 @@
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.0",
     "jest": "29.3.1",
     "lerna": "^7.4.1",
-    "husky": "^7.0.4",
+    "lint-staged": "^15.2.7",
     "prettier": "^2.3.2",
     "source-map-support": "^0.5.20",
     "supertest": "^6.1.3",
