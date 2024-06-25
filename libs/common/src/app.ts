@@ -49,16 +49,16 @@ export class Application {
     Application.initTrackingProcessEvent();
     const config = app.get(ConfigService);
 
-    const httpConfig = config.get<HttpConfig>('http');
-    if (httpConfig) {
+    const http_config = config.get<HttpConfig>('http');
+    if (http_config) {
       await HttpService.bootstrap(app);
     }
 
-    const grpcConfig = config.get<GrpcConfig>('grpc');
-    if (grpcConfig) {
+    const grpc_config = config.get<GrpcConfig>('grpc');
+    if (grpc_config) {
       await GrpcService.bootstrap(app);
     }
 
-    await app.listen(httpConfig.port, () => console.log(`Application is listening on port ${httpConfig.port}`));
+    await app.listen(http_config.port, () => console.log(`Application is listening on port ${http_config.port}`));
   }
 }

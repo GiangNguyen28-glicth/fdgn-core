@@ -1,5 +1,4 @@
-import { isEmpty, isNil } from 'lodash';
-import { SortQuery, OperatorQuery, toKeyword, SortOrder, FilterBuilder } from '@fdgn/common';
+import { SortQuery, OperatorQuery, toKeyword, SortOrder, FilterBuilder, isNullOrEmpty } from '@fdgn/common';
 
 export class FilterMongoBuilder<T> extends FilterBuilder<T> {
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -24,7 +23,7 @@ export class FilterMongoBuilder<T> extends FilterBuilder<T> {
   }
 
   addName(name: string) {
-    if (isNil(name) || isEmpty(name)) {
+    if (isNullOrEmpty(name)) {
       return this;
     }
     this.setFilterItemWithObject('keyword', {

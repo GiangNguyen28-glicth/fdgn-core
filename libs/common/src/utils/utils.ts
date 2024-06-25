@@ -1,12 +1,12 @@
 import { HttpException, NotFoundException } from '@nestjs/common';
+import * as axios from 'axios';
 import * as bcrypt from 'bcrypt';
 import { isArray, isEmpty, isNil } from 'lodash';
-import * as axios from 'axios';
 export type AxiosError = axios.AxiosError;
 
-import { IParseJson, IResult } from '../interfaces';
-import { PaginationDTO } from '../dto';
 import { UNITS_OF_TIME } from '../consts';
+import { PaginationDTO } from '../dto';
+import { IGrpcException, IParseJson, IResult } from '../interfaces';
 
 export function throwIfNotExists<T>(model: T | any, message: string) {
   if (!model || model?.deleted_at) {
@@ -122,6 +122,13 @@ export function isAxiosError(exception: unknown): exception is AxiosError {
 
 export function isHttpException(exception: unknown): exception is HttpException {
   if (exception instanceof HttpException) {
+    return true;
+  }
+  return false;
+}
+
+export function isGrpcException(exception: any): exception is IGrpcException {
+  if (!isNil(exception?.code) && !isNil(exception?.details)) {
     return true;
   }
   return false;

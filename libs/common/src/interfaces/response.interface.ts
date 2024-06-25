@@ -16,6 +16,11 @@ export interface IError<T> {
   data?: T;
 }
 
+export interface IGrpcException {
+  code: number;
+  details: string;
+}
+
 export interface IResponse {
   success?: boolean;
   status_code?: number;

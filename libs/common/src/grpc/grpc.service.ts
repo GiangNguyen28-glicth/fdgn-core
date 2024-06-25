@@ -9,8 +9,8 @@ import { GrpcConfig } from './grpc.config';
 export class GrpcService {
   static async bootstrap(app: INestApplication) {
     const config = app.get(ConfigService);
-    const grpcConfig = config.get<GrpcConfig>('grpc');
-    if (!grpcConfig) return;
+    const grpc_config = config.get<GrpcConfig>('grpc');
+    if (!grpc_config) return;
     const files = glob.sync(`${config.get('env') === ENV.DEV ? 'src' : 'dist'}/**/*.proto`);
     const packages = files.map(
       file =>
@@ -24,13 +24,12 @@ export class GrpcService {
       transport: Transport.GRPC,
       options: {
         package: packages,
-        url: `${grpcConfig.host}:${grpcConfig.port}`,
+        url: `${grpc_config.host}:${grpc_config.port}`,
         protoPath: files,
       },
     });
 
     await app.startAllMicroservices();
-
-    console.log(`Grpc is listening on port ${grpcConfig.port}`);
+    console.log(`Grpc is listening on port ${grpc_config.port}`);
   }
 }

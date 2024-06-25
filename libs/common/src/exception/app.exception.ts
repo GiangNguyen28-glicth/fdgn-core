@@ -2,10 +2,8 @@ import { ArgumentsHost, Catch, ExceptionFilter, HttpStatus } from '@nestjs/commo
 import { HttpAdapterHost } from '@nestjs/core';
 import { Request, Response } from 'express';
 import { get, isPlainObject } from 'lodash';
-import { UN_KNOW } from '../consts';
-import { isAxiosError, isHttpException } from '../utils';
-import { throwError } from 'rxjs';
-import { RpcException } from '@nestjs/microservices';
+import { HTTP_CODE_FROM_GRPC, UN_KNOW } from '../consts';
+import { isAxiosError, isGrpcException, isHttpException } from '../utils';
 interface HttpExceptionResponse {
   status_code: number;
   error: string;
@@ -37,6 +35,9 @@ export class AppExceptionsFilter implements ExceptionFilter {
     } else if (isAxiosError(exception)) {
       status = exception.response.status;
       error_message = get(exception, 'response.data.error', UN_KNOW);
+    } else if (isGrpcException(exception)) {
+      status = HTTP_CODE_FROM_GRPC[exception.code];
+      error_message = exception.details;
     } else if (exception instanceof Error && exception.message) {
       error_message = exception.message;
     } else if (isPlainObject(exception)) {
@@ -46,9 +47,7 @@ export class AppExceptionsFilter implements ExceptionFilter {
     }
 
     const error_response = this.getErrorResponse(status, error_message, request);
-    this.httpAdapterHost.httpAdapter.reply(ctx.getResponse(), error_response, 400);
-
-    // response.status(status).json(error_response);
+    response.status(status).json(error_response);
   }
 
   private getErrorResponse(status: HttpStatus, error_message: string, request: Request): CustomHttpExceptionResponse {
