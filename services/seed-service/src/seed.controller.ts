@@ -1,8 +1,8 @@
-import { RestController } from '@fdgn/common';
+import { HttpClientService, RestController } from '@fdgn/common';
 import { FilterTypeOrmBuilder } from '@fdgn/typeorm';
 import { Body, Get, Inject, LoggerService, Param, Post, Req, NotFoundException } from '@nestjs/common';
-import axios from 'axios';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import { lastValueFrom } from 'rxjs';
 
 import { Product } from './entities';
 import { ISeedRepo, SeedRepo } from './entities/seed.schema';
@@ -21,6 +21,7 @@ export class SeedController {
     // private typeOrmService: TypeOrmService,
     @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
     @Inject(SeedRepo.name) private readonly seedRepo: ISeedRepo,
+    private httpService: HttpClientService
   ) {}
 
   @Get('test-2')
@@ -33,7 +34,7 @@ export class SeedController {
 
   @Get('test-3')
   async test3(): Promise<any> {
-    return null;
+    return 'test-3';
   }
 
   @Get('test-4')
@@ -44,17 +45,11 @@ export class SeedController {
   @Get(':id')
   async findProductId(@Param('id') id: string): Promise<any> {
     try {
-      throw new NotFoundException('Not found');
-      const { filters } = new FilterTypeOrmBuilder<Product>().setFilterItem('id', '$eq', id).buildQuery();
-      const response = await axios.get(`http://localhost:4017/catalog/product/${id}`);
+      const response = await this.httpService.request({url: `http://localhost:4017/catalog/product/${id}`, method: 'GET'});
       const product = await response.data;
-      // const product: Product = await this.productRepo.findOne({ filters });
-      // if (!product) {
-      //   throwIfNotExists(product, 'DD');
-      // }33.......
       return product;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       throw error;
     }
   }

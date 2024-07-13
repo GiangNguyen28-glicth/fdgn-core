@@ -2,6 +2,7 @@ import { ArgumentsHost, Catch, ExceptionFilter, HttpStatus } from '@nestjs/commo
 import { HttpAdapterHost } from '@nestjs/core';
 import { Request, Response } from 'express';
 import { get, isPlainObject } from 'lodash';
+
 import { HTTP_CODE_FROM_GRPC, UN_KNOW } from '../consts';
 import { isAxiosError, isGrpcException, isHttpException } from '../utils';
 interface HttpExceptionResponse {
@@ -33,7 +34,7 @@ export class AppExceptionsFilter implements ExceptionFilter {
       const error_response = exception.getResponse();
       error_message = get(error_response, 'error', null) || exception.message;
     } else if (isAxiosError(exception)) {
-      status = exception.response.status;
+      status = exception?.response?.status || HttpStatus.INTERNAL_SERVER_ERROR;
       error_message = get(exception, 'response.data.error', UN_KNOW);
     } else if (isGrpcException(exception)) {
       status = HTTP_CODE_FROM_GRPC[exception.code];
