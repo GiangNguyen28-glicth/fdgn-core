@@ -88,3 +88,9 @@ seedJob:
   enable: true
 
 env: prod
+
+httpClient:
+  timeout: 5000
+  raxConfig:
+    retry: 10
+    retryDelay: 5000

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { CommonModule, LogModule, MetricModule } from '@fdgn/common';
+import { CommonModule, HttpClientModule, LogModule, MetricModule, ThrottlerClientModule } from '@fdgn/common';
 import { MongoDBModule } from '@fdgn/mongoose';
 import { RabbitMQModule } from '@fdgn/rabbitmq';
 
@@ -18,6 +18,8 @@ import { SeedModule } from './seed.module';
     HeroModule,
     ProductModule,
     MongoDBModule,
+    HttpClientModule,
+    ThrottlerClientModule,
   ],
 })
 export class AppModule {}

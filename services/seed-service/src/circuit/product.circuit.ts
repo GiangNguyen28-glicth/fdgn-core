@@ -11,7 +11,7 @@ export class ProductCircuit extends CircuitBreakerClient {
         timeout: 3000,
         errorThresholdPercentage: 50,
         resetTimeout: 30000,
-        request: this.requests['default_1'],
+        // request: this.requests['default_1'],
       },
     };
   }

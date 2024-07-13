@@ -1,5 +1,6 @@
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { HttpAdapterHost } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as bodyParser from 'body-parser';
@@ -7,7 +8,6 @@ import helmet from 'helmet';
 
 import { AppExceptionsFilter } from '../exception';
 import { HttpConfig } from './http-config';
-import { HttpAdapterHost } from '@nestjs/core';
 export class HttpService {
   static async bootstrap(app: NestExpressApplication) {
     const config = app.get(ConfigService);

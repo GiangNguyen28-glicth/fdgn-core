@@ -3,6 +3,8 @@ import * as axios from 'axios';
 import * as bcrypt from 'bcrypt';
 import { isArray, isEmpty, isNil } from 'lodash';
 export type AxiosError = axios.AxiosError;
+import * as merge from 'merge-deep';
+
 
 import { UNITS_OF_TIME } from '../consts';
 import { PaginationDTO } from '../dto';
@@ -133,3 +135,6 @@ export function isGrpcException(exception: any): exception is IGrpcException {
   }
   return false;
 }
+
+export const mergeDeep = merge;
+
