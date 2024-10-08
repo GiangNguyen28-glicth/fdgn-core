@@ -1,24 +1,24 @@
 {
-    "name": "@fdgn/elasticsearch",
-    "version": "1.0.0",
-    "license": "MIT",
-    "main": "dist/index",
-    "types": "dist/index",
-    "files": [
-        "dist"
-    ],
-    "scripts": {
-        "dev": "nest build --watch -p tsconfig.json",
-        "build": "rimraf -rf dist && nest build -p tsconfig.json",
-        "prepublishOnly": "yarn build",
-        "test": "jest --passWithNoTests --coverage",
-        "dev:test": "jest --watch",
-        "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
-    },
-    "dependencies": {
-        "@elastic/elasticsearch": "^8.13.1",
-        "@fdgn/client-core": "^1.1.13",
-        "@fdgn/common": "^1.1.15",
-        "axios-retry": "^4.5.0"
-    }
+  "name": "@fdgn/elasticsearch",
+  "version": "1.0.1",
+  "license": "MIT",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "nest build --watch -p tsconfig.json",
+    "build": "rimraf -rf dist && nest build -p tsconfig.json",
+    "prepublishOnly": "yarn build",
+    "test": "jest --passWithNoTests --coverage",
+    "dev:test": "jest --watch",
+    "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.13.1",
+    "@fdgn/client-core": "^1.1.14",
+    "@fdgn/common": "^1.1.16",
+    "axios-retry": "^4.5.0"
+  }
 }
