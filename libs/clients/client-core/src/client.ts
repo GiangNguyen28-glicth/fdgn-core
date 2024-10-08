@@ -1,7 +1,7 @@
 import { ClientConfig } from './client.config';
 
 export interface Client<Config extends ClientConfig, Client = any> {
-  getConfig(conId: string): Config;
+  getConfig(con_id: string): Config;
 
-  getClient(conId: string): Client;
+  getClient(con_id: string): Client;
 }

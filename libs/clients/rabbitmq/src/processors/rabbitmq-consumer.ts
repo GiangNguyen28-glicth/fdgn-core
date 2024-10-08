@@ -85,7 +85,7 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
   private consumer: (source: MessageConsume<Input>) => void = null;
 
   async start(): Promise<void> {
-    if (!this.rabbitService.getClient(this.config.condId)) {
+    if (!this.rabbitService.getClient(this.config.cond_id)) {
       return;
     }
     await this.rabbitService.binding(
@@ -102,7 +102,7 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
           },
         },
       },
-      this.config.condId,
+      this.config.cond_id,
     );
     await this.initConsumers();
   }
@@ -118,14 +118,14 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
         callback: async (msg: RabbitMessage) => {
           const source = this.transform(msg);
           if (source) await this.consumer(source);
-          else await this.rabbitService.commit(msg, this.config.condId);
+          else await this.rabbitService.commit(msg, this.config.cond_id);
         },
         rbOptions: {
           noAck: this.config.noAck || false,
           requeue: this.config.requeue || false,
           prefetchMessages: this.config.prefetchCount || 1,
         } as any,
-        conId: this.config.condId || DEFAULT_CON_ID,
+        con_id: this.config.cond_id || DEFAULT_CON_ID,
       });
     } catch (error) {
       console.error(error, 'Could not consume queue: %s', this.config.queue);
@@ -181,13 +181,13 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
 
   async release(sources: MessageConsume<Input>[]) {
     for (const msg of this.getAckMessage(sources)) {
-      await this.rabbitService.commit(msg, this.config.condId);
+      await this.rabbitService.commit(msg, this.config.cond_id);
     }
   }
 
   async reject(sources: MessageConsume<Input>[]) {
     for (const msg of this.getAckMessage(sources)) {
-      await this.rabbitService.reject(msg, false, this.config.condId);
+      await this.rabbitService.reject(msg, false, this.config.cond_id);
     }
   }
 

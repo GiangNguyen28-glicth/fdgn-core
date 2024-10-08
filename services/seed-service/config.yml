@@ -78,6 +78,7 @@ mailConsume:
     maxRetries: 1
 
 kafka:
+  con_id: KAFKA01
   clientId: my-app
   brokers:
     - localhost:9092

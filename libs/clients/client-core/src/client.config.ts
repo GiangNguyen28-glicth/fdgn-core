@@ -2,12 +2,12 @@ import { ValidationError, validateSync } from '@fdgn/common';
 export const DEFAULT_CON_ID = 'default';
 
 export class ClientConfig {
-  conId?: string;
+  con_id?: string;
 
   context: string;
 
   constructor(props: ClientConfig) {
-    this.conId = props?.conId ?? DEFAULT_CON_ID;
+    this.con_id = props?.con_id ?? DEFAULT_CON_ID;
     this.context = props?.context;
   }
 

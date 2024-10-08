@@ -13,16 +13,16 @@ export class ElasticSearchService extends AbstractClientService<ElasticSearchCon
   protected async init(config: ElasticSearchConfig): Promise<EsClient> {
     return new EsClient(config.options);
   }
-  protected async stop(client: any, conId?: string): Promise<void> {
+  protected async stop(client: any, con_id?: string): Promise<void> {
     console.log('Stop ElasticSearch');
   }
-  protected async start(client: any, conId?: string): Promise<void> {
+  protected async start(client: any, con_id?: string): Promise<void> {
     console.log('Start ElasticSearch');
   }
 
-  async createMapping(params: IndicesCreateRequest, options: TransportRequestOptions, conId = DEFAULT_CON_ID) {
+  async createMapping(params: IndicesCreateRequest, options: TransportRequestOptions, con_id = DEFAULT_CON_ID) {
     try {
-      return await this.getClient(conId).indices.create(params, options);
+      return await this.getClient(con_id).indices.create(params, options);
     } catch (error) {
       throw error;
     }
