@@ -92,5 +92,5 @@ env: prod
 httpClient:
   timeout: 5000
   raxConfig:
-    retry: 10
+    retries: 10
     retryDelay: 5000

@@ -4,18 +4,17 @@ import { lastValueFrom } from 'rxjs';
 
 import { ProductsService } from './interfaces/grpc.service';
 import { Product, ProductById } from './interfaces/grpc.interface';
-import { ProductCircuit } from '../circuit/product.circuit';
 
 @Controller('product')
 export class ProductController implements OnModuleInit {
   private productsService: ProductsService;
-  private productCircuitBreaker: ProductCircuit;
+  // private productCircuitBreaker: ProductCircuit;
 
   constructor(@Inject('PRODUCT_PACKAGE') private readonly client: ClientGrpc) {}
 
   onModuleInit() {
     this.productsService = this.client.getService<ProductsService>('ProductsService');
-    this.productCircuitBreaker = new ProductCircuit({ default_1: this.productsService.findOne });
+    // this.productCircuitBreaker = new ProductCircuit({ default_1: this.productsService.findOne });
   }
 
   @Get(':id')
@@ -24,7 +23,7 @@ export class ProductController implements OnModuleInit {
   }
 
   async findOne(data: ProductById): Promise<Product> {
-    return await this.productCircuitBreaker.request('default_1', data);
+    // return await this.productCircuitBreaker.request('default_1', data);
     return await lastValueFrom(this.productsService.findOne(data));
   }
 }

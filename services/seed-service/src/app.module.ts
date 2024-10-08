@@ -16,7 +16,6 @@ import { SeedModule } from './seed.module';
     LogModule,
     SeedModule,
     HeroModule,
-    ProductModule,
     MongoDBModule,
     HttpClientModule,
     ThrottlerClientModule,
