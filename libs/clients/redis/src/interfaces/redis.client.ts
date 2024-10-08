@@ -6,7 +6,7 @@ import { RedisClientConfig } from '../redis.config';
 
 export interface IRedisCommon {
   namespace?: string;
-  conId?: string;
+  con_id?: string;
 }
 
 export interface IRedisGet extends IRedisCommon {

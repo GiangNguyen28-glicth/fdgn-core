@@ -1,14 +1,15 @@
-import { HttpService } from "@nestjs/axios";
-import { Inject, Injectable } from "@nestjs/common";
-import { AxiosRequestConfig, AxiosResponse } from "axios";
-import { Observable } from "rxjs";
-import { cloneDeep } from "lodash";
-import axios from "axios";
+import { HttpService } from '@nestjs/axios';
+import { Inject, Injectable } from '@nestjs/common';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { lastValueFrom, Observable } from 'rxjs';
+import axiosRetry from 'axios-retry';
+import { cloneDeep } from 'lodash';
+import axios from 'axios';
 
-import { AbstractClientService, DEFAULT_CON_ID } from "@fdgn/client-core";
+import { AbstractClientService, DEFAULT_CON_ID } from '@fdgn/client-core';
 
-import { HttpClientConfig } from "./http-client.config";
-import { mergeDeep } from "../utils";
+import { HttpClientConfig } from './http-client.config';
+import { mergeDeep } from '../utils';
 
 @Injectable()
 export class HttpClientService extends AbstractClientService<HttpClientConfig, HttpService> {
@@ -18,34 +19,35 @@ export class HttpClientService extends AbstractClientService<HttpClientConfig, H
   constructor() {
     super('httpClient', HttpClientConfig);
   }
-  
+
   protected async init(config: HttpClientConfig): Promise<HttpService> {
-    config.onRetryAttempt();
-    return this.httpService;
+    // config.onRetryAttempt();
+    console.log(JSON.stringify(config));
+    const instance = this.httpService;
+    axiosRetry(instance.axiosRef, {
+      retries: config.raxConfig.retries, // Number of retries
+      retryDelay: retryCount => {
+        console.log(`Retry attempt: ${retryCount}`);
+        console.log('Number of retries:', retryCount * config.raxConfig.retryDelay);
+        return retryCount * 1000; // Exponential backoff
+      },
+      retryCondition: error => {
+        return axiosRetry.isNetworkOrIdempotentRequestError(error) || error.response?.status >= 500;
+      },
+    });
+    return instance;
   }
 
-  protected async stop(client: HttpService, conId?: string): Promise<void> {
-    console.log("HttpClientService stop");
-  }
-  
-  protected async start(client: HttpService, conId?: string): Promise<void> {
-    console.log("HttpClientService start");
+  protected async stop(client: HttpService, con_id?: string): Promise<void> {
+    console.log('HttpClientService stop');
   }
 
-  async request<T = any>(config: AxiosRequestConfig, conId: string = DEFAULT_CON_ID): Promise<AxiosResponse<T>> {
-    const cf: AxiosRequestConfig = mergeDeep(cloneDeep(this.getConfig(conId)), config);
-    cf.raxConfig = {
-      retry: 3,
-      noResponseRetries: 2,
-      retryDelay: 100,
-      httpMethodsToRetry: ['GET', 'HEAD', 'OPTIONS', 'DELETE', 'PUT'],
-      statusCodesToRetry: [[100, 199], [429, 429], [500, 599]],
-      backoffType: 'exponential',
-      onRetryAttempt: err => {
-        console.log(err);
-        // console.log(`Retry attempt #${cfg.currentRetryAttempt}`);
-      }
-    };
-    return await axios(cf);
+  protected async start(client: HttpService, con_id?: string): Promise<void> {
+    console.log('HttpClientService start');
+  }
+
+  async request<T = any>(config: AxiosRequestConfig, con_id: string = DEFAULT_CON_ID): Promise<AxiosResponse<T>> {
+    const cf: AxiosRequestConfig = mergeDeep(cloneDeep(this.getConfig(con_id)), config);
+    return await lastValueFrom(this.httpService.request(cf));
   }
 }

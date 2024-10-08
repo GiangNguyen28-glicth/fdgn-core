@@ -7,9 +7,9 @@ import { SeedController } from './seed.controller';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Seed.name, schema: SeedSchema }]),
+    // MongooseModule.forFeature([{ name: Seed.name, schema: SeedSchema }]),
   ],
-  controllers: [SeedController],
+  controllers: [],
   providers: [
     SeedKafkaConsumer
   ],

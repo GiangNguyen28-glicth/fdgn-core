@@ -1,18 +1,9 @@
-import { AxiosRequestConfig, Method, AxiosBasicCredentials } from "axios";
-import { IsEnum, IsInt, IsOptional, IsPositive, IsString } from "class-validator";
-import rax from "retry-axios";
+import { AxiosRequestConfig, Method, AxiosBasicCredentials } from 'axios';
+import { IsEnum, IsInt, IsOptional, IsPositive, IsString } from 'class-validator';
+import { ClientConfig } from '@fdgn/client-core';
 
-import { ClientConfig } from "@fdgn/client-core";
-
-import { HttpMethod } from "../consts";
-import { AxiosError, mergeDeep } from "../utils";
-
-const defaultRetryConfig = {
-  retry: 3,
-  retryDelay: 1000,
-  httpMethodsToRetry: ['GET', 'POST'],
-};
-
+import { HttpMethod } from '../consts';
+import { mergeDeep } from '../utils';
 export class HttpClientConfig extends ClientConfig implements AxiosRequestConfig {
   @IsOptional()
   @IsString()
@@ -45,18 +36,33 @@ export class HttpClientConfig extends ClientConfig implements AxiosRequestConfig
   @IsPositive()
   maxRedirects = 3;
 
-  raxConfig: rax.RetryConfig = defaultRetryConfig;
+  raxConfig: RaxConfig;
 
   constructor(props: HttpClientConfig) {
     super(props);
     mergeDeep(this, props);
-    rax.attach();
+  }
+
+  retryDelay(retryCount: number) {
+    console.log(`Retry attempt: ${retryCount}`);
+    console.log('this.raxConfig.retryDelay', this.raxConfig.retryDelay);
+    return this.raxConfig.retryDelay; // Exponential backoff
   }
 
   onRetryAttempt() {
-    this.raxConfig.onRetryAttempt = (err: AxiosError) => {
-      const { method, url, raxConfig } = err.config;
-      console.error('%s %s with %o error, currentRetryAttempt: %s', method, url, err, raxConfig.currentRetryAttempt);
-    };
+    // this.raxConfig.onRetryAttempt = (err: AxiosError) => {
+    //   const { method, url, raxConfig } = err.config;
+    //   console.error('%s %s with %o error, currentRetryAttempt: %s', method, url, err, raxConfig.currentRetryAttempt);
+    // };
   }
+}
+
+export class RaxConfig {
+  @IsOptional()
+  @IsInt()
+  retries: number;
+
+  @IsOptional()
+  @IsInt()
+  retryDelay: number;
 }

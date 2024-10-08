@@ -64,8 +64,8 @@ export class RedisClientService
     console.info('Quit redis client %s', messages);
   }
 
-  async start(client: RedisClientType, conId = DEFAULT_CON_ID): Promise<void> {
-    await client.clientSetName(conId);
+  async start(client: RedisClientType, con_id = DEFAULT_CON_ID): Promise<void> {
+    await client.clientSetName(con_id);
     const name = await client.clientGetName();
     console.info('Redis %s client started!', name);
   }
@@ -79,17 +79,17 @@ export class RedisClientService
   }
 
   async get<T>(p: IRedisGet): Promise<T> {
-    const conId = this.getConId(p.conId);
+    const con_id = this.getConId(p.con_id);
     try {
       const namespace = this.getNamespace(p.key, p.namespace);
-      const cachedValue = await this.getClient(conId).get(namespace);
+      const cachedValue = await this.getClient(con_id).get(namespace);
 
       if (isNil(cachedValue)) {
-        this.trackingGet.inc({ status: RedisGetStatus.MISS, namespace: p.namespace, conId });
+        this.trackingGet.inc({ status: RedisGetStatus.MISS, namespace: p.namespace, con_id });
         return null;
       }
 
-      this.trackingGet.inc({ status: RedisGetStatus.HIT, namespace: p.namespace, conId });
+      this.trackingGet.inc({ status: RedisGetStatus.HIT, namespace: p.namespace, con_id });
       if (p.isJson) {
         const { data, error } = parseJSON<T>(cachedValue);
         return isNil(error) ? data : (cachedValue as T);
@@ -97,29 +97,29 @@ export class RedisClientService
 
       return cachedValue as T;
     } catch (error) {
-      this.trackingGet.inc({ status: RedisGetStatus.ERROR, namespace: p.namespace, conId });
+      this.trackingGet.inc({ status: RedisGetStatus.ERROR, namespace: p.namespace, con_id });
       throw error;
     }
   }
 
   async set(p: IRedisSet): Promise<void> {
-    const conId = this.getConId(p.conId);
+    const con_id = this.getConId(p.con_id);
     try {
       let value = p.value;
       if (p.isJson) {
         value = JSON.stringify(p.value);
       }
-      this.trackingSet.inc({ status: RedisSetStatus.SUCCESS, namespace: p.namespace, conId });
-      await this.getClient(conId).set(p.key, value, { EX: p.ttl });
+      this.trackingSet.inc({ status: RedisSetStatus.SUCCESS, namespace: p.namespace, con_id });
+      await this.getClient(con_id).set(p.key, value, { EX: p.ttl });
     } catch (error) {
-      this.trackingSet.inc({ status: RedisSetStatus.ERROR, namespace: p.namespace, conId });
+      this.trackingSet.inc({ status: RedisSetStatus.ERROR, namespace: p.namespace, con_id });
       throw error;
     }
   }
 
   async del(p: IRedisDel): Promise<number> {
     try {
-      return await this.getClient(p.conId).del(p.keys);
+      return await this.getClient(p.con_id).del(p.keys);
     } catch (error) {
       console.error(`Deleted redis key failed, Error: ${error}`);
       throw error;

@@ -13,7 +13,8 @@
     "build": "lerna run build",
     "dev": "lerna run --parallel dev",
     "start": "lerna run --parallel start",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "proto:generate": "tsproto  --protoPath ./services/seed-service/src/proto --outDir ./services/seed-service/src/proto/proto-gen"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",

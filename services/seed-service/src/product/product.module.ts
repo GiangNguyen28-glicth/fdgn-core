@@ -13,6 +13,6 @@ import { ProductController } from './product.controller';
       },
     ]),
   ],
-  controllers: [ProductController],
+  controllers: [],
 })
 export class ProductModule {}

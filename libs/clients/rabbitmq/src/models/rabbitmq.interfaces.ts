@@ -37,7 +37,7 @@ export interface IConsume {
   queue: string;
   callback: (msg: RabbitMessage) => Promise<void>;
   rbOptions?: RabbitConsumeOptions;
-  conId?: string;
+  con_id?: string;
 }
 
 export interface IConnectOption {
@@ -61,7 +61,7 @@ export interface IQueueConsumeConfig extends IQueue {
   useConcurrent?: boolean;
   useBatchChecking?: boolean;
   batchTimeout?: number;
-  condId?: string;
+  cond_id?: string;
   concurrent?: number;
 }
 
@@ -93,14 +93,14 @@ export interface IPublish {
   exchange: string;
   msgs: { key: string; content: string }[];
   opts?: Options.Publish;
-  conId?: string;
+  con_id?: string;
 }
 
 export interface ISendToQueue {
   queue: string;
   msgs: string[];
   opts?: RabbitPublishOptions;
-  conId?: string;
+  con_id?: string;
 }
 
 export enum ProducerMode {

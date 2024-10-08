@@ -1,4 +1,4 @@
-import { ConsumerConfig, ConsumerSubscribeTopic, EachBatchPayload, EachMessagePayload, KafkaMessage } from "kafkajs";
+import { ConsumerConfig, ConsumerSubscribeTopic, ConsumerSubscribeTopics, EachBatchPayload, EachMessagePayload, KafkaMessage } from "kafkajs";
 
 export type ConsumerRunCfg = {
     autoCommit?: boolean;
@@ -28,8 +28,8 @@ export interface IConsumeable<Input> {
 }
 
 export interface IKafkaConsumeConfig {
-    consumerSubscribeTopic: ConsumerSubscribeTopic;
+    consumerSubscribeTopic: ConsumerSubscribeTopics | ConsumerSubscribeTopic;
     consumerCfg: ConsumerConfig,
     consumerRunConfig: ConsumerBatchRunConfig | ConsumerMessageRunConfig,
-    conId?: string;
+    con_id?: string;
 }

@@ -1,7 +1,7 @@
 import { CircuitBreakerClient, CircuitBreakerConfig } from '@fdgn/common';
 
 export class ProductCircuit extends CircuitBreakerClient {
-  constructor(request: { [conId: string]: (...args: any[]) => any }) {
+  constructor(request: { [con_id: string]: (...args: any[]) => any }) {
     super(request);
   }
   createCircuitConfigs(): { [breaker_id: string]: CircuitBreakerConfig } {

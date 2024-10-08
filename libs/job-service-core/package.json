@@ -19,7 +19,8 @@
   "dependencies": {
     "@fdgn/common": "^1.1.15",
     "@fdgn/typeorm": "^1.1.15",
-    "async": "^3.2.5"
+    "async": "^3.2.5",
+    "axios-retry": "^4.5.0"
   },
   "devDependencies": {
     "@types/async": "3.2.24"

@@ -15,13 +15,13 @@ export const TRACK_STATUS_REDIS_METRIC = 'track_status_redis_metric';
 export const RedisTrackingSetStatus = makeCounterProvider({
   name: REDIS_TRACKING_SET_STATUS,
   help: 'redis tracking set status',
-  labelNames: ['status', 'namespace', 'conId'],
+  labelNames: ['status', 'namespace', 'con_id'],
 });
 
 export const RedisTrackingGetStatus = makeCounterProvider({
   name: REDIS_TRACKING_GET_STATUS,
   help: 'redis tracking get status',
-  labelNames: ['status', 'namespace', 'conId'],
+  labelNames: ['status', 'namespace', 'con_id'],
 });
 
 export const Metrics = [RedisTrackingGetStatus, RedisTrackingSetStatus];
@@ -37,9 +37,9 @@ export class RedisClientMetric {
     type: RedisTrackingStatus,
     status: RedisGetStatus | RedisSetStatus,
     namespace: string,
-    conId: string = DEFAULT_CON_ID,
+    con_id: string = DEFAULT_CON_ID,
   ) {
-    this.trackMetric.inc({ type, status, namespace, conId });
+    this.trackMetric.inc({ type, status, namespace, con_id });
   }
 }
 
@@ -49,12 +49,12 @@ export function GetRedisMetric() {
     descriptor.value = async function (...args: IRedisGet[]) {
       const redisMetricService: RedisClientMetric = this.redisClientMetric;
       const value = await originalMethod.apply(this, args);
-      const { conId = DEFAULT_CON_ID, namespace } = args[0];
+      const { con_id = DEFAULT_CON_ID, namespace } = args[0];
       if (isNil(value)) {
-        redisMetricService.track('GET', RedisGetStatus.MISS, namespace, conId);
+        redisMetricService.track('GET', RedisGetStatus.MISS, namespace, con_id);
         return value;
       }
-      redisMetricService.track('GET', RedisGetStatus.HIT, namespace, conId);
+      redisMetricService.track('GET', RedisGetStatus.HIT, namespace, con_id);
       return value;
     };
   };

@@ -78,6 +78,7 @@ mailConsume:
     maxRetries: 1
 
 kafka:
+  con_id: KAFKA01
   clientId: my-app
   brokers:
     - localhost:9092
@@ -92,5 +93,5 @@ env: prod
 httpClient:
   timeout: 5000
   raxConfig:
-    retry: 10
+    retries: 10
     retryDelay: 5000

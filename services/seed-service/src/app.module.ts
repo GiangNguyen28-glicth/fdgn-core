@@ -12,16 +12,16 @@ import { SeedModule } from './seed.module';
 @Module({
   imports: [
     CommonModule,
-    MetricModule,
-    RabbitMQModule,
+    // MetricModule,
+    // RabbitMQModule,
     LogModule,
+    KafkaClientModule,
+
     SeedModule,
-    HeroModule,
-    ProductModule,
-    MongoDBModule,
-    HttpClientModule,
-    ThrottlerClientModule,
-    KafkaClientModule
+    // HeroModule,
+    // MongoDBModule,
+    // HttpClientModule,
+    // ThrottlerClientModule,
   ],
 })
 export class AppModule {}

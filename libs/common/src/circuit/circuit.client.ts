@@ -26,7 +26,7 @@ export abstract class CircuitBreakerClient {
 
   createCircuitBreaker(makeRequest: (...args: any[]) => any, config: CircuitBreakerConfig) {
     if (isNil(makeRequest) || isNil(config)) {
-      throw new Error('Config not accepted');
+      throw new Error('Config is not accepted');
     }
     return new CircuitBreaker(makeRequest, config);
   }

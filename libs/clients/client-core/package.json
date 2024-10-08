@@ -16,8 +16,7 @@
     "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
   },
   "dependencies": {
-    "@fdgn/common": "^1.1.15",
-    "source-map-support": "^0.5.21"
+    "@fdgn/common": "^1.1.15"
   },
   "gitHead": "db2b8443e82168b941be80fafeddb075d370346e"
 }

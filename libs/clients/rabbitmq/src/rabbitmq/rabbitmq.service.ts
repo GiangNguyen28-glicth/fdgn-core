@@ -25,12 +25,12 @@ export class RabbitMQService extends AbstractClientService<RabbitMQConfig, Conne
   constructor() {
     super('rabbit', RabbitMQConfig);
   }
-  private channels: { [conId: string]: ConfirmChannel } = {};
-  private hooks: { [conId: string]: ((conId: string) => Promise<void>)[] } = {};
+  private channels: { [con_id: string]: ConfirmChannel } = {};
+  private hooks: { [con_id: string]: ((con_id: string) => Promise<void>)[] } = {};
 
   protected async init(config: RabbitMQConfig): Promise<Connection> {
     try {
-      if (!has(this.hooks, config.conId)) this.hooks[config.conId] = [];
+      if (!has(this.hooks, config.con_id)) this.hooks[config.con_id] = [];
       const connection = await amqp.connect(config.getUrl());
 
       const { onConnectionEvent } = config;
@@ -39,7 +39,7 @@ export class RabbitMQService extends AbstractClientService<RabbitMQConfig, Conne
         'error',
         // TODO: cover the case rabbit connection error, exit or retry connect but channels can create again
         (async (error: Error) => {
-          console.error(error ?? {}, '`%s` rabbit connection error', config.conId);
+          console.error(error ?? {}, '`%s` rabbit connection error', config.con_id);
           if (onConnectionEvent.exitOnError) throw error;
           else {
             console.log('Connect error. Trying to reconnect');
@@ -52,8 +52,8 @@ export class RabbitMQService extends AbstractClientService<RabbitMQConfig, Conne
       connection.on(
         'close',
         (async (error: Error) => {
-          console.error(error ?? {}, '`%s` rabbit connection closed', config.conId);
-          if (onConnectionEvent.exitOnClose) throw error ?? new Error(`RabbitMQ [${config.conId}] connection closed`);
+          console.error(error ?? {}, '`%s` rabbit connection closed', config.con_id);
+          if (onConnectionEvent.exitOnClose) throw error ?? new Error(`RabbitMQ [${config.con_id}] connection closed`);
           else {
             console.log('Connect close. Trying to reconnect');
             await sleep(3, 'seconds');
@@ -61,46 +61,46 @@ export class RabbitMQService extends AbstractClientService<RabbitMQConfig, Conne
           }
         }).bind(this),
       );
-      this.setClient(connection, config.conId);
+      this.setClient(connection, config.con_id);
       return connection;
     } catch (error) {
       console.log('Connect failed. Trying to connection');
       await sleep(3, 'seconds');
       await this.init(config);
-      return this.getClient(config.conId);
+      return this.getClient(config.con_id);
     }
   }
 
-  protected async stop(client: Connection, conId?: string): Promise<void> {
-    console.info('Close connection to rabbit client %s', conId);
+  protected async stop(client: Connection, con_id?: string): Promise<void> {
+    console.info('Close connection to rabbit client %s', con_id);
     await client.close();
   }
 
-  protected async start(client: Connection, conId = DEFAULT_CON_ID): Promise<void> {
-    await this.createChannel(conId);
+  protected async start(client: Connection, con_id = DEFAULT_CON_ID): Promise<void> {
+    await this.createChannel(con_id);
   }
 
-  async createChannelById(channelId: string, conId?: string): Promise<void> {
-    const { onChannelEvent } = this.getConfig(conId);
+  async createChannelById(channelId: string, con_id?: string): Promise<void> {
+    const { onChannelEvent } = this.getConfig(con_id);
     if (!has(this.hooks, channelId)) this.hooks[channelId] = [];
-    this.channels[channelId] = await this.getClient(conId).createConfirmChannel();
-    console.info('`%s` rabbit create confirmChannel %s success', conId, channelId);
+    this.channels[channelId] = await this.getClient(con_id).createConfirmChannel();
+    console.info('`%s` rabbit create confirmChannel %s success', con_id, channelId);
 
     this.channels[channelId]?.on(
       'error',
       (async (error: Error) => {
-        console.error(error, '`%s` rabbit confirmChannel %s error', conId, channelId);
+        console.error(error, '`%s` rabbit confirmChannel %s error', con_id, channelId);
         if (onChannelEvent.exitOnError) throw error;
-        else await this.createChannelById(channelId, conId);
+        else await this.createChannelById(channelId, con_id);
       }).bind(this),
     );
 
     this.channels[channelId]?.on(
       'close',
       (async (error: Error) => {
-        console.error(error, '`%s` rabbit confirmChannel %s closed', conId, channelId);
+        console.error(error, '`%s` rabbit confirmChannel %s closed', con_id, channelId);
         if (onChannelEvent.exitOnClose) throw error;
-        else await this.createChannelById(channelId, conId);
+        else await this.createChannelById(channelId, con_id);
       }).bind(this),
     );
 
@@ -109,74 +109,74 @@ export class RabbitMQService extends AbstractClientService<RabbitMQConfig, Conne
     }
   }
 
-  private async createChannel(conId: string = DEFAULT_CON_ID): Promise<void> {
-    this.channels[conId] = await this.getClient(conId).createConfirmChannel();
-    console.info('`%s` rabbit create confirmChannel success', conId);
-    const { onChannelEvent } = this.getConfig(conId);
-    this.channels[conId]?.connection.on(
+  private async createChannel(con_id: string = DEFAULT_CON_ID): Promise<void> {
+    this.channels[con_id] = await this.getClient(con_id).createConfirmChannel();
+    console.info('`%s` rabbit create confirmChannel success', con_id);
+    const { onChannelEvent } = this.getConfig(con_id);
+    this.channels[con_id]?.connection.on(
       'error',
       (async (error: Error) => {
-        console.error(error ?? {}, '`%s` rabbit confirmChannel error', conId);
+        console.error(error ?? {}, '`%s` rabbit confirmChannel error', con_id);
         if (onChannelEvent.exitOnError) throw error;
-        // else await this.createChannel(conId);
+        // else await this.createChannel(con_id);
       }).bind(this),
     );
 
-    this.channels[conId]?.connection.on(
+    this.channels[con_id]?.connection.on(
       'close',
       (async (error: Error) => {
-        console.error(error ?? {}, '`%s` rabbit confirmChannel closed', conId);
-        if (onChannelEvent.exitOnClose) throw error ?? new Error(`RabbitMQ [${conId}] confirmChannel closed`);
+        console.error(error ?? {}, '`%s` rabbit confirmChannel closed', con_id);
+        if (onChannelEvent.exitOnClose) throw error ?? new Error(`RabbitMQ [${con_id}] confirmChannel closed`);
         else {
           console.log('Channels close. Trying reconnect');
-          // await this.createChannel(conId);
+          // await this.createChannel(con_id);
         }
       }).bind(this),
     );
 
-    this.channels[conId]?.connection.on('heartbeat', () => {
+    this.channels[con_id]?.connection.on('heartbeat', () => {
       console.debug('Received a Heartbeat signal');
     });
 
-    for (const hook of this.hooks[conId]) await hook(conId);
+    for (const hook of this.hooks[con_id]) await hook(con_id);
   }
 
   async sendToQueue(options: ISendToQueue): Promise<void> {
-    const { conId = DEFAULT_CON_ID, queue, opts, msgs } = options;
+    const { con_id = DEFAULT_CON_ID, queue, opts, msgs } = options;
     for (const msg of msgs) {
-      this.channels[conId].sendToQueue(queue, Buffer.from(msg), opts);
+      this.channels[con_id].sendToQueue(queue, Buffer.from(msg), opts);
     }
-    await this.channels[conId].waitForConfirms();
+    await this.channels[con_id].waitForConfirms();
   }
 
   async publish(options: IPublish): Promise<void> {
-    const { conId = DEFAULT_CON_ID, exchange, opts, msgs } = options;
+    const { con_id = DEFAULT_CON_ID, exchange, opts, msgs } = options;
     for (const { key, content } of msgs) {
-      this.channels[conId].publish(exchange, key, Buffer.from(content), opts);
+      this.channels[con_id].publish(exchange, key, Buffer.from(content), opts);
     }
-    await this.channels[conId].waitForConfirms();
+    await this.channels[con_id].waitForConfirms();
   }
 
   async consume(options: IConsume): Promise<void> {
-    const { queue, callback, rbOptions, conId = DEFAULT_CON_ID } = options;
-    const hook = async (conId: string) => {
-      await this.channels[conId].prefetch(rbOptions.prefetchMessages ?? 10);
-      await this.channels[conId].consume(
+    const { queue, callback, rbOptions, con_id = DEFAULT_CON_ID } = options;
+    const hook = async (con_id: string) => {
+      await this.channels[con_id].prefetch(rbOptions.prefetchMessages ?? 10);
+      await this.channels[con_id].consume(
         queue,
         async (msg: RabbitMessage) => {
           try {
             await callback(msg);
-            rbOptions.autoCommit && (await this.commit(msg, conId));
+            rbOptions.autoCommit && (await this.commit(msg, con_id));
           } catch (error) {
-            await this.reject(msg, rbOptions.requeue ?? true, conId);
+            await this.reject(msg, rbOptions.requeue ?? true, con_id);
           }
         },
         options,
       );
     };
 
-    this.hooks[conId].push(hook);
-    await hook(conId);
+    this.hooks[con_id].push(hook);
+    await hook(con_id);
   }
 
   async exchange(exchangeRb: IExchange, channelId: string = DEFAULT_CON_ID): Promise<RabbitAssertExchange> {
@@ -196,31 +196,31 @@ export class RabbitMQService extends AbstractClientService<RabbitMQConfig, Conne
     return await this.channels[channelId].bindQueue(queue, exchange, routingKey);
   }
 
-  async reject(msg: RabbitMessage | RabbitMessage[], requeue?: boolean, conId: string = DEFAULT_CON_ID): Promise<void> {
+  async reject(msg: RabbitMessage | RabbitMessage[], requeue?: boolean, con_id: string = DEFAULT_CON_ID): Promise<void> {
     if (isArray(msg)) {
       for (const message of msg) {
-        this.channels[conId].reject(message, requeue ?? true);
-        await this.channels[conId].waitForConfirms();
+        this.channels[con_id].reject(message, requeue ?? true);
+        await this.channels[con_id].waitForConfirms();
       }
       return;
     }
-    this.channels[conId].reject(msg, requeue ?? true);
-    await this.channels[conId].waitForConfirms();
+    this.channels[con_id].reject(msg, requeue ?? true);
+    await this.channels[con_id].waitForConfirms();
   }
 
-  async commit(msg: RabbitMessage | RabbitMessage[], conId: string = DEFAULT_CON_ID): Promise<void> {
+  async commit(msg: RabbitMessage | RabbitMessage[], con_id: string = DEFAULT_CON_ID): Promise<void> {
     if (isArray(msg)) {
       for (const message of msg) {
-        this.channels[conId].ack(message);
-        await this.channels[conId].waitForConfirms();
+        this.channels[con_id].ack(message);
+        await this.channels[con_id].waitForConfirms();
       }
       return;
     }
-    this.channels[conId].ack(msg);
-    await this.channels[conId].waitForConfirms();
+    this.channels[con_id].ack(msg);
+    await this.channels[con_id].waitForConfirms();
   }
 
-  async getTotalMessageInQueue(queueName: string, conId: string = DEFAULT_CON_ID) {
-    return this.channels[conId].checkQueue(queueName);
+  async getTotalMessageInQueue(queueName: string, con_id: string = DEFAULT_CON_ID) {
+    return this.channels[con_id].checkQueue(queueName);
   }
 }

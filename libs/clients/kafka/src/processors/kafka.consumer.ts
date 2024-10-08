@@ -39,11 +39,11 @@ export abstract class KafkaConsumer<Input> implements IConsumeable<Input>, OnMod
     }
 
     async start():Promise<void> {
-        const kafkaClient = this.kafkaClientService.getClient(this.kafkaConfig.conId);
-        if(!kafkaClient) {
-            throw new Error(`KafkaClient does not exists with id ${this.kafkaConfig.conId}`);
+        const kafka_client = this.kafkaClientService.getClient(this.kafkaConfig.con_id);
+        if(!kafka_client) {
+            throw new Error(`KafkaClient does not exists with id ${this.kafkaConfig.con_id}`);
         }
-        const consumer = await this.kafkaService.initConsumer(this.kafkaConfig.conId, this.kafkaConfig.consumerCfg);
+        const consumer = await this.kafkaService.initConsumer(this.kafkaConfig.con_id, this.kafkaConfig.consumerCfg);
         consumer.subscribe(this.kafkaConfig.consumerSubscribeTopic);
         await consumer.run({
             eachMessage: async({ topic, partition, message })=>{
@@ -54,20 +54,20 @@ export abstract class KafkaConsumer<Input> implements IConsumeable<Input>, OnMod
     }
 
     private async processWithRetryDelayTimeout(source: IMessageConsume<Input>, delayTimeout = 5): Promise<void> {
-        const attemptToProcess = async (retryTime = 0) => {
+        const attemptToProcess = async (retry_time = 0) => {
           try {
             await this.beforeProcess(source);
             const data = source.data;
             await this.process(data);
           } catch (e) {
-            retryTime++;
-            if (retryTime >= 2) throw e;
+            retry_time++;
+            if (retry_time >= 2) throw e;
             console.error(
               `Processing data into client database has been occurred error: %s and retry after ${delayTimeout}s`,
               e,
             );
             await sleep(delayTimeout, 'seconds');
-            return attemptToProcess(retryTime);
+            return attemptToProcess(retry_time);
           }
         };
     

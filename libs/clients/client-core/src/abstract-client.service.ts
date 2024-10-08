@@ -9,13 +9,13 @@ import { ClientConfig, DEFAULT_CON_ID } from './client.config';
 export abstract class AbstractClientService<Config extends ClientConfig, C = any>
   implements Client<Config, C>, OnModuleInit, OnModuleDestroy
 {
-  private configs: { [conId: string]: Config } = {};
-  private clients: { [conId: string]: C } = {};
+  private configs: { [con_id: string]: Config } = {};
+  private clients: { [con_id: string]: C } = {};
 
   @Inject()
   protected configService: ConfigService;
 
-  protected constructor(protected service: string, protected configClass: new (props: Config) => Config) {}
+  protected constructor(protected service: string, protected config_class: new (props: Config) => Config) {}
 
   onModuleDestroy() {
     return;
@@ -30,7 +30,7 @@ export abstract class AbstractClientService<Config extends ClientConfig, C = any
     if (configKeys.find(key => key === 'default')) {
       // If have default object, then use it as default config
       for (const configKey of configKeys) {
-        await this.clientInit({ conId: configKey, ...config[configKey] });
+        await this.clientInit({ con_id: configKey, ...config[configKey] });
       }
     } else {
       // array of config if no default object
@@ -39,21 +39,21 @@ export abstract class AbstractClientService<Config extends ClientConfig, C = any
   }
 
   protected async clientInit(config: Config, first = true) {
-    const { conId = DEFAULT_CON_ID } = config;
-    const beginMessage = first ? 'initializing...' : 're-initializing...';
-    const endMessage = first ? 'initialized' : 're-initialized';
+    const { con_id = DEFAULT_CON_ID } = config;
+    const begin_message = first ? 'initializing...' : 're-initializing...';
+    const end_message = first ? 'initialized' : 're-initialized';
 
-    this.configs[conId] = this.validateConfig(config);
+    this.configs[con_id] = this.validateConfig(config);
 
-    console.log('`%s` %s is %s', conId, this.service, beginMessage);
-    this.clients[conId] = await this.init(this.configs[conId]);
-    console.log('`%s` %s %s with config:\n%j', conId, this.service, endMessage, this.configs[conId]);
+    console.log('`%s` %s is %s', con_id, this.service, begin_message);
+    this.clients[con_id] = await this.init(this.configs[con_id]);
+    console.log('`%s` %s %s with config:\n%j', con_id, this.service, end_message, this.configs[con_id]);
 
-    await this.start(this.clients[conId], conId);
+    await this.start(this.clients[con_id], con_id);
   }
 
   private validateConfig(config: Config): Config {
-    const cfg = new this.configClass(config);
+    const cfg = new this.config_class(config);
     const error = cfg.validate();
     if (error?.length) {
       console.error(error, `${this.service} invalid config`);
@@ -63,25 +63,25 @@ export abstract class AbstractClientService<Config extends ClientConfig, C = any
     return cfg;
   }
 
-  getConfig(conId = DEFAULT_CON_ID): Config {
-    return this.configs[conId];
+  getConfig(con_id = DEFAULT_CON_ID): Config {
+    return this.configs[con_id];
   }
 
-  getClient(conId = DEFAULT_CON_ID): C {
-    const client = this.clients[conId];
+  getClient(con_id = DEFAULT_CON_ID): C {
+    const client = this.clients[con_id];
     if (!client) {
-      throw new Error(`Client did not initial, Please verify this connection ${conId}`);
+      throw new Error(`Client did not initial, Please verify the ${con_id} connection.`);
     }
     return client;
   }
 
-  setClient(client: C, conId = DEFAULT_CON_ID): void {
-    this.clients[conId] = client;
+  setClient(client: C, con_id = DEFAULT_CON_ID): void {
+    this.clients[con_id] = client;
   }
 
   protected abstract init(config: Config): Promise<C>;
 
-  protected abstract stop(client: C, conId?: string): Promise<void>;
+  protected abstract stop(client: C, con_id?: string): Promise<void>;
 
-  protected abstract start(client: C, conId?: string): Promise<void>;
+  protected abstract start(client: C, con_id?: string): Promise<void>;
 }
