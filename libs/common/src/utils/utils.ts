@@ -1,10 +1,8 @@
 import { HttpException, NotFoundException } from '@nestjs/common';
 import * as axios from 'axios';
-import * as bcrypt from 'bcrypt';
 import { isArray, isEmpty, isNil } from 'lodash';
 export type AxiosError = axios.AxiosError;
 import * as merge from 'merge-deep';
-
 
 import { UNITS_OF_TIME } from '../consts';
 import { PaginationDTO } from '../dto';
@@ -14,20 +12,6 @@ export function throwIfNotExists<T>(model: T | any, message: string) {
   if (!model || model?.deleted_at) {
     throw new NotFoundException(`${message}`);
   }
-}
-
-export async function hash(value: string): Promise<string> {
-  try {
-    const salt = await bcrypt.genSalt();
-    return await bcrypt.hash(value, salt);
-  } catch (error) {
-    throw error;
-  }
-}
-
-export async function compareHash(value: string, hashValue: string): Promise<boolean> {
-  const correct = await bcrypt.compare(value, hashValue);
-  return correct ? true : false;
 }
 
 export function toKeyword(str: string): string {
@@ -137,4 +121,3 @@ export function isGrpcException(exception: any): exception is IGrpcException {
 }
 
 export const mergeDeep = merge;
-

@@ -30,10 +30,10 @@ export type IAuditable<ID extends string | number> = Omit<
 
 export interface IBaseEntity<ID extends string | number> extends ISoftDelete<ID>, IDateTracking, IEntity<ID> {}
 
-export type IAuditableSoftDeleteMongo = Omit<IAuditableSoftDelete<string>, 'id'> & {
+export type IAuditableSoftDeleteMongo<ID extends number | string> = Omit<IAuditableSoftDelete<ID>, 'id'> & {
   _id: string;
 };
 
-export type IAuditableMongo = Omit<IAuditableSoftDelete<string>, 'is_deleted' | 'deleted_at' | 'deleted_by'>;
+export type IAuditableMongo<ID extends number | string> = Omit<IAuditableSoftDelete<ID>, 'is_deleted' | 'deleted_at' | 'deleted_by'>;
 
-export type IBaseEntityMongo = Omit<IBaseEntity<string>, 'id'> & { _id: string };
+export type IBaseEntityMongo<ID extends number | string> = Omit<IBaseEntity<ID>, 'id'> & { _id: string };

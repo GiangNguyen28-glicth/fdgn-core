@@ -17,9 +17,8 @@
   },
   "dependencies": {
     "@fdgn/client-core": "^1.1.14",
-    "@fdgn/common": "^1.1.16",
     "amqp-connection-manager": "^4.1.14",
     "amqplib": "^0.10.3"
   },
-  "gitHead": "db2b8443e82168b941be80fafeddb075d370346e"
+  "gitHead": "38c4c5409f494d4162e9aaef7c2e021f5739157e"
 }

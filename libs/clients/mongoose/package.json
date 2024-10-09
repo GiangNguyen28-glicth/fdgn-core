@@ -18,8 +18,7 @@
   "dependencies": {
     "@fdgn/common": "^1.1.16",
     "@nestjs/mongoose": "^10.0.2",
-    "axios-retry": "^4.5.0",
     "mongoose": "7.3.4"
   },
-  "gitHead": "db2b8443e82168b941be80fafeddb075d370346e"
+  "gitHead": "38c4c5409f494d4162e9aaef7c2e021f5739157e"
 }

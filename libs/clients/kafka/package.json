@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "@fdgn/client-core": "^1.1.14",
-    "@fdgn/common": "^1.1.16",
     "axios-retry": "^4.5.0",
     "kafkajs": "^2.2.4"
-  }
+  },
+  "gitHead": "38c4c5409f494d4162e9aaef7c2e021f5739157e"
 }
