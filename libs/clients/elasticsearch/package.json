@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/elasticsearch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "^8.13.1",
-    "@fdgn/client-core": "^1.1.14",
-    "@fdgn/common": "^1.1.16",
+    "@fdgn/client-core": "^1.1.15",
+    "@fdgn/common": "^1.1.17",
     "axios-retry": "^4.5.0"
   },
   "gitHead": "38c4c5409f494d4162e9aaef7c2e021f5739157e"
