@@ -11,7 +11,6 @@ import { SeedController } from './seed.controller';
   ],
   controllers: [],
   providers: [
-    SeedKafkaConsumer
   ],
 })
 export class SeedModule {}

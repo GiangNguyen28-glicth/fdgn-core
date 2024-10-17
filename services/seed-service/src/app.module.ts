@@ -15,8 +15,7 @@ import { SeedModule } from './seed.module';
     // MetricModule,
     // RabbitMQModule,
     LogModule,
-    KafkaClientModule,
-
+    HttpClientModule,
     SeedModule,
     // HeroModule,
     // MongoDBModule,

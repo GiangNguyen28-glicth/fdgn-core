@@ -17,9 +17,7 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "^8.13.1",
-    "@fdgn/client-core": "^1.1.15",
-    "@fdgn/common": "^1.1.17",
-    "axios-retry": "^4.5.0"
+    "@fdgn/client-core": "^1.1.15"
   },
-  "gitHead": "38c4c5409f494d4162e9aaef7c2e021f5739157e"
+  "gitHead": "d94f603e25652818df220cb9bc1ac1f49a0d7d42"
 }

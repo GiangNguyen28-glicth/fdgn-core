@@ -21,9 +21,9 @@ export interface IGrpcException {
   details: string;
 }
 
-export interface IResponse {
-  success?: boolean;
+export interface IResponse<DATA> {
+  success: boolean;
   status_code?: number;
-  data?: any;
+  data?: DATA;
   message?: string;
 }

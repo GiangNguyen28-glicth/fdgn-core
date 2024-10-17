@@ -28,8 +28,20 @@ export function toKeyword(str: string): string {
   return str;
 }
 
-export function formatResult<T>(data: T[], total_count: number, pagination?: PaginationDTO): IResult<T> {
-  const results: IResult<T> = {
+export function toSlug(str: string): string {
+  return str
+    .toLowerCase() // Convert to lowercase
+    .normalize('NFD') // Normalize to decompose special characters
+    .replace(/[\u0300-\u036f]/g, '') // Remove diacritics (accents)
+    .replace(/đ/g, 'd') // Replace 'đ' with 'd'
+    .replace(/[^a-z0-9\s-]/g, '') // Remove all non-alphanumeric characters except spaces and hyphens
+    .trim() // Trim leading/trailing spaces
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-'); // Replace multiple hyphens with a single one
+}
+
+export function formatResult<DATA>(data: DATA[], total_count: number, pagination?: PaginationDTO): IResult<DATA> {
+  const results: IResult<DATA> = {
     results: data,
     pagination: {
       current_page: pagination?.page,
@@ -75,7 +87,6 @@ export function isJSONString(str: string): boolean {
 
   try {
     JSON.parse(str);
-
     return true;
   } catch (e) {
     return false;

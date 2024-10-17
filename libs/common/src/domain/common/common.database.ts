@@ -34,6 +34,9 @@ export type IAuditableSoftDeleteMongo<ID extends number | string> = Omit<IAudita
   _id: string;
 };
 
-export type IAuditableMongo<ID extends number | string> = Omit<IAuditableSoftDelete<ID>, 'is_deleted' | 'deleted_at' | 'deleted_by'>;
+export type IAuditableMongo<ID extends number | string> = Omit<
+  IAuditableSoftDelete<ID>,
+  'is_deleted' | 'deleted_at' | 'deleted_by' | 'id'
+>;
 
 export type IBaseEntityMongo<ID extends number | string> = Omit<IBaseEntity<ID>, 'id'> & { _id: string };

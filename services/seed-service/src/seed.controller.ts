@@ -5,7 +5,6 @@ import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { lastValueFrom } from 'rxjs';
 import { Product } from './entities';
 import { ISeedRepo, SeedRepo } from './entities/seed.schema';
-import rax, { attach } from 'retry-axios';
 // attach();
 export interface INew {
   key: string;
@@ -21,7 +20,7 @@ export class SeedController {
     // private typeOrmService: TypeOrmService,
     @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
     @Inject(SeedRepo.name) private readonly seedRepo: ISeedRepo,
-    private httpService: HttpClientService
+    private httpService: HttpClientService,
   ) {}
 
   @Get('test-2')
@@ -45,8 +44,11 @@ export class SeedController {
   @Get(':id')
   async findProductId(@Param('id') id: string): Promise<any> {
     try {
-      console.log("Zo day")
-      const response = await this.httpService.request({url: `http://localhost:4017/catalog/product/${id}`, method: 'GET'});
+      console.log('Zo day');
+      const response = await this.httpService.request({
+        url: `http://localhost:4017/catalog/product/${id}`,
+        method: 'GET',
+      });
       const product = await response.data;
       return product;
     } catch (error) {

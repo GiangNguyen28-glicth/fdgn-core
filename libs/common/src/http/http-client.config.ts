@@ -4,6 +4,17 @@ import { ClientConfig } from '@fdgn/client-core';
 
 import { HttpMethod } from '../consts';
 import { mergeDeep } from '../utils';
+
+export class RaxConfig {
+  @IsOptional()
+  @IsInt()
+  retries: number;
+
+  @IsOptional()
+  @IsInt()
+  retryDelay: number;
+}
+
 export class HttpClientConfig extends ClientConfig implements AxiosRequestConfig {
   @IsOptional()
   @IsString()
@@ -45,7 +56,6 @@ export class HttpClientConfig extends ClientConfig implements AxiosRequestConfig
 
   retryDelay(retryCount: number) {
     console.log(`Retry attempt: ${retryCount}`);
-    console.log('this.raxConfig.retryDelay', this.raxConfig.retryDelay);
     return this.raxConfig.retryDelay; // Exponential backoff
   }
 
@@ -55,14 +65,4 @@ export class HttpClientConfig extends ClientConfig implements AxiosRequestConfig
     //   console.error('%s %s with %o error, currentRetryAttempt: %s', method, url, err, raxConfig.currentRetryAttempt);
     // };
   }
-}
-
-export class RaxConfig {
-  @IsOptional()
-  @IsInt()
-  retries: number;
-
-  @IsOptional()
-  @IsInt()
-  retryDelay: number;
 }
