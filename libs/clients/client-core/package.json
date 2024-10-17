@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/client-core",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
@@ -16,7 +16,7 @@
     "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
   },
   "dependencies": {
-    "@fdgn/common": "^1.1.17"
+    "@fdgn/common": "^1.1.18"
   },
   "gitHead": "d94f603e25652818df220cb9bc1ac1f49a0d7d42"
 }

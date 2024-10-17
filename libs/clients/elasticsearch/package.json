@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/elasticsearch",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "^8.13.1",
-    "@fdgn/client-core": "^1.1.15"
+    "@fdgn/client-core": "^1.1.16"
   },
   "gitHead": "d94f603e25652818df220cb9bc1ac1f49a0d7d42"
 }
