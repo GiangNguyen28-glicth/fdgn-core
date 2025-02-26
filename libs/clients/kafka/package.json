@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/kafka",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
@@ -16,7 +16,7 @@
     "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
   },
   "dependencies": {
-    "@fdgn/common": "1.1.21",
+    "@fdgn/common": "1.1.22",
     "axios-retry": "^4.5.0",
     "kafkajs": "^2.2.4"
   },
