@@ -1,5 +1,5 @@
 import { ClientOptions } from '@elastic/elasticsearch';
-import { ClientConfig } from '@fdgn/client-core';
+import { ClientConfig } from '@fdgn/common';
 
 export class ElasticSearchConfig extends ClientConfig {
   options: ClientOptions;

@@ -1,64 +1,58 @@
-import { NestApplicationOptions, NestModule } from '@nestjs/common';
+import { Logger, NestApplicationOptions, NestModule } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-
-import { HttpConfig, HttpService } from './http';
 import { GrpcConfig, GrpcService } from './grpc';
-
-export type ApplicationOptions = NestApplicationOptions;
-export type Module = NestModule;
+import { HttpConfig, HttpService } from './http';
+import { GRPC_CONFIG_KEY, HTTP_CONFIG_KEY } from './config';
 
 export class Application {
-  static initTrackingProcessEvent() {
+  static initTrackingProcessEvent(logger: Logger) {
     const signalsNames: NodeJS.Signals[] = ['SIGTERM', 'SIGINT', 'SIGHUP'];
-    signalsNames.forEach(signalName =>
-      process.on(signalName, signal => {
-        console.log(`Retrieved signal: ${signal}, application terminated`);
+    signalsNames.forEach(signal_name =>
+      process.on(signal_name, signal => {
+        logger.error(`Retrieved signal: ${signal}, application terminated`);
         process.exit(0);
       }),
     );
 
     process.on('uncaughtException', (error: Error) => {
-      console.error({ err: error });
+      logger.error({ err: error });
       process.exit(1);
     });
 
     process.on('unhandledRejection', (reason, promise) => {
-      console.error(`Unhandled Promise Rejection, reason: ${reason}`);
+      logger.error(`Unhandled Promise Rejection, reason: ${reason}`);
       promise.catch((err: Error) => {
-        console.error({ err });
+        logger.error({ err });
         process.exit(1);
       });
     });
   }
 
-  static async bootstrap(module: any, opts?: ApplicationOptions) {
+  static async bootstrap(module: any, opts?: NestApplicationOptions) {
     const app = await NestFactory.create<NestExpressApplication>(module, {
       logger: ['debug', 'error', 'warn'],
       ...opts,
     });
-
-    app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
-
+    const logger: Logger = app.get(WINSTON_MODULE_NEST_PROVIDER);
+    app.useLogger(logger)
     if (opts?.cors) {
       app.enableCors(opts.cors as any);
     }
 
-    Application.initTrackingProcessEvent();
+    Application.initTrackingProcessEvent(logger);
     const config = app.get(ConfigService);
 
-    const http_config = config.get<HttpConfig>('http');
+    const http_config = config.get<HttpConfig>(HTTP_CONFIG_KEY);
     if (http_config) {
-      await HttpService.bootstrap(app);
+      await HttpService.bootstrap({ app, logger, http_config });
     }
 
-    const grpc_config = config.get<GrpcConfig>('grpc');
+    const grpc_config = config.get<GrpcConfig>(GRPC_CONFIG_KEY);
     if (grpc_config) {
-      await GrpcService.bootstrap(app);
+      await GrpcService.bootstrap({ app, logger, grpc_config });
     }
-
-    await app.listen(http_config.port, () => console.log(`Application is listening on port ${http_config.port}`));
   }
 }

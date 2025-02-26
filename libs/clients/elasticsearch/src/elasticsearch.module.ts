@@ -1,10 +1,10 @@
-import { ClientCoreModule } from '@fdgn/client-core';
-import { Global, Module, DynamicModule } from '@nestjs/common';
+import { CommonModule } from '@fdgn/common';
+import { Global, Module } from '@nestjs/common';
 import { ElasticSearchService } from './elasticsearch.service';
 
 @Global()
 @Module({
-  imports: [ClientCoreModule],
+  imports: [CommonModule],
   providers: [ElasticSearchService],
   exports: [],
 })

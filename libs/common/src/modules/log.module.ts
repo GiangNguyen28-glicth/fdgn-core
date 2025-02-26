@@ -1,13 +1,11 @@
 import { Global, Module } from '@nestjs/common';
-
+import { WinstonModule, utilities as nestWinstonModuleUtilities } from 'nest-winston';
 import * as winston from 'winston';
 import 'winston-daily-rotate-file';
-import { WinstonModule, utilities as nestWinstonModuleUtilities } from 'nest-winston';
 @Global()
 @Module({
   imports: [
     WinstonModule.forRoot({
-      level: 'info',
       format: winston.format.combine(
         winston.format.timestamp(),
         winston.format.ms(),

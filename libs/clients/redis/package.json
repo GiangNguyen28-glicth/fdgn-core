@@ -16,7 +16,6 @@
     "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
   },
   "dependencies": {
-    "@fdgn/client-core": "^1.1.16",
     "@fdgn/common": "^1.1.18",
     "generic-pool": "^3.9.0",
     "redis": "^4.6.12"

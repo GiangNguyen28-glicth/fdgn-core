@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Seed, SeedSchema } from './entities/seed.schema';
 import { SeedKafkaConsumer } from './seed-kafka.consumer';
 import { SeedController } from './seed.controller';
+import { SeedConsumer } from './seed.consumer';
 
 @Module({
   imports: [
@@ -11,6 +12,8 @@ import { SeedController } from './seed.controller';
   ],
   controllers: [],
   providers: [
+    SeedConsumer,
+    SeedController
   ],
 })
 export class SeedModule {}

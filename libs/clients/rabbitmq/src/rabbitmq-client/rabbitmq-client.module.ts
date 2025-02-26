@@ -1,14 +1,14 @@
 import { Global, Module, DynamicModule } from '@nestjs/common';
-import { ClientCoreModule } from '@fdgn/client-core';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigService } from '@nestjs/config';
+import { CommonModule } from '@fdgn/common';
 
 import { RabbitMQClientService, RabbitMQClientConfig } from '.';
 const CONFIG_KEY = 'rabbit';
 
 @Global()
 @Module({
-  imports: [ClientCoreModule],
+  imports: [CommonModule],
   providers: [RabbitMQClientService],
   exports: [RabbitMQClientService],
 })

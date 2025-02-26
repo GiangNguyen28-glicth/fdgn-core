@@ -23,12 +23,12 @@ export class RabbitMQProducer<Output> implements Produceable<Output> {
     switch (this.config.mode) {
       case ProducerMode.Exchange:
         if (!this.config.exchange || !this.config.routingKey) {
-          throw new Error(`Missing routing key, exchange RabbitMQ config`);
+          throw new Error('Missing the RabbitMQ routing key & exchange config');
         }
         break;
       case ProducerMode.Queue:
         if (!this.config.queue) {
-          throw new Error(`Missing queue RabbitMQ config`);
+          throw new Error('Missing the RabbitMQ queue config');
         }
         break;
     }

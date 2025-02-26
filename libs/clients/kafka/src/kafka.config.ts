@@ -1,7 +1,6 @@
-import { ISocketFactory, KafkaConfig, RetryOptions, SASLOptions } from "kafkajs";
-import { ClientConfig, DEFAULT_CON_ID } from '@fdgn/client-core';
-import { ArrayNotEmpty, IsArray, IsBoolean, IsOptional, IsPositive, IsString } from "@fdgn/common";
-
+import { ISocketFactory, KafkaConfig, RetryOptions, SASLOptions } from 'kafkajs';
+import { ClientConfig, DEFAULT_CON_ID } from '@fdgn/common';
+import { ArrayNotEmpty, IsArray, IsBoolean, IsOptional, IsPositive, IsString } from 'class-validator';
 export class KafkaClientConfig extends ClientConfig implements KafkaConfig {
   @IsArray()
   @ArrayNotEmpty()

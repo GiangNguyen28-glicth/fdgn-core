@@ -1,9 +1,9 @@
 import { AxiosRequestConfig, Method, AxiosBasicCredentials } from 'axios';
 import { IsEnum, IsInt, IsOptional, IsPositive, IsString } from 'class-validator';
-import { ClientConfig } from '@fdgn/client-core';
 
-import { HttpMethod } from '../consts';
+import { HttpMethod } from '../constants';
 import { mergeDeep } from '../utils';
+import { ClientConfig } from '../config';
 
 export class RaxConfig {
   @IsOptional()

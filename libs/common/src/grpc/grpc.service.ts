@@ -1,4 +1,4 @@
-import { INestApplication } from '@nestjs/common';
+import { INestApplication, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { GrpcOptions, Transport } from '@nestjs/microservices';
 import * as fs from 'fs';
@@ -7,10 +7,9 @@ import { glob } from 'glob';
 import { ENV } from '../config';
 import { GrpcConfig } from './grpc.config';
 export class GrpcService {
-  static async bootstrap(app: INestApplication) {
+  static async bootstrap(args: {app: INestApplication, logger: Logger, grpc_config: GrpcConfig}) {
+    const { app, grpc_config, logger } = args;
     const config = app.get(ConfigService);
-    const grpc_config = config.get<GrpcConfig>('grpc');
-    if (!grpc_config) return;
     const files = glob.sync(`${config.get('env') === ENV.DEV ? 'src' : 'dist'}/**/*.proto`);
     const packages = files.map(
       file =>
@@ -30,6 +29,6 @@ export class GrpcService {
     });
 
     await app.startAllMicroservices();
-    console.log(`Grpc is listening on port ${grpc_config.port}`);
+    logger.log(`Grpc is listening on port ${grpc_config.port}`);
   }
 }

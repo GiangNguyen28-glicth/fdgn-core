@@ -1,12 +1,8 @@
 import { Any, Between, Equal, In, IsNull, LessThan, Like, MoreThan, Not } from 'typeorm';
 
-import { OperatorQuery, SortOrder, SortQuery, FilterBuilder } from '@fdgn/common';
+import { FilterBuilder, OperatorQuery, SortOrder } from '@fdgn/common';
 
 export class FilterTypeOrmBuilder<T> extends FilterBuilder<T> {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  private query_filters: Object = {};
-  private sort_options: SortQuery = {};
-
   setFilterItem(key: keyof T, query: OperatorQuery, value: any, isNull = false): this {
     if (!value && !isNull) return this;
     Object.assign(this.query_filters, this.typeOrmOperatorMapper(key, query, value));

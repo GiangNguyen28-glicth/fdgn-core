@@ -1,5 +1,5 @@
-export interface IResult<T> {
-  results: T[];
+export interface IResult<DATA, METADATA = any> {
+  results: DATA[];
   pagination: {
     total_count?: number;
     current_page?: number;
@@ -8,12 +8,12 @@ export interface IResult<T> {
     next_page?: number;
     prev_page?: number;
   };
-  metadata?: any;
+  metadata?: METADATA;
 }
 
-export interface IError<T> {
+export interface IError<DATA = any> {
   message?: string;
-  data?: T;
+  data?: DATA;
 }
 
 export interface IGrpcException {
@@ -21,7 +21,7 @@ export interface IGrpcException {
   details: string;
 }
 
-export interface IResponse<DATA> {
+export interface IResponse<DATA = any> {
   success: boolean;
   status_code?: number;
   data?: DATA;

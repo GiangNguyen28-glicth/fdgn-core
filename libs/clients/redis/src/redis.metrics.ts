@@ -3,9 +3,9 @@ import { InjectMetric, makeCounterProvider } from '@willsoto/nestjs-prometheus';
 import { isNil } from 'lodash';
 import { Counter } from 'prom-client';
 
-import { DEFAULT_CON_ID } from '@fdgn/client-core';
+import { DEFAULT_CON_ID } from '@fdgn/common';
 
-import { RedisGetStatus, RedisSetStatus, RedisTrackingStatus } from './constance';
+import { RedisGetStatus, RedisSetStatus, RedisTrackingStatus } from './constants';
 import { IRedisGet } from './interfaces';
 
 export const REDIS_TRACKING_SET_STATUS = 'redis_tracking_set_status';

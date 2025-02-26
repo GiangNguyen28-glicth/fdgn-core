@@ -1,4 +1,4 @@
-import { Client } from '@fdgn/client-core';
+import { Client } from '@fdgn/common';
 import { Connection } from 'amqplib';
 
 import { IConsume, IPublish, ISendToQueue, RabbitMessage } from './models';

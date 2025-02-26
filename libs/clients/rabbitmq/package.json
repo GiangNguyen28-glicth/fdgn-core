@@ -16,7 +16,7 @@
     "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
   },
   "dependencies": {
-    "@fdgn/client-core": "^1.1.16",
+    "@fdgn/common": "^1.1.18",
     "amqp-connection-manager": "^4.1.14",
     "amqplib": "^0.10.3"
   },

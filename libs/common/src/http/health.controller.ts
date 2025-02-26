@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { OK } from '../consts';
+import { OK } from '../constants';
 
 @Controller('health')
 export class HealthRest {

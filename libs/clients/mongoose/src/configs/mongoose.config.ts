@@ -1,5 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 import { AbstractClientConfig, ClientConfig, toInt } from '@fdgn/common';
+export const CONFIG_KEY = 'mongoose';
 
 export class MongooseConfig extends ClientConfig {
   uri?: string;

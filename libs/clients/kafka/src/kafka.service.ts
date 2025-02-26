@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Consumer, ConsumerConfig, Kafka, Producer } from 'kafkajs';
-import { AbstractClientService, DEFAULT_CON_ID } from '@fdgn/client-core';
+import { AbstractClientService, DEFAULT_CON_ID } from '@fdgn/common';
 import { KafkaClientConfig } from './kafka.config';
 
 @Injectable()
@@ -13,17 +13,17 @@ export class KafkaClientService extends AbstractClientService<KafkaClientConfig,
   }
 
   protected async init(config: KafkaClientConfig): Promise<Kafka> {
-    console.log(config);
+    this.logger.debug('Kafka config:', config);
     this.channels[config.con_id] = new Kafka(config);
     return this.channels[config.con_id];
   }
 
   protected async stop(client: Kafka, con_id?: string): Promise<void> {
-    console.log(`${KafkaClientService.name} stop`);
+    this.logger.log(`${KafkaClientService.name} stop`);
   }
 
   protected async start(client: Kafka, con_id?: string): Promise<void> {
-    console.log(`${KafkaClientService.name} start`);
+    this.logger.log(`${KafkaClientService.name} start`);
   }
 
   async initProducer(con_id = DEFAULT_CON_ID): Promise<Producer> {

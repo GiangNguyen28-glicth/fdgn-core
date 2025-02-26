@@ -1,4 +1,4 @@
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { HttpAdapterHost } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
@@ -9,22 +9,20 @@ import helmet from 'helmet';
 import { AppExceptionsFilter } from '../exception';
 import { HttpConfig } from './http-config';
 export class HttpService {
-  static async bootstrap(app: NestExpressApplication) {
+  static async bootstrap(args: { http_config: HttpConfig; logger: Logger; app: NestExpressApplication }) {
+    const { app, http_config, logger } = args;
     const config = app.get(ConfigService);
-    const http_config = config.get<HttpConfig>('http');
-    if (!http_config) return;
     app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
     app.useGlobalFilters(new AppExceptionsFilter(app.get(HttpAdapterHost)));
     app.setGlobalPrefix(http_config.contextPath, { exclude: ['metrics', 'health'] });
     app.use(
       helmet({
-        hidePoweredBy: true,
         contentSecurityPolicy: {
           directives: {
-            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-            'connect-src': ['self'],
+            'script-src': ['\'self\''],
           },
         },
+        hidePoweredBy: true,
       }),
     );
     const description = this.getDescription(config);
@@ -40,6 +38,7 @@ export class HttpService {
 
     app.use(bodyParser.json({ limit: '50mb' }));
     app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+    await app.listen(http_config.port, () => logger.log(`Application is listening on port ${http_config.port}`));
   }
 
   static getDescription(config: ConfigService): string {

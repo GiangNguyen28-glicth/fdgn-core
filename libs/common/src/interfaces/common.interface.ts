@@ -1,4 +1,4 @@
-import { DomainEventStatus } from '../consts';
+import { DomainEventStatus } from '../constants';
 import { IBaseEntity, ISoftDelete } from '../domain/common';
 
 export interface IParseJson<DATA, ERROR = unknown> {

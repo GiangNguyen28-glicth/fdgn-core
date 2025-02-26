@@ -4,14 +4,14 @@ import { Counter, Gauge } from 'prom-client';
 const PROCESSOR_DATUM_SUCCEED_TOTAL_METRIC = 'processor_datum_succeed_total';
 const ProcessorDatumSucceedTotalMetric = makeCounterProvider({
   name: PROCESSOR_DATUM_SUCCEED_TOTAL_METRIC,
-  help: `processor datums succeed total`,
+  help: 'processor datums succeed total',
   labelNames: ['context'],
 });
 
 const PROCESSOR_DATUM_SUCCEED_METRIC = 'processor_datum_succeed_gauge';
 const ProcessorDatumSucceedMetric = makeGaugeProvider({
   name: PROCESSOR_DATUM_SUCCEED_METRIC,
-  help: `processor datums succeed in latest batch`,
+  help: 'processor datums succeed in latest batch',
   labelNames: ['context'],
 });
 

@@ -2,6 +2,8 @@ import { Global, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
 import { config } from '../config';
+import { LogModule } from './log.module';
+import { HealthRest } from '../http';
 
 @Global()
 @Module({
@@ -10,6 +12,8 @@ import { config } from '../config';
       isGlobal: true,
       load: [config],
     }),
+    LogModule
   ],
+  controllers: [HealthRest]
 })
 export class CommonModule {}

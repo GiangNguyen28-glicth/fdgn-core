@@ -1,16 +1,15 @@
 import { HttpClientService, RestController } from '@fdgn/common';
 import { FilterTypeOrmBuilder } from '@fdgn/typeorm';
-import { Body, Get, Inject, LoggerService, Param, Post, Req, NotFoundException } from '@nestjs/common';
-import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import { Body, Get, Inject, LoggerService, Param, Post, Req, NotFoundException, Logger, Controller } from '@nestjs/common';
+import { WINSTON_MODULE_NEST_PROVIDER, WinstonLogger } from 'nest-winston';
 import { lastValueFrom } from 'rxjs';
 import { Product } from './entities';
 import { ISeedRepo, SeedRepo } from './entities/seed.schema';
-// attach();
 export interface INew {
   key: string;
   value: string;
 }
-@RestController('seed')
+@Controller('seed')
 export class SeedController {
   constructor(
     // @InjectMetric('metric_name') public counter: Counter<string>,
@@ -18,17 +17,18 @@ export class SeedController {
     // @Inject(ProductRepo.name)
     // protected productRepo: IProductRepo,
     // private typeOrmService: TypeOrmService,
-    @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
-    @Inject(SeedRepo.name) private readonly seedRepo: ISeedRepo,
-    private httpService: HttpClientService,
+    @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: Logger,
+    // @Inject(SeedRepo.name) private readonly seedRepo: ISeedRepo,
+    // private httpService: HttpClientService,
+    // private redisService: RedisClientService
   ) {}
 
   @Get('test-2')
   async test2(@Req() req): Promise<any> {
     this.logger.log('log');
-    const q = await this.seedRepo.insert({ entity: { name: 'Hehe', price: 10 } });
-    await this.seedRepo.save({ entity: q });
-    return q;
+    // const q = await this.seedRepo.insert({ entity: { name: 'Hehe', price: 10 } });
+    // await this.seedRepo.save({ entity: q });
+    // return q;
   }
 
   @Get('test-3')
@@ -45,12 +45,12 @@ export class SeedController {
   async findProductId(@Param('id') id: string): Promise<any> {
     try {
       console.log('Zo day');
-      const response = await this.httpService.request({
-        url: `http://localhost:4017/catalog/product/${id}`,
-        method: 'GET',
-      });
-      const product = await response.data;
-      return product;
+      // const response = await this.httpService.request({
+      //   url: `http://localhost:4017/catalog/product/${id}`,
+      //   method: 'GET',
+      // });
+      // const product = await response.data;
+      // return product;
     } catch (error) {
       // console.log(error);
       throw error;

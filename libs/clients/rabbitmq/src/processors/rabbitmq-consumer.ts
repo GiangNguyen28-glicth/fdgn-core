@@ -1,10 +1,11 @@
-import { Inject, OnModuleInit, forwardRef } from '@nestjs/common';
+import { Inject, OnModuleInit, forwardRef, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { isNumber } from 'lodash';
 import { cargoQueue as Queue, QueueObject } from 'async';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
-import { sleep, toInt, DEFAULT_CONSUMER, DEFAULT_CONCURRENT, DEFAULT_BATCH_SIZE } from '@fdgn/common';
-import { DEFAULT_CON_ID } from '@fdgn/client-core';
+
+import { sleep, toInt, DEFAULT_CONSUMER, DEFAULT_CONCURRENT, DEFAULT_BATCH_SIZE, DEFAULT_CON_ID } from '@fdgn/common';
 
 import { Consumeable, MessageConsume, IQueueConsumeConfig, RabbitMessage } from '../models';
 import { RabbitMQService } from '../rabbitmq';
@@ -16,6 +17,8 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
 
   @Inject()
   protected configService: ConfigService;
+
+  @Inject(WINSTON_MODULE_NEST_PROVIDER) protected readonly logger: Logger;
 
   @Inject(forwardRef(() => RabbitMQService))
   private rabbitService: RabbitMQService;
@@ -128,7 +131,7 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
         con_id: this.config.cond_id || DEFAULT_CON_ID,
       });
     } catch (error) {
-      console.error(error, 'Could not consume queue: %s', this.config.queue);
+      this.logger.error(`Could not consume queue: ${this.config.queue}`, error);
     }
   }
 
@@ -142,8 +145,8 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
       } catch (e) {
         retryTime++;
         if (retryTime >= this.config.maxRetries) throw e;
-        console.error(
-          `Processing data into client database has been occurred error: %s and retry after ${delayTimeout}s`,
+        this.logger.error(
+          `Processing data has been occurred error: %s and retry after ${delayTimeout}s`,
           e,
         );
         await sleep(delayTimeout, 'seconds');
@@ -158,9 +161,9 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
     try {
       await this.processWithRetryDelayTimeout(sources, this.config.retryTime);
     } catch (error) {
-      console.error(error, 'Pusher failed with request: %j', sources);
+      this.logger.error(`Message failed with request: ${sources}`, error);
       await this.reject(sources);
-      console.info('Pusher has been rejected and pushed to dead letter!');
+      this.logger.log('Message has been rejected and pushed to dead letter!');
     }
   }
 
@@ -198,7 +201,7 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
   async batchChecking() {
     if (!this.config.useBatchChecking) return;
     if (this.queue.length() >= this.config.batchSize) {
-      console.log('Resume message !');
+      this.logger.log('Resume message !');
       this.resume();
     } else {
       this.pause();
@@ -207,21 +210,21 @@ export abstract class RabbitConsumer<Input> implements Consumeable<Input>, OnMod
 
   pause() {
     if (this.queue.paused) {
-      console.log(`Total message in queue ${this.queue.length()} .Process has been paused!`);
+      this.logger.debug(`Total message in queue ${this.queue.length()} .Process has been paused!`);
       return;
     }
     this.queue.pause();
-    console.debug('Waiting for enough data to batching process during %s seconds', this.config.batchTimeout / 1000);
+    this.logger.debug('Waiting for enough data to batching process during %s seconds', this.config.batchTimeout / 1000);
     this.timeoutId = setTimeout(() => {
       this.resume();
     }, this.config.batchTimeout);
-    console.debug('%s Processor has been paused', this.context);
+    this.logger.debug('%s Processor has been paused', this.context);
   }
 
   resume() {
     this.queue.resume();
     clearTimeout(this.timeoutId);
     this.timeoutId = null;
-    console.debug('%s Processor has been resumed', this.context);
+    this.logger.debug('%s Processor has been resumed', this.context);
   }
 }

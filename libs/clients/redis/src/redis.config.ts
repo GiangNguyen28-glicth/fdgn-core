@@ -1,10 +1,10 @@
-import { ClientConfig } from '@fdgn/client-core';
-import { IsNotEmpty, IsOptional, IsString, IsInt, IsBoolean } from '@fdgn/common';
+import { ClientConfig } from '@fdgn/common';
+import { IsNotEmpty, IsOptional, IsInt, IsBoolean, IsString } from 'class-validator';
 import { startsWith } from 'lodash';
 import * as tls from 'tls';
 import * as net from 'net';
 import { Options as PoolOptions } from 'generic-pool';
-
+export const CONFIG_KEY = 'redis';
 interface RedisSocketCommonOptions {
   connectTimeout?: number;
   noDelay?: boolean;
@@ -63,7 +63,7 @@ export class RedisClientConfig extends ClientConfig {
     this.commandsQueueMaxLength = props.commandsQueueMaxLength;
     this.readonly = props.readonly;
     this.legacyMode = props.legacyMode;
-    this.retryTimeout = props.retryTimeout ?? 20000;
+    this.retryTimeout = props.retryTimeout ?? 3;
     this.isolationPoolOptions = props.isolationPoolOptions;
   }
 }

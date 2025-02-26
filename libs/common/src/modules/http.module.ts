@@ -1,14 +1,13 @@
-import { Global, Module } from "@nestjs/common";
-import { HttpModule } from "@nestjs/axios";
+import { HttpModule } from '@nestjs/axios';
+import { Global, Module } from '@nestjs/common';
 
-import { HealthRest, HttpClientService, HttpPromInterceptors } from '../http';
-import { CommonModule } from "./common.module";
+import { HttpClientService, HttpPromInterceptors } from '../http';
+import { CommonModule } from './common.module';
 
 @Global()
 @Module({
   imports: [CommonModule, HttpModule],
-  controllers: [HealthRest],
-  providers: [...HttpPromInterceptors, HttpClientService],
-  exports: [...HttpPromInterceptors, HttpClientService],
+  providers: [HttpClientService, ...HttpPromInterceptors],
+  exports: [HttpClientService, ...HttpPromInterceptors],
 })
 export class HttpClientModule {}

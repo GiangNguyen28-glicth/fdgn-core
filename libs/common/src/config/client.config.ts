@@ -1,15 +1,9 @@
 import { ConfigService } from '@nestjs/config';
-
-export class ClientConfig {
-  enable = false;
-
-  constructor(props: Partial<ClientConfig> | any) {
-    Object.assign(this, {
-      ...props,
-    });
-  }
-}
-
+import { validateSync, ValidationError } from 'class-validator';
+export const DEFAULT_CON_ID = 'default';
+export const HTTP_CLIENT_SERVICE_CONFIG_KEY = 'httpClient';
+export const HTTP_CONFIG_KEY = 'http';
+export const GRPC_CONFIG_KEY = 'grpc';
 export abstract class AbstractClientConfig<T> {
   config: T;
 
@@ -32,4 +26,21 @@ export abstract class AbstractClientConfig<T> {
   }
 
   protected abstract createConfigInstance(configData: T): T;
+}
+
+
+export class ClientConfig {
+  con_id?: string;
+
+  context: string;
+
+  constructor(props: ClientConfig) {
+    this.con_id = props?.con_id ?? DEFAULT_CON_ID;
+    this.context = props?.context;
+  }
+
+  validate(): string[] {
+    const errors: ValidationError[] = validateSync(this);
+    return errors.length ? errors.reduce((res, err) => res.concat(Object.values(err.constraints)), []) : null;
+  }
 }

@@ -1,9 +1,5 @@
-import { SortQuery, OperatorQuery, toKeyword, SortOrder, FilterBuilder, isNullOrEmpty } from '@fdgn/common';
-
+import { FilterBuilder, isNullOrEmpty, OperatorQuery, SortOrder, toKeyword } from '@fdgn/common';
 export class FilterMongoBuilder<T> extends FilterBuilder<T> {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  private query_filters: Object = { $and: [] };
-  private sort_options: SortQuery = {};
 
   setFilterItem(key: keyof T, query: OperatorQuery, value: any, isNull = false): this {
     if (!value && !isNull) return this;

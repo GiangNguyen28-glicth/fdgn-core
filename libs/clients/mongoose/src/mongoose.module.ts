@@ -2,9 +2,8 @@ import { Global, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { MongooseClientConfig } from './configs';
+import { CONFIG_KEY, MongooseClientConfig } from './configs';
 import { MongooseService } from './mongoose.service';
-const CONFIG_KEY = 'mongoose';
 @Global()
 @Module({
   imports: [

@@ -1,4 +1,4 @@
-import { ClientConfig } from './client.config';
+import { ClientConfig } from '../config';
 
 export interface Client<Config extends ClientConfig, Client = any> {
   getConfig(con_id: string): Config;

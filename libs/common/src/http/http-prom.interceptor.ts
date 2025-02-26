@@ -4,7 +4,7 @@ import { Counter, Histogram } from 'prom-client';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { isAxiosError } from '../utils';
-import { FAILED, SUCCESS, UN_KNOW } from '../consts';
+import { FAILED, SUCCESS, UN_KNOW } from '../constants';
 
 const HTTP_DURATION_SECONDS_METRIC = 'http_duration_seconds';
 const HTTP_TOTAL_METRIC = 'http_total';
@@ -17,7 +17,7 @@ export const HttpDurationSeconds = makeHistogramProvider({
 
 export const HttpTotal = makeCounterProvider({
   name: HTTP_TOTAL_METRIC,
-  help: `http call total`,
+  help: 'http call total',
   labelNames: ['path', 'status', 'status_code'],
 });
 

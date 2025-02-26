@@ -34,7 +34,7 @@ export abstract class JobWorker<J extends Job> implements OnModuleInit {
   protected getConfig() {
     if (this.config) return this.config;
     this.config = new JobWorkerConfig(this.configService.get<JobWorkerConfig>(this.config_key as any));
-    console.info('Config %s', JSON.stringify(this.config, null, 2));
+    console.log('Config %s', JSON.stringify(this.config, null, 2));
     return this.config;
   }
 
@@ -93,7 +93,7 @@ export abstract class JobWorker<J extends Job> implements OnModuleInit {
     const run_jobs = new_jobs.filter(j => j.status != JobStatus.DONE).sort(j => moment(j.date).unix());
     await this.jobRepo.batchUpsert(new_jobs);
     if (!run_jobs.length) {
-      console.info('All jobs are done');
+      console.log('All jobs are done');
       process.exit(0);
     }
     this.job_queue.push(run_jobs);
@@ -141,14 +141,14 @@ export abstract class JobWorker<J extends Job> implements OnModuleInit {
       return;
     }
 
-    console.info('Next job %j will be processed', job);
+    console.log('Next job %j will be processed', job);
     this.job_queue.unshift(next_job);
   }
 
   private async processOnJobStartHook(job: J) {
     if (job.status == JobStatus.TODO) {
       job.started_at = new Date();
-      console.info('Job %s - %s is started at %s', job.type, job.date, job.started_at);
+      console.log('Job %s - %s is started at %s', job.type, job.date, job.started_at);
       job.status = JobStatus.IN_PROGRESS;
       await this.onJobStart(job);
     }
@@ -166,7 +166,7 @@ export abstract class JobWorker<J extends Job> implements OnModuleInit {
   private async processOnJobDoneHook(job: J) {
     if (job.status === JobStatus.DONE) {
       await this.onJobDone(job);
-      console.info(
+      console.log(
         'Job %j sis completed in %s mins',
         job,
         ((job.updated_at.getTime() - job.started_at.getTime()) / 1000 / 60).toFixed(2),

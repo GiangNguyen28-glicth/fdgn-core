@@ -1,10 +1,10 @@
-import { Inject, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+import { Inject, OnModuleDestroy, OnModuleInit, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { isEmpty } from 'lodash';
-import { toArray } from '@fdgn/common';
-
-import { Client } from './client';
-import { ClientConfig, DEFAULT_CON_ID } from './client.config';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import { ClientConfig, DEFAULT_CON_ID } from '../config';
+import { Client } from '../interfaces';
+import { toArray } from '../utils';
 
 export abstract class AbstractClientService<Config extends ClientConfig, C = any>
   implements Client<Config, C>, OnModuleInit, OnModuleDestroy
@@ -15,11 +15,13 @@ export abstract class AbstractClientService<Config extends ClientConfig, C = any
   @Inject()
   protected configService: ConfigService;
 
+  @Inject(WINSTON_MODULE_NEST_PROVIDER)
+  protected logger: Logger;
+
   protected constructor(protected service: string, protected config_class: new (props: Config) => Config) {}
 
   onModuleDestroy() {
     return;
-    throw new Error('Method not implemented.');
   }
 
   async onModuleInit() {
@@ -45,9 +47,9 @@ export abstract class AbstractClientService<Config extends ClientConfig, C = any
 
     this.configs[con_id] = this.validateConfig(config);
 
-    console.log('`%s` %s is %s', con_id, this.service, begin_message);
+    this.logger.debug(`${con_id} ${this.service} is ${begin_message}`);
     this.clients[con_id] = await this.init(this.configs[con_id]);
-    console.log('`%s` %s %s with config:\n%j', con_id, this.service, end_message, this.configs[con_id]);
+    this.logger.debug(` ${con_id} ${this.service} ${end_message} with config:\n ${this.configs[con_id]}`);
 
     await this.start(this.clients[con_id], con_id);
   }
@@ -56,7 +58,7 @@ export abstract class AbstractClientService<Config extends ClientConfig, C = any
     const cfg = new this.config_class(config);
     const error = cfg.validate();
     if (error?.length) {
-      console.error(error, `${this.service} invalid config`);
+      this.logger.debug(error[0], `${this.service} invalid config`);
       throw new Error('Invalid Config');
     }
 

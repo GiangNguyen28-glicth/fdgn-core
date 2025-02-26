@@ -1,6 +1,6 @@
 import { RedisClientType } from 'redis';
 
-import { Client } from '@fdgn/client-core';
+import { Client } from '@fdgn/common';
 
 import { RedisClientConfig } from '../redis.config';
 
@@ -11,14 +11,14 @@ export interface IRedisCommon {
 
 export interface IRedisGet extends IRedisCommon {
   key: string;
-  isJson?: boolean;
+  is_json?: boolean;
 }
 
 export interface IRedisSet extends IRedisCommon {
   key: string;
   value: string;
   ttl?: number;
-  isJson?: boolean;
+  is_json?: boolean;
 }
 
 export interface IRedisDel extends IRedisCommon {

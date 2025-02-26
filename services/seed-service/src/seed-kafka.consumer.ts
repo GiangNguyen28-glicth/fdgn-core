@@ -1,6 +1,5 @@
 import { KafkaClientService, KafkaConsumer } from '@fdgn/kafka';
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
-import { DEFAULT_CON_ID } from '@fdgn/client-core';
 @Injectable()
 export class SeedKafkaConsumer implements OnModuleInit {
   constructor(@Inject() private kafkaClientService: KafkaClientService) {}

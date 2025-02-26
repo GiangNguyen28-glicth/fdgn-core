@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Client as EsClient, TransportRequestOptions } from '@elastic/elasticsearch';
 import { IndicesCreateRequest } from '@elastic/elasticsearch/lib/api/types';
-import { AbstractClientService, DEFAULT_CON_ID } from '@fdgn/client-core';
+import { AbstractClientService, DEFAULT_CON_ID } from '@fdgn/common';
 
 import { ElasticSearchConfig } from './configs';
 
@@ -14,10 +14,10 @@ export class ElasticSearchService extends AbstractClientService<ElasticSearchCon
     return new EsClient(config.options);
   }
   protected async stop(client: any, con_id?: string): Promise<void> {
-    console.log('Stop ElasticSearch');
+    this.logger.log('Stop ElasticSearch');
   }
   protected async start(client: any, con_id?: string): Promise<void> {
-    console.log('Start ElasticSearch');
+    this.logger.log('Start ElasticSearch');
   }
 
   async createMapping(params: IndicesCreateRequest, options: TransportRequestOptions, con_id = DEFAULT_CON_ID) {

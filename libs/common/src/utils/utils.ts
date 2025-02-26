@@ -4,7 +4,7 @@ import { isArray, isEmpty, isNil } from 'lodash';
 export type AxiosError = axios.AxiosError;
 import * as merge from 'merge-deep';
 
-import { UNITS_OF_TIME } from '../consts';
+import { UNITS_OF_TIME } from '../constants';
 import { PaginationDTO } from '../dto';
 import { IGrpcException, IParseJson, IResult } from '../interfaces';
 
@@ -80,7 +80,7 @@ export async function sleep(time: number, unit: UNITS_OF_TIME = 'milliseconds') 
   return new Promise(resolve => setTimeout(resolve, value_unit_of_time[unit] * time));
 }
 
-export function isJSONString(str: string): boolean {
+export function isJsonString(str: string): boolean {
   if (typeof str !== 'string') {
     return false;
   }

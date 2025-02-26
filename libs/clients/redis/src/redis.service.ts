@@ -4,12 +4,11 @@ import { isNil } from 'lodash';
 import { Counter } from 'prom-client';
 import { RedisClientType, createClient } from 'redis';
 
-import { AbstractClientService, DEFAULT_CON_ID } from '@fdgn/client-core';
-import { parseJSON, sleep } from '@fdgn/common';
+import { parseJSON, sleep, AbstractClientService, DEFAULT_CON_ID } from '@fdgn/common';
 
-import { RedisGetStatus, RedisSetStatus } from './constance';
+import { RedisGetStatus, RedisSetStatus } from './constants';
 import { IRedisDel, IRedisGet, IRedisSet, RedisClient } from './interfaces';
-import { RedisClientConfig } from './redis.config';
+import { CONFIG_KEY, RedisClientConfig } from './redis.config';
 import { REDIS_TRACKING_GET_STATUS, REDIS_TRACKING_SET_STATUS } from './redis.metrics';
 
 @Injectable()
@@ -24,7 +23,7 @@ export class RedisClientService
     @InjectMetric(REDIS_TRACKING_GET_STATUS)
     private trackingGet: Counter<string>,
   ) {
-    super('redis', RedisClientConfig);
+    super(CONFIG_KEY, RedisClientConfig);
   }
 
   async init(config: RedisClientConfig): Promise<RedisClientType> {
@@ -33,41 +32,42 @@ export class RedisClientService
 
   async connect(config: RedisClientConfig): Promise<RedisClientType> {
     const { retryTimeout } = config;
+    // this.logger.log('Redis is initiating a connection to the server.');
     try {
       const redis = createClient(config);
       redis.on('connect', () => {
-        console.info('Redis is initiating a connection to the server.');
+        this.logger.log('Redis is initiating a connection to the server.');
       });
 
       redis.on('ready', () => {
-        console.info('Redis successfully initiated the connection to the server.');
+        this.logger.log('Redis successfully initiated the connection to the server.');
       });
 
       redis.on('reconnecting', () => {
-        console.info('Redis is trying to reconnect to the server.');
+        this.logger.log('Redis is trying to reconnect to the server.');
       });
 
       redis.on('error', error => {
-        console.error(error, 'Redis error.');
+        this.logger.error('Redis error.', error);
       });
       await redis.connect();
       return redis as RedisClientType;
     } catch (error) {
-      console.error(error, 'Redis init error %j.\nRetry after %dms', config, retryTimeout);
-      await sleep(retryTimeout);
+      this.logger.error(`Redis init error. Retry after ms ${retryTimeout} s`, error);
+      await sleep(retryTimeout, 'seconds');
       return this.connect(config);
     }
   }
 
   async stop(client: RedisClientType): Promise<void> {
     const messages = await client.quit();
-    console.info('Quit redis client %s', messages);
+    this.logger.log(`Quit redis client ${messages}`);
   }
 
   async start(client: RedisClientType, con_id = DEFAULT_CON_ID): Promise<void> {
     await client.clientSetName(con_id);
     const name = await client.clientGetName();
-    console.info('Redis %s client started!', name);
+    this.logger.log({ level: 'info', message: `Redis ${name} client started!` });
   }
 
   getNamespace(key: string, namespace?: string) {
@@ -90,7 +90,7 @@ export class RedisClientService
       }
 
       this.trackingGet.inc({ status: RedisGetStatus.HIT, namespace: p.namespace, con_id });
-      if (p.isJson) {
+      if (p.is_json) {
         const { data, error } = parseJSON<T>(cachedValue);
         return isNil(error) ? data : (cachedValue as T);
       }
@@ -106,7 +106,7 @@ export class RedisClientService
     const con_id = this.getConId(p.con_id);
     try {
       let value = p.value;
-      if (p.isJson) {
+      if (p.is_json) {
         value = JSON.stringify(p.value);
       }
       this.trackingSet.inc({ status: RedisSetStatus.SUCCESS, namespace: p.namespace, con_id });
@@ -121,7 +121,7 @@ export class RedisClientService
     try {
       return await this.getClient(p.con_id).del(p.keys);
     } catch (error) {
-      console.error(`Deleted redis key failed, Error: ${error}`);
+      this.logger.error(`Deleted redis key failed, Error: ${error}`);
       throw error;
     }
   }

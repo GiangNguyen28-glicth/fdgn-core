@@ -1,7 +1,5 @@
 import { Options } from 'amqplib';
-
-import { ClientConfig } from '@fdgn/client-core';
-import { toInt } from '@fdgn/common';
+import { ClientConfig, toInt } from '@fdgn/common';
 export class RabbitMQConfig extends ClientConfig implements Options.Connect {
   uri?: string;
   hostname?: string;
