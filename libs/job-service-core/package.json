@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/job-service-core",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Job service core",
   "author": "GiangNguyen28-glicth <giangnguyen3246>",
   "main": "dist/index",
@@ -17,8 +17,8 @@
     "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
   },
   "dependencies": {
-    "@fdgn/common": "1.1.19",
-    "@fdgn/typeorm": "1.1.19",
+    "@fdgn/common": "1.1.20",
+    "@fdgn/typeorm": "1.1.20",
     "async": "^3.2.5",
     "axios-retry": "^4.5.0"
   },
