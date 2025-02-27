@@ -68,8 +68,8 @@ export interface IQueueConsumeConfig extends IQueue {
 export interface IQueueProducerConfig {
   mode: ProducerMode;
   queue?: string;
-  exchange: string;
-  routingKey: string;
+  exchange?: string;
+  routingKey?: string;
 }
 
 export interface MessageConsume<Input> {
