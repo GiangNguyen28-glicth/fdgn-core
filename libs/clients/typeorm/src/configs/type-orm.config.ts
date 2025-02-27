@@ -21,6 +21,7 @@ export class TypeOrmConfig extends ClientConfig {
     this.synchronize = props.synchronize;
     this.database = props.database;
     this.logging = props.logging;
+    this.type = props.type;
   }
 
   getDefaultPort(type: ORM_TYPE): number {
