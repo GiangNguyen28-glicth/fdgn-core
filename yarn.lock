@@ -857,7 +857,7 @@ __metadata:
   resolution: "@fdgn/job-service-core@workspace:libs/job-service-core"
   dependencies:
     "@fdgn/common": 1.1.22
-    "@fdgn/typeorm": 1.1.22
+    "@fdgn/typeorm": 1.1.23
     "@types/async": 3.2.24
     async: ^3.2.5
     axios-retry: ^4.5.0
@@ -904,7 +904,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@fdgn/typeorm@1.1.22, @fdgn/typeorm@workspace:libs/clients/typeorm":
+"@fdgn/typeorm@1.1.23, @fdgn/typeorm@workspace:libs/clients/typeorm":
   version: 0.0.0-use.local
   resolution: "@fdgn/typeorm@workspace:libs/clients/typeorm"
   dependencies:

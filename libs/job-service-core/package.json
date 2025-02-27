@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/job-service-core",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Job service core",
   "author": "GiangNguyen28-glicth <giangnguyen3246>",
   "main": "dist/index",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@fdgn/common": "1.1.22",
-    "@fdgn/typeorm": "1.1.22",
+    "@fdgn/typeorm": "1.1.23",
     "async": "^3.2.5",
     "axios-retry": "^4.5.0"
   },
