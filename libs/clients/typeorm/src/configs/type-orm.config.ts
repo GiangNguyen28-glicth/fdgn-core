@@ -1,5 +1,5 @@
 import { ConfigService } from '@nestjs/config';
-import { AbstractClientConfig, ClientConfig, toInt } from '@fdgn/common';
+import { AbstractClientConfig, ClientConfig, toBool, toInt } from '@fdgn/common';
 export type ORM_TYPE = 'mysql' | 'postgres';
 export class TypeOrmConfig extends ClientConfig {
   type: ORM_TYPE;
@@ -13,15 +13,15 @@ export class TypeOrmConfig extends ClientConfig {
   logging?: boolean;
   constructor(props: TypeOrmConfig) {
     super(props);
-    this.port = toInt(props.port ?? this.getDefaultPort(this.type));
-    this.host = props.host;
-    this.username = props.username || 'root';
-    this.port = props.port;
-    this.autoLoadEntities = props.autoLoadEntities;
-    this.synchronize = props.synchronize;
-    this.database = props.database;
-    this.logging = props.logging;
     this.type = props.type;
+    this.host = props.host;
+    this.port = toInt(props.port ?? this.getDefaultPort(this.type));
+    this.username = props.username || 'root';
+    this.password = props.password;
+    this.synchronize = toBool(props.synchronize);
+    this.autoLoadEntities = toBool(props.autoLoadEntities);
+    this.database = props.database;
+    this.logging =toBool(props.logging);
   }
 
   getDefaultPort(type: ORM_TYPE): number {
