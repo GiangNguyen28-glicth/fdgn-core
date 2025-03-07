@@ -1,11 +1,11 @@
-import { Logger, NestApplicationOptions, NestModule } from '@nestjs/common';
+import { Logger, NestApplicationOptions } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-import { GrpcConfig, GrpcService } from './grpc';
+import { GatewayConfig, GatewayService } from './gateway';
 import { HttpConfig, HttpService } from './http';
-import { GRPC_CONFIG_KEY, HTTP_CONFIG_KEY } from './config';
+import { GATEWAY_CONFIG_KEY, HTTP_CONFIG_KEY } from './constants';
 
 export class Application {
   static initTrackingProcessEvent(logger: Logger) {
@@ -50,9 +50,9 @@ export class Application {
       await HttpService.bootstrap({ app, logger, http_config });
     }
 
-    const grpc_config = config.get<GrpcConfig>(GRPC_CONFIG_KEY);
-    if (grpc_config) {
-      await GrpcService.bootstrap({ app, logger, grpc_config });
+    const gateway_config = new GatewayConfig(config.get<GatewayConfig>(GATEWAY_CONFIG_KEY));
+    if (gateway_config) {
+      await GatewayService.bootstrap({ app, logger, gateway_config });
     }
   }
 }

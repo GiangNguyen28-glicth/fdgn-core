@@ -92,3 +92,8 @@ httpClient:
   raxConfig:
     retries: 10
     retryDelay: 5000
+
+gateway: 
+  transport: '0'
+  options:
+    url: localhost:9000

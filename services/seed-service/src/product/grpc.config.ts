@@ -8,7 +8,7 @@ export const grpcClientOptions: ClientOptions = {
   options: {
     package: ['product'],
     protoPath: files,
-    url: `localhost:4018`,
+    url: 'localhost:4018',
     onLoadPackageDefinition: (pkg, server) => {
       new ReflectionService(pkg).addToServer(server);
     },

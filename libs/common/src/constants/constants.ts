@@ -43,3 +43,8 @@ export const HTTP_CODE_FROM_GRPC: Record<number, number> = {
   [Status.DATA_LOSS]: HttpStatus.INTERNAL_SERVER_ERROR,
   [Status.UNAUTHENTICATED]: HttpStatus.UNAUTHORIZED,
 };
+
+export const DEFAULT_CON_ID = 'default';
+export const HTTP_CLIENT_SERVICE_CONFIG_KEY = 'httpClient';
+export const HTTP_CONFIG_KEY = 'http';
+export const GATEWAY_CONFIG_KEY = 'gateway';

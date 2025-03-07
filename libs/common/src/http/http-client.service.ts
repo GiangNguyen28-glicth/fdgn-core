@@ -9,7 +9,7 @@ import { lastValueFrom } from 'rxjs';
 import { mergeDeep } from '../utils';
 import { HttpClientConfig } from './http-client.config';
 import { AbstractClientService } from '../abstract';
-import { DEFAULT_CON_ID, HTTP_CLIENT_SERVICE_CONFIG_KEY } from '../config';
+import { DEFAULT_CON_ID, HTTP_CLIENT_SERVICE_CONFIG_KEY } from '../constants';
 
 @Injectable()
 export class HttpClientService extends AbstractClientService<HttpClientConfig, HttpService> {

@@ -55,7 +55,6 @@ export class HttpClientConfig extends ClientConfig implements AxiosRequestConfig
   }
 
   retryDelay(retryCount: number) {
-    console.log(`Retry attempt: ${retryCount}`);
     return this.raxConfig.retryDelay; // Exponential backoff
   }
 

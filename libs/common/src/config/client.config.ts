@@ -1,9 +1,7 @@
 import { ConfigService } from '@nestjs/config';
 import { validateSync, ValidationError } from 'class-validator';
-export const DEFAULT_CON_ID = 'default';
-export const HTTP_CLIENT_SERVICE_CONFIG_KEY = 'httpClient';
-export const HTTP_CONFIG_KEY = 'http';
-export const GRPC_CONFIG_KEY = 'grpc';
+import { DEFAULT_CON_ID } from '../constants';
+
 export abstract class AbstractClientConfig<T> {
   config: T;
 
@@ -35,7 +33,7 @@ export class ClientConfig {
   context: string;
 
   constructor(props: ClientConfig) {
-    this.con_id = props?.con_id ?? DEFAULT_CON_ID;
+    this.con_id = props?.con_id || DEFAULT_CON_ID;
     this.context = props?.context;
   }
 

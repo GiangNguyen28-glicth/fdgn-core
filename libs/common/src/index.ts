@@ -9,5 +9,5 @@ export * from './domain';
 export * from './http';
 export * from './abstract';
 export * from './app';
-export * from './grpc';
+export * from './gateway';
 export * from './circuit';

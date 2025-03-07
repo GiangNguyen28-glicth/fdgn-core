@@ -2,9 +2,10 @@ import { Inject, OnModuleDestroy, OnModuleInit, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { isEmpty } from 'lodash';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-import { ClientConfig, DEFAULT_CON_ID } from '../config';
+import { ClientConfig } from '../config';
 import { Client } from '../interfaces';
 import { toArray } from '../utils';
+import { DEFAULT_CON_ID } from '../constants';
 
 export abstract class AbstractClientService<Config extends ClientConfig, C = any>
   implements Client<Config, C>, OnModuleInit, OnModuleDestroy
