@@ -1,6 +1,6 @@
 {
   "name": "@fdgn/typeorm",
-  "version": "1.1.25",
+  "version": "1.1.26",
   "license": "MIT",
   "main": "dist/index",
   "types": "dist/index",
@@ -16,7 +16,7 @@
     "dep:upgrade": "ncu -p yarn -f /^@ynm*/ -u"
   },
   "dependencies": {
-    "@fdgn/common": "1.1.23",
+    "@fdgn/common": "1.1.24",
     "@nestjs/typeorm": "^10.0.1",
     "axios-retry": "^4.5.0",
     "typeorm": "^0.3.19"
