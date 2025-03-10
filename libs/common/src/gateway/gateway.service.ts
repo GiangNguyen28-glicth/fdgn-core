@@ -7,14 +7,18 @@ import { glob } from 'glob';
 import { ENV } from '../config';
 import { GatewayConfig } from './gateway.config';
 export class GatewayService {
-  static async bootstrap(args: { app: INestApplication; logger: Logger; gateway_config: GatewayConfig }) {
-    const { app, gateway_config, logger } = args;
-    const config = app.get(ConfigService);
+  static async bootstrap(args: {
+    app: INestApplication;
+    logger: Logger;
+    gateway_config: GatewayConfig;
+    config: ConfigService;
+  }) {
+    const { app, gateway_config, logger, config } = args;
     const gateway_options = GatewayService.getGatewayOptions(gateway_config, config);
     app.connectMicroservice(gateway_options);
     await app.startAllMicroservices();
     if (gateway_options.options['url']) {
-      logger.log(`Application is listening on url ${gateway_options.options['url']}`);
+      logger.log(`Gateway is listening on url ${gateway_options.options['url']}`);
     }
   }
 

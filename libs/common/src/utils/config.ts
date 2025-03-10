@@ -1,3 +1,5 @@
+import { InternalServerErrorException } from '@nestjs/common';
+import { validateSync } from 'class-validator';
 import { isPlainObject, isBoolean } from 'lodash';
 export const flattenKeys = (obj: object, current_path: string) => {
   let paths = [];
@@ -24,4 +26,13 @@ export const toBool = (b: boolean | string | number, def = false) => {
   if (!b) return def;
   const value = String(b).toLowerCase();
   return value === 'yes' || value === 'true' || value === '1';
+};
+
+export const validateConfigSync = (props: any) => {
+  const errors = validateSync(props);
+
+  if (errors.length > 0) {
+    const message = Object.values(errors[0].constraints)[0];
+    throw new InternalServerErrorException(message);
+  }
 };

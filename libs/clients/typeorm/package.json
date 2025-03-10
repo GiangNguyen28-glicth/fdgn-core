@@ -21,5 +21,5 @@
     "axios-retry": "^4.5.0",
     "typeorm": "^0.3.19"
   },
-  "gitHead": "53ac4430942d0bab33934d864cc5fc30a8db048a"
+  "gitHead": "50de9632e42a16ed1052043fabd17e36b4b6d158"
 }

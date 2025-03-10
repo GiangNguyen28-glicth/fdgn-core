@@ -8,6 +8,7 @@ import { HttpConfig, HttpService } from './http';
 import { GATEWAY_CONFIG_KEY, HTTP_CONFIG_KEY } from './constants';
 
 export class Application {
+  static app: NestExpressApplication;
   static initTrackingProcessEvent(logger: Logger) {
     const signalsNames: NodeJS.Signals[] = ['SIGTERM', 'SIGINT', 'SIGHUP'];
     signalsNames.forEach(signal_name =>
@@ -31,28 +32,35 @@ export class Application {
     });
   }
 
-  static async bootstrap(module: any, opts?: NestApplicationOptions) {
-    const app = await NestFactory.create<NestExpressApplication>(module, {
+  static async getApp(module: any, opts?: NestApplicationOptions): Promise<NestExpressApplication> {
+    if (this.app) return this.app;
+    this.app = await NestFactory.create<NestExpressApplication>(module, {
       logger: ['debug', 'error', 'warn'],
       ...opts,
     });
-    const logger: Logger = app.get(WINSTON_MODULE_NEST_PROVIDER);
-    app.useLogger(logger)
-    if (opts?.cors) {
-      app.enableCors(opts.cors as any);
-    }
+    return this.app;
+  }
 
+  static async bootstrap(app: NestExpressApplication, opts?: NestApplicationOptions): Promise<void> {
+    if (!app) {
+      throw new Error('Application is not created');
+    }
+    if (opts?.cors) {
+      this.app.enableCors(opts.cors as any);
+    }
+    const logger: Logger = this.app.get(WINSTON_MODULE_NEST_PROVIDER);
+    app.useLogger(logger);
     Application.initTrackingProcessEvent(logger);
     const config = app.get(ConfigService);
 
     const http_config = config.get<HttpConfig>(HTTP_CONFIG_KEY);
     if (http_config) {
-      await HttpService.bootstrap({ app, logger, http_config });
+      await HttpService.bootstrap({ app, logger, http_config, config });
     }
 
     const gateway_config = new GatewayConfig(config.get<GatewayConfig>(GATEWAY_CONFIG_KEY));
     if (gateway_config) {
-      await GatewayService.bootstrap({ app, logger, gateway_config });
+      await GatewayService.bootstrap({ app, logger, gateway_config, config });
     }
   }
 }

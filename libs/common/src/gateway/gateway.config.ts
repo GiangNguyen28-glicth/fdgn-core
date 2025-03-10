@@ -1,23 +1,28 @@
+import { InternalServerErrorException } from '@nestjs/common';
 import { Transport } from '@nestjs/microservices';
-import { isNullOrEmpty, toInt } from '../utils';
+import { IsNotEmpty } from 'class-validator';
 import { get } from 'lodash';
 
+import { isNullOrEmpty, toInt, validateConfigSync } from '../utils';
 export class GatewayConfig {
+  @IsNotEmpty()
   transport: Transport;
+
   options: {};
 
   constructor(props: GatewayConfig) {
-    this.transport = toInt(props.transport);
-    this.options = props.options;
-    this.validateConfig();
+    this.transport = toInt(props?.transport);
+    this.options = props?.options;
+    validateConfigSync(this);
   }
 
   validateConfig() {
-    if (this.transport === Transport.GRPC) {
-      const url = get(this.options, 'url', null);
-      if (isNullOrEmpty(url)) {
-        throw new Error('Url is not found');
-      }
+    if (!Object.values(Transport).some(e => e === this.transport)) {
+      throw new InternalServerErrorException(`This transport ${this.transport} is not allowed`);
+    }
+    const url = get(this.options, 'url', null);
+    if (this.transport === Transport.GRPC && isNullOrEmpty(url)) {
+      throw new InternalServerErrorException('Url is not found');
     }
   }
 }

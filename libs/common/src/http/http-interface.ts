@@ -3,3 +3,8 @@ import { CorsOptions, CorsOptionsDelegate } from '@nestjs/common/interfaces/exte
 export interface IBootstrap {
   corsOtp?: CorsOptions | CorsOptionsDelegate<any>;
 }
+
+export interface HttpConfig {
+  port: number;
+  contextPath?: string;
+}

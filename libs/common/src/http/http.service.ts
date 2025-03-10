@@ -7,24 +7,28 @@ import * as bodyParser from 'body-parser';
 import helmet from 'helmet';
 
 import { AppExceptionsFilter } from '../exception';
-import { HttpConfig } from './http-config';
+import { HttpConfig } from './http-interface';
 export class HttpService {
-  static async bootstrap(args: { http_config: HttpConfig; logger: Logger; app: NestExpressApplication }) {
-    const { app, http_config, logger } = args;
-    const config = app.get(ConfigService);
+  static async bootstrap(args: {
+    http_config: HttpConfig;
+    logger: Logger;
+    app: NestExpressApplication;
+    config: ConfigService;
+  }) {
+    const { app, http_config, logger, config } = args;
     app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
     app.useGlobalFilters(new AppExceptionsFilter(app.get(HttpAdapterHost)));
     app.setGlobalPrefix(http_config.contextPath, { exclude: ['metrics', 'health'] });
-    app.use(
-      helmet({
-        contentSecurityPolicy: {
-          directives: {
-            'script-src': ['\'self\''],
-          },
-        },
-        hidePoweredBy: true,
-      }),
-    );
+    // app.use(
+    //   helmet({
+    //     contentSecurityPolicy: {
+    //       directives: {
+    //         'script-src': ['self'],
+    //       },
+    //     },
+    //     hidePoweredBy: true,
+    //   }),
+    // );
     const description = this.getDescription(config);
 
     const options = new DocumentBuilder()
@@ -43,7 +47,7 @@ export class HttpService {
 
   static getDescription(config: ConfigService): string {
     const { description } = config.get('swagger') ?? {};
-    const defaultDescription = config.get('description') ?? 'UnKnow';
-    return description ?? defaultDescription;
+    const default_description = config.get('description') ?? 'UnKnow';
+    return description ?? default_description;
   }
 }
