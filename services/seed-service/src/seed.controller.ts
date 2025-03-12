@@ -1,10 +1,23 @@
 import { HttpClientService, RestController } from '@fdgn/common';
 import { FilterTypeOrmBuilder } from '@fdgn/typeorm';
-import { Body, Get, Inject, LoggerService, Param, Post, Req, NotFoundException, Logger, Controller } from '@nestjs/common';
-import { WINSTON_MODULE_NEST_PROVIDER, WinstonLogger } from 'nest-winston';
 import { lastValueFrom } from 'rxjs';
+import {
+  Body,
+  Get,
+  Inject,
+  LoggerService,
+  Param,
+  Post,
+  Req,
+  NotFoundException,
+  Logger,
+  Controller,
+} from '@nestjs/common';
+import { WINSTON_MODULE_NEST_PROVIDER, WinstonLogger } from 'nest-winston';
+import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { Product } from './entities';
 import { ISeedRepo, SeedRepo } from './entities/seed.schema';
+import { TestDto } from './dto/create.dto';
 export interface INew {
   key: string;
   value: string;
@@ -17,23 +30,21 @@ export class SeedController {
     // @Inject(ProductRepo.name)
     // protected productRepo: IProductRepo,
     // private typeOrmService: TypeOrmService,
-    @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: Logger,
-    // @Inject(SeedRepo.name) private readonly seedRepo: ISeedRepo,
-    // private httpService: HttpClientService,
-    // private redisService: RedisClientService
+    @Inject('task') private clientProxy: ClientProxy,
+    @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: Logger, // @Inject(SeedRepo.name) private readonly seedRepo: ISeedRepo, // private httpService: HttpClientService, // private redisService: RedisClientService
   ) {}
 
-  @Get('test-2')
-  async test2(@Req() req): Promise<any> {
-    this.logger.log('log');
+  @Post('test-2')
+  async test2(@Body() dto: TestDto): Promise<any> {
     // const q = await this.seedRepo.insert({ entity: { name: 'Hehe', price: 10 } });
     // await this.seedRepo.save({ entity: q });
     // return q;
   }
 
-  @Get('test-3')
-  async test3(): Promise<any> {
-    return 'test-3';
+  @Get('test-3/:id')
+  async test3(@Param('id') id): Promise<any> {
+    console.log('🚀 ~ SeedController ~ test3 ~ id:', id);
+    return await lastValueFrom(this.clientProxy.send({ cmd: 'findOne-workspace' }, id));
   }
 
   @Get('test-4')

@@ -1,7 +1,6 @@
-import { HttpException, NotFoundException } from '@nestjs/common';
+import { NotFoundException } from '@nestjs/common';
 import * as axios from 'axios';
 import { isArray, isEmpty, isNil } from 'lodash';
-export type AxiosError = axios.AxiosError;
 import * as merge from 'merge-deep';
 
 import { UNITS_OF_TIME } from '../constants';
@@ -110,22 +109,12 @@ export function isNullOrEmpty(str: string): boolean {
   return isEmpty(str) || isNil(str);
 }
 
-export function isAxiosError(exception: unknown): exception is AxiosError {
-  if (exception instanceof axios.AxiosError) {
-    return true;
-  }
-  return false;
+export function isExceptionInstanceOf<T>(exception: unknown, type: new (...args: any[]) => T): exception is T {
+  return exception instanceof type;
 }
 
-export function isHttpException(exception: unknown): exception is HttpException {
-  if (exception instanceof HttpException) {
-    return true;
-  }
-  return false;
-}
-
-export function isGrpcException(exception: any): exception is IGrpcException {
-  if (!isNil(exception?.code) && !isNil(exception?.details)) {
+export function isGrpcException(exception: unknown): exception is IGrpcException {
+  if (!isNil(exception['code']) && !isNil(exception['details'])) {
     return true;
   }
   return false;

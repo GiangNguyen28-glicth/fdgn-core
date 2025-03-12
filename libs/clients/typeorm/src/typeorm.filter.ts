@@ -1,10 +1,10 @@
 import { Any, Between, Equal, In, IsNull, LessThan, Like, MoreThan, Not } from 'typeorm';
 
-import { FilterBuilder, OperatorQuery, SortOrder } from '@fdgn/common';
+import { FilterBuilder, isNullOrEmpty, OperatorQuery, SortOrder } from '@fdgn/common';
 
 export class FilterTypeOrmBuilder<T> extends FilterBuilder<T> {
   setFilterItem(key: keyof T, query: OperatorQuery, value: any, isNull = false): this {
-    if (!value && !isNull) return this;
+    if (isNullOrEmpty(value) && !isNull) return this;
     Object.assign(this.query_filters, this.typeOrmOperatorMapper(key, query, value));
     return this;
   }

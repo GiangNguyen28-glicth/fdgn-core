@@ -16,7 +16,7 @@ import { RedisClientModule } from '@fdgn/redis';
     CommonModule,
     // HttpClientModule,
     MetricModule,
-    // SeedModule,
+    SeedModule,
     // HeroModule,
     // MongoDBModule,
     // HttpClientModule,

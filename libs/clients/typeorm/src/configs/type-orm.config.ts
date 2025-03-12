@@ -45,7 +45,6 @@ export class TypeOrmClientConfig extends AbstractClientConfig<TypeOrmConfig> {
   }
 
   getConnectionConfig() {
-    const { host, port, username, password, database, type, autoLoadEntities, synchronize, logging } = this.getConfig;
-    return { host, port, username, password, database, type, autoLoadEntities, synchronize, logging };
+    return this.getConfig;
   }
 }

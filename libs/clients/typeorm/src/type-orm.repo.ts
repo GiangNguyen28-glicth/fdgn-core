@@ -63,8 +63,9 @@ export abstract class TypeOrmRepo<T> implements IBaseCurdTypeOrm<T, Repository<T
     throw new Error('Method not implemented.');
   }
 
-  count(options?: IOptionsFindAllTypeOrm<T>): Promise<number> {
-    throw new Error('Method not implemented.');
+  async count(options?: IOptionsFindAllTypeOrm<T>): Promise<number> {
+    const { filters } = options;
+    return this.repository.count({ where: filters });
   }
 
   async save(options: IInsert<T>): Promise<T> {

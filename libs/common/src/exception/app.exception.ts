@@ -1,13 +1,15 @@
-import { ArgumentsHost, Catch, ExceptionFilter, HttpStatus } from '@nestjs/common';
+import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
+import { AxiosError } from 'axios';
 import { Request, Response } from 'express';
-import { get, isPlainObject } from 'lodash';
+import { get, isPlainObject, isString } from 'lodash';
 
 import { HTTP_CODE_FROM_GRPC, UN_KNOW } from '../constants';
-import { isAxiosError, isGrpcException, isHttpException } from '../utils';
+import { isExceptionInstanceOf, isGrpcException } from '../utils';
+
 interface HttpExceptionResponse {
   status_code: number;
-  error: string;
+  message: string;
 }
 
 interface CustomHttpExceptionResponse extends HttpExceptionResponse {
@@ -28,13 +30,12 @@ export class AppExceptionsFilter implements ExceptionFilter {
 
     let status: HttpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
     let error_message: string;
-
-    if (isHttpException(exception)) {
+    if (isExceptionInstanceOf<HttpException>(exception, HttpException)) {
       status = exception.getStatus();
       const error_response = exception.getResponse();
-      error_message = get(error_response, 'error', null) || exception.message;
-    } else if (isAxiosError(exception)) {
-      status = exception?.response?.status || HttpStatus.INTERNAL_SERVER_ERROR;
+      error_message = get(error_response, 'message', null) || get(error_response, 'error', null);
+    } else if (isExceptionInstanceOf<AxiosError>(exception, AxiosError)) {
+      status = get(exception, 'response.status', status);
       error_message = get(exception, 'response.data.error', UN_KNOW);
     } else if (isGrpcException(exception)) {
       status = HTTP_CODE_FROM_GRPC[exception.code];
@@ -42,19 +43,20 @@ export class AppExceptionsFilter implements ExceptionFilter {
     } else if (exception instanceof Error && exception.message) {
       error_message = exception.message;
     } else if (isPlainObject(exception)) {
-      error_message = JSON.stringify(exception);
+      status = get(exception, 'status', status);
+      error_message = get(exception, 'message', JSON.stringify(exception));
     } else {
-      error_message = 'Critical internal server error occurred!';
+      error_message = isString(exception) ? exception : 'Critical internal server error occurred!';
     }
 
     const error_response = this.getErrorResponse(status, error_message, request);
     response.status(status).json(error_response);
   }
 
-  private getErrorResponse(status_code: HttpStatus, error_message: string, request: Request): CustomHttpExceptionResponse {
+  private getErrorResponse(status_code: HttpStatus, message: string, request: Request): CustomHttpExceptionResponse {
     return {
       status_code,
-      error: error_message,
+      message,
       path: request.url,
       method: request.method,
       body: request.body,

@@ -8,7 +8,6 @@ import { HttpConfig, HttpService } from './http';
 import { GATEWAY_CONFIG_KEY, HTTP_CONFIG_KEY } from './constants';
 
 export class Application {
-  static app: NestExpressApplication;
   static initTrackingProcessEvent(logger: Logger) {
     const signalsNames: NodeJS.Signals[] = ['SIGTERM', 'SIGINT', 'SIGHUP'];
     signalsNames.forEach(signal_name =>
@@ -33,12 +32,10 @@ export class Application {
   }
 
   static async getApp(module: any, opts?: NestApplicationOptions): Promise<NestExpressApplication> {
-    if (this.app) return this.app;
-    this.app = await NestFactory.create<NestExpressApplication>(module, {
+    return await NestFactory.create<NestExpressApplication>(module, {
       logger: ['debug', 'error', 'warn'],
       ...opts,
     });
-    return this.app;
   }
 
   static async bootstrap(app: NestExpressApplication, opts?: NestApplicationOptions): Promise<void> {
@@ -46,9 +43,9 @@ export class Application {
       throw new Error('Application is not created');
     }
     if (opts?.cors) {
-      this.app.enableCors(opts.cors as any);
+      app.enableCors(opts.cors as any);
     }
-    const logger: Logger = this.app.get(WINSTON_MODULE_NEST_PROVIDER);
+    const logger: Logger = app.get(WINSTON_MODULE_NEST_PROVIDER);
     app.useLogger(logger);
     Application.initTrackingProcessEvent(logger);
     const config = app.get(ConfigService);

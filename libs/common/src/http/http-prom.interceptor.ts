@@ -3,7 +3,9 @@ import { InjectMetric, makeCounterProvider, makeHistogramProvider } from '@wills
 import { Counter, Histogram } from 'prom-client';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { isAxiosError } from '../utils';
+import { AxiosError } from 'axios';
+
+import { isExceptionInstanceOf } from '../utils';
 import { FAILED, SUCCESS, UN_KNOW } from '../constants';
 
 const HTTP_DURATION_SECONDS_METRIC = 'http_duration_seconds';
@@ -45,7 +47,9 @@ export class HttpPromInterceptor implements NestInterceptor {
       catchError(err => {
         duration();
 
-        const status = isAxiosError(err) ? err?.response?.status : HttpStatus.INTERNAL_SERVER_ERROR;
+        const status = isExceptionInstanceOf<AxiosError>(err, AxiosError)
+          ? err?.response?.status
+          : HttpStatus.INTERNAL_SERVER_ERROR;
 
         this.httpTotalMetric.inc({
           path,
