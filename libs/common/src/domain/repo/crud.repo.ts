@@ -12,19 +12,13 @@ export interface IInsert<T> {
 export interface ICrudRepo<T, Options> {
   findAll(options?: Options): Promise<T[]>;
 
+  findAllAndCount(options?: Options): Promise<[data: T[], count: number]>;
+
   findOne(options?: Options): Promise<T>;
 
   findOneAndUpdate(options: IUpdateOptions<T>): Promise<T>;
 
-  findAndUpdate(options: IUpdateOptions<T>): Promise<T[]>;
-
-  findAndDelete(options?: any): Promise<void>;
-
   insert(insert: IInsert<T>): Promise<T>;
-
-  update(options: IUpdateOptions<T>): Promise<T>;
-
-  upsert(options: IUpdateOptions<T>): Promise<T>;
 
   count(options?: any): Promise<number>;
 

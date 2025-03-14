@@ -1,4 +1,4 @@
-import { IInsert, IUpdateOptions, throwIfNotExists } from '@fdgn/common';
+import { IInsert, IUpdateOptions } from '@fdgn/common';
 import { QueryRunner, Repository } from 'typeorm';
 import { IBaseCurdTypeOrm, IOptionsFindAllTypeOrm, IOptionsFindOneTypeOrm } from './common';
 
@@ -25,6 +25,22 @@ export abstract class TypeOrmRepo<T> implements IBaseCurdTypeOrm<T, Repository<T
     });
   }
 
+  async findAllAndCount(options?: IOptionsFindAllTypeOrm<T>): Promise<[data: T[], total_count: number]> {
+    if (!options) {
+      return await this.repository.findAndCount();
+    }
+    const { filters, sort_options, fields, pagination, relations } = options;
+
+    return await this.repository.findAndCount({
+      where: filters,
+      select: fields,
+      skip: (pagination?.page - 1) * pagination?.size || 0,
+      take: pagination?.size,
+      relations,
+      order: sort_options,
+    });
+  }
+
   async findOne(options?: IOptionsFindOneTypeOrm<T>): Promise<T> {
     const { filters, fields, relations } = options;
     return await this.repository.findOne({ where: filters, select: fields, relations });
@@ -32,8 +48,10 @@ export abstract class TypeOrmRepo<T> implements IBaseCurdTypeOrm<T, Repository<T
 
   async findOneAndUpdate(options: IUpdateOptions<T>): Promise<T> {
     const { filters, entity, session } = options;
-    const e = await this.repository.findOne(filters);
-    throwIfNotExists(e, 'Update failed, not fount item');
+    const e = await this.repository.findOne({ where: filters });
+    if (!e) {
+      return null;
+    }
     Object.assign(e, entity);
     if (session) {
       return await (session as QueryRunner).manager.save(e);
@@ -42,25 +60,9 @@ export abstract class TypeOrmRepo<T> implements IBaseCurdTypeOrm<T, Repository<T
     }
   }
 
-  async findAndUpdate(options: IUpdateOptions<T>): Promise<T[]> {
-    throw new Error('Method not implemented.');
-  }
-
-  findAndDelete(options?: IOptionsFindAllTypeOrm<T>): Promise<void> {
-    throw new Error('Method not implemented.');
-  }
-
   async insert(options: IInsert<T>): Promise<T> {
-    const { entity, session } = options;
+    const { entity } = options;
     return this.repository.create(entity as T);
-  }
-
-  async update(options: IInsert<T>): Promise<T> {
-    throw new Error('Method not implemented.');
-  }
-
-  upsert(options: IUpdateOptions<T>): Promise<T> {
-    throw new Error('Method not implemented.');
   }
 
   async count(options?: IOptionsFindAllTypeOrm<T>): Promise<number> {

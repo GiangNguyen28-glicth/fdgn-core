@@ -25,7 +25,7 @@ export class FilterTypeOrmBuilder<T> extends FilterBuilder<T> {
     return this;
   }
 
-  private typeOrmOperatorMapper(key: keyof T, operatorItem: OperatorQuery, value: any) {
+  private typeOrmOperatorMapper(key: keyof T, operator_item: OperatorQuery, value: any) {
     const operators = {
       $lte: LessThan(value),
       $gte: MoreThan(value),
@@ -41,7 +41,7 @@ export class FilterTypeOrmBuilder<T> extends FilterBuilder<T> {
       $isnil: IsNull(),
       $isnotnil: Not(IsNull()),
     };
-    return { [key]: operators[operatorItem] };
+    return { [key]: operators[operator_item] };
   }
 
   buildQuery() {

@@ -1,6 +1,5 @@
 import { NotFoundException } from '@nestjs/common';
-import * as axios from 'axios';
-import { isArray, isEmpty, isNil } from 'lodash';
+import { isArray, isEmpty, isNil, isNumber } from 'lodash';
 import * as merge from 'merge-deep';
 
 import { UNITS_OF_TIME } from '../constants';
@@ -79,19 +78,6 @@ export async function sleep(time: number, unit: UNITS_OF_TIME = 'milliseconds') 
   return new Promise(resolve => setTimeout(resolve, value_unit_of_time[unit] * time));
 }
 
-export function isJsonString(str: string): boolean {
-  if (typeof str !== 'string') {
-    return false;
-  }
-
-  try {
-    JSON.parse(str);
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
 export function parseJSON<T>(str: string): IParseJson<T> {
   try {
     return { data: JSON.parse(str), error: null };
@@ -106,6 +92,9 @@ export function toArray<T>(data: T | Array<T>): T[] {
 }
 
 export function isNullOrEmpty(str: string): boolean {
+  if (isNumber(str)) {
+    return false;
+  }
   return isEmpty(str) || isNil(str);
 }
 

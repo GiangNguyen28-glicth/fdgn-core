@@ -9,6 +9,10 @@ export abstract class MongoRepo<T> implements IBaseCurdMongo<T, Model<T>> {
     return this.model;
   }
 
+  async findAllAndCount(options?: IOptionsFindAllMongo<T>): Promise<[data: T[], count: number]> {
+    return await Promise.all([this.findAll(options), this.count(options)]);
+  }
+
   async findAll(options: IOptionsFindAllMongo<T>): Promise<T[]> {
     if (!options) {
       return await this.model.find().lean();

@@ -1,8 +1,7 @@
 import { FilterBuilder, isNullOrEmpty, OperatorQuery, SortOrder, toKeyword } from '@fdgn/common';
 export class FilterMongoBuilder<T> extends FilterBuilder<T> {
-
   setFilterItem(key: keyof T, query: OperatorQuery, value: any, isNull = false): this {
-    if (!value && !isNull) return this;
+    if (isNullOrEmpty(value) && !isNull) return this;
     const subQuery = {
       [key]: { [query]: value },
     };

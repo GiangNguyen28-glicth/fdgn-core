@@ -2,7 +2,7 @@ import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from
 import { HttpAdapterHost } from '@nestjs/core';
 import { AxiosError } from 'axios';
 import { Request, Response } from 'express';
-import { get, isPlainObject, isString } from 'lodash';
+import { get, isNumber, isPlainObject, isString } from 'lodash';
 
 import { HTTP_CODE_FROM_GRPC, UN_KNOW } from '../constants';
 import { isExceptionInstanceOf, isGrpcException } from '../utils';
@@ -43,7 +43,7 @@ export class AppExceptionsFilter implements ExceptionFilter {
     } else if (exception instanceof Error && exception.message) {
       error_message = exception.message;
     } else if (isPlainObject(exception)) {
-      status = get(exception, 'status', status);
+      status = isNumber(exception['status']) ? exception['status'] : status;
       error_message = get(exception, 'message', JSON.stringify(exception));
     } else {
       error_message = isString(exception) ? exception : 'Critical internal server error occurred!';
